@@ -121,3 +121,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT =("path/to/static_root")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    'RegulIT/RegulIT/main/static',
+]
