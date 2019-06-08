@@ -1,5 +1,34 @@
 {% extends 'main/wrapper.html' %}
 
+{% load staticfiles %}
 {% block content %}
-    <p>Hello world!</p>
+<div class="container">
+    <div class="row">
+        <div class="col mr-3">
+            <img src="{% static 'main/image/face.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+            <h3>Что такое физиогномика?</h3>
+            <p>Мы судим о человеке по первому впечатлению от его внешнего вида, и накопленный нами жизненный опыт часто позволяет нам совершенно верно по тем или иным чертам внешности определять особенности характера.</p>
+        </div>
+        <div class="col">
+            <img src="{% static 'main/image/rsu.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+            <h3>Кто мы такие?</h3>
+            <p>Мы студенты и хотим учиться, чтобы зарабатывать много денег))) Не судите строго это наш первый сайт на Python и вообще первый сайт, создать который мы попробовали.</p>
+        </div>
+    </div>
+    <div class="row mt-5 pb-5">
+        <div class="col mr-3">
+            <img src="{% static 'main/image/tech.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+            <h3>Что делает наш сервис?</h3>
+            <p>После регистрации и внесении оплаты за нашу услугу, вы можете получить подробную физигномистическую информацию о вашем лице или о лицах ваших знакомых.</p>
+        </div>
+        <div class="col">
+            <img src="{% static 'main/image/future.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+            <h3>Будущее не за горами!</h3>
+            <p>Совсем скоро настанет время, когда информационные технологии будут выявлять подозрительные лица прямо на улице. Лучше к этому приготовиться!</p>
+        </div>
+    </div>
+    <div class="container text-center pb-5">
+        <a href="" class="btn btn-warning size" style="width:320px; font-size:28px; height:100px; text-align: center; padding:25px; border-radius: 32px;">Попробовать</a>
+    </div>
+</div>
 {% endblock %}
