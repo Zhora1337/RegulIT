@@ -118,15 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-<<<<<<< HEAD
-STATIC_URL = 'RegulIT/static/'
-=======
 STATIC_URL = '/static/'
 
-<<<<<<< HEAD
 STATIC_ROOT = 'static/'
 
 STATICFILES_DIR = 'static/'
-=======
->>>>>>> 96323205713391ccbc7c995a94087025a3508037
->>>>>>> 04daa8f14d0e2ec554e09697bce27445325f89bb
