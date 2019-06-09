@@ -2,13 +2,18 @@
 
     {% load staticfiles %}
 {% block content %}
-  <div class="container text-right pb-2 mr-0">
+  <div class="row">
+		<div class="col">
+				<img src="{% static 'main/image/EN.png' %}" class="rounded float-left mr-3" height="90px" width="90px">	
+		</div>
+		<div class="col text-righ mr-0 mt-4">
 			<a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
 			<a href="/login" class="btn btn-secondary text-righ">Вход </a>
 			<a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
+		</div>	
 	</div>
-	<div class="embed-responsive embed-responsive-16by9">
-			<iframe width="250" height="200" src="https://www.youtube.com/embed/sVq42u_iev8?autoplay=1&loop=1&playlist=sVq42u_iev8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<div class="embed-responsive embed-responsive-16by9 text-center">
+			<iframe src="https://www.youtube.com/embed/sVq42u_iev8?autoplay=1&loop=1&playlist=sVq42u_iev8&modestbranding=1&showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
 	 </div>
 	<div class="container text-center mt-2 pb-2">
 			<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
