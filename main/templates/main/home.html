@@ -1,24 +1,19 @@
-{% extends "mainApp/wrapper.html" %}
+{% extends "main/wrapper.html" %}
 
     {% load staticfiles %}
 {% block content %}
-  <div class="container">
-	<div class="container1 "  >
-		<div class="container2 text-center pb-2">		
-			<a href="/" class="btn btn-secondary">Для юридических лиц</a>
-		</div>
-		<div class="container3 text-right pb-2">
-			<a href="/login" class="btn btn-secondary">Вход </a>
-			<a href="/register" class="btn btn-secondary">Регистрация</a>
-		</div>
+  <div class="container text-right pb-2 mr-0">
+			<a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
+			<a href="/login" class="btn btn-secondary text-righ">Вход </a>
+			<a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
 	</div>
 	<div class="embed-responsive embed-responsive-16by9">
-			<iframe class="embed-responsive-item"  src="{% static 'mainApp/video/video2.mp4'%}" frameborder="0"></iframe>
+			<iframe frameborder=0 loop=1 class="embed-responsive-item"  src="https://www.youtube.com/watch?v=sVq42u_iev8&loop=1&playlist=sVq42u_iev8"></iframe>
 	 </div>
-	<div class="container text-center pb-2">
+	<div class="container text-center mt-2 pb-2">
 			<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
 	</div>
-  	<div class="row">
+  	<div class="row mt-2">
   		<div class="col mr-3">
   			<img src="{% static 'mainApp/image/face.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
   			<h3>Что такое физиогномика?</h3>
