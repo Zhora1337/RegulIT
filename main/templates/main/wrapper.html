@@ -1,47 +1,18 @@
 <!DOCTYPE html>
+{% load i18n %}
 <html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-http-equiv="X-RU-Compatible" content="ie=edge">
-    <title>Физиогномика</title>
+    <title>Regul-IT</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
-    <link rel="script" href="{% static '/js.bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a href="/" class="navbar-brand btn btn-primary" href="#">Главная</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a href="" class="nav-link btn btn-dark" href="#">О нас<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a href=""class="nav-link btn btn-dark" href="#">Что такое физиогномика<span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-        <div class="btn-group">
-          <a href="" class="btn btn-secondary">Выход</a>
-        </div>
-    </form>
-    <form class="form-inline my-2 my-lg-0">
-      <div class="btn-group">
-        <a href="" class="btn btn-secondary">Вход</a>
-        <a href="" class="btn btn-secondary">Регистрация</a>
-      </div>
-    </form>
-  </div>
-</nav>
-  <div>
-    <img src="{% static 'main/image/gif.gif' %}" width="100%" style="height: 70vh;">
   </div сlass="">
     <div class="container-fluid bg-secondary text-white" color="green">
-      <h1 align="center"><p><font face="Open Sans"><b>Физиогномика</b></font></p></h1>
         {% block content %}
         {% endblock %}
     </div>
@@ -64,32 +35,10 @@
             <li>
               <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0" target="_blank" class="text-light">О физиогномике</a>
             </li>
-            <li>
-              <a href="#!" class="text-light">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-light">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-light">Link 4</a>
-            </li>
-          </ul>
         </div><!-- Grid column -->
         <div class="col-md-3 mb-md-0 mb-3">
           <h5 class="text-uppercase text-light">Links</h5>
           <ul class="list-unstyled">
-            <li>
-              <a href="#!" class="text-light">Link 1</a>
-            </li>
-            <li>
-              <a href="#!" class="text-light">Link 2</a>
-            </li>
-            <li>
-              <a href="#!" class="text-light">Link 3</a>
-            </li>
-            <li>
-              <a href="#!" class="text-light">Link 4</a>
-            </li>
           </ul>
         </div>
       </div>

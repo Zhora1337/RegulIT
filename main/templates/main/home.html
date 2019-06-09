@@ -1,31 +1,44 @@
-{% extends 'main/wrapper.html' %}
+{% extends "main/wrapper.html" %}
 
-{% load staticfiles %}
+    {% load staticfiles %}
 {% block content %}
-<div class="container">
-    <div height>
-        <img src="{% static 'main/image/face.jpg' %}" class="rounded float-left mr-3" height="512px" width="512px">
-        <h3>Что такое физиогномика?</h3>
-        <p>Мы судим о человеке по первому впечатлению от его внешнего вида, и накопленный нами жизненный опыт часто позволяет нам совершенно верно по тем или иным чертам внешности определять особенности характера.</p>
-    </div>
-    <div>    
-        <img src="{% static 'main/image/rsu.jpg' %}" class="rounded float-left mr-3" height="512px" width="512px">
-        <h3>Кто мы такие?</h3>
-        <p>Мы студенты и хотим учиться, чтобы зарабатывать много денег))) Не судите строго это наш первый сайт на Python и вообще первый сайт, создать который мы попробовали.</p>
-    </div>
-    <div>
-        <img src="{% static 'main/image/tech.jpg' %}" class="rounded float-left mr-3" height="512px" width="512px">
-        <h3>Что делает наш сервис?</h3>
-        <p>После регистрации и внесении оплаты за нашу услугу, вы можете получить подробную физигномистическую информацию о вашем лице или о лицах ваших знакомых.</p>
-    </div>
-    <div>
-        <img src="{% static 'main/image/future.jpg' %}" class="rounded float-left mr-3" height="512px" width="512px">
-        <h3>Будущее не за горами!</h3>
-        <p>Совсем скоро настанет время, когда информационные технологии будут выявлять подозрительные лица прямо на улице. Лучше к этому приготовиться!</p>
-    </div>
-</div>
-    <div class="container text-center pb-5">
-        <a href="" class="btn btn-warning size" style="width:320px; font-size:28px; height:100px; text-align: center; padding:25px; border-radius: 32px;">Попробовать</a>
-    </div>
-</div>
+  <div class="container text-right pb-2 mr-0">
+			<a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
+			<a href="/login" class="btn btn-secondary text-righ">Вход </a>
+			<a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
+	</div>
+	<div class="embed-responsive embed-responsive-16by9">
+			<iframe frameborder=0 loop=1 class="embed-responsive-item"  src="https://www.youtube.com/watch?v=sVq42u_iev8&loop=1&playlist=sVq42u_iev8"></iframe>
+	 </div>
+	<div class="container text-center mt-2 pb-2">
+			<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
+	</div>
+  	<div class="row mt-2">
+  		<div class="col mr-3">
+  			<img src="{% static 'mainApp/image/face.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+  			<h3>Что такое физиогномика?</h3>
+  			<p>Мы судим о человеке по первому впечатлению от его внешнего вида, и накопленный нами жизненный опыт часто позволяет нам совершенно верно по тем или иным чертам внешности определять особенности характера.</p>
+  		</div>
+  		<div class="col">
+  			<img src="{% static 'mainApp/image/rsu.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+  			<h3>Кто мы такие?</h3>
+  			<p>Мы студенты и хотим учиться, чтобы зарабатывать много денег))) Не судите строго это наш первый сайт на Python и вообще первый сайт, создать который мы попробовали.</p>
+  		</div>
+  	</div>
+  	<div class="row mt-5 pb-2">
+  		<div class="col mr-3">
+  			<img src="{% static 'mainApp/image/tech.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+  			<h3>Что делает наш сервис?</h3>
+  			<p>После регистрации и внесении оплаты за нашу услугу, вы можете получить подробную физигномистическую информацию о вашем лице или о лицах ваших знакомых.</p>
+  		</div>
+  		<div class="col">
+  			<img src="{% static 'mainApp/image/future.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+  			<h3>Будущее не за горами!</h3>
+  			<p>Совсем скоро настанет время, когда информационные технологии будут выявлять подозрительные лица прямо на улице. Лучше к этому приготовиться!</p>
+  		</div>
+  	</div>
+  	<div class="container text-center pb-2">
+  		<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
+  	</div>
+  </div>
 {% endblock %}
