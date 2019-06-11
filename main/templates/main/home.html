@@ -14,12 +14,17 @@
 	</div>
 	<style>
 		.hovered_product{
-			background:rgb(10, 55, 107);
+			opacity: 0;
 			color:#fff;
-
+			border-style: solid;
+			border-radius: 5%;
+			border-width: 2px;
+			border-color:#ffa;
 		}
 
 		.hovered_product:hover{
+			transition: 1.3s;
+			opacity: 1;
 			background:rgb(1, 5, 61);
 			color:#ffa;
 		}
