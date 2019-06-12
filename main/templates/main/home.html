@@ -28,7 +28,7 @@
 			color:#ffa;
 		}
 	</style>
-	<div class="container center" id="videoBlock">
+	<div class="container center" style="min-height:100vh;">
 
 	</div>
 	<div class="container text-center mt-2 pb-2">
@@ -84,7 +84,7 @@
 <script src="{% static '/js/jquery.backgroundvideo.min.js' %}"></script>
 <script>
 	$(document).ready(function() {
-	  var videobackground = new $.backgroundVideo($('#videoBlock'), {
+	  var videobackground = new $.backgroundVideo($('videoBlock'), {
 		"align": "centerXY",
 		"width": 1280,
 		"height": 720,
