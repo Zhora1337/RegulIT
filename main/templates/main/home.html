@@ -11,6 +11,22 @@
 		.included_video {
 			width:95vw;
 		}
+
+		.hovered_product{
+			font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			background:none;
+			color:#fff;
+			border-style: solid;
+			border-width: 1px;
+			border-color:#ffa;
+			transition: 1.2s;
+		}
+
+		.hovered_product:hover{
+			transition: 1.3s;
+			background:rgb(1, 5, 61);
+			color:#ffa;
+		}
 	</style>
     <div class="row">
 		<div class="col">
@@ -29,7 +45,7 @@
 		<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
 	</div>
 	<div class="container mx-auto">
-	  	<div class="row mt-2 rounded-2" style="background: #001de0;">
+	  	<div class="row mt-2 rounded-2 hovered_product">
   			<div class="col ml-5">
 				<img src="{% static 'main/image/face.jpg' %}" class="rounded float-left mr-1" height="260px" width="360px"></a>
   			</div>
@@ -39,7 +55,7 @@
 				<a class="btn-success" href="/"><p>Подробнее...</p></a>
   			</div>
 	  	</div> 
-  		<div class="row mt-5 pb-2 text-right btn-secondary">
+  		<div class="row mt-5 pb-2 text-right hovered_product">
   			<div class="col ml-5 text-right">
 				<h3>Продукт №2</h3>
 				<p>Описание продукта №2...</p>
@@ -49,17 +65,17 @@
 				<a href="/"><img src="{% static 'main/image/rsu.jpg' %}" class="rounded float-left mr-3" height="260px" width="360px"></a>
   			</div>
 		</div>
-		<div class="row mt-5 pb-2 btn-secondary">
+		<div class="row mt-5 pb-2 hovered_product">
 			<div class="col ml-5">
 				<a href="/"><img src="{% static 'main/image/tech.jpg' %}" class="rounded float-left mr-3" height="260px" width="360px"></a>
 			</div>
 			<div class="col">
 				<h3>Продукт №3</h3>
-				<p>Описание продукта №4...</p>
+				<p>Описание продукта №3...</p>
 				<a href="/"><p>Подробнее...</p></a>
 			</div>
 		</div>
-		<div class="row mt-5 pb-2 btn-secondary">
+		<div class="row mt-5 pb-2 hovered_product">
 			<div class="col ml-5">
 				<h3>Продукт №4</h3>
 				<p>Описание продукта №4...</p>
