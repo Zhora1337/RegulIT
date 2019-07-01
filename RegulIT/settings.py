@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'main',
-    'paypal.standard.ipn',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,8 +124,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 
 STATICFILES_DIR = 'static/'
-
-# Paypal
-
-PAYPAL_RECEIVER_EMAIL = 'ya.seva910@yandex.ru'
-PAYPAL_TEST = True
