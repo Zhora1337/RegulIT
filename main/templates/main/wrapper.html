@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 {% load i18n %}
 <html lang="ru">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-http-equiv="X-RU-Compatible" content="ie=edge">
-<title>Regul-IT</title>
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
-<link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-http-equiv="X-RU-Compatible" content="ie=edge">
+    <title>Regul-IT</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css">
 </head>
-<body style="background-image: url(http://www.sclance.com/backgrounds/html-page-backgrou..); background-size:contain;">
-<div class="container-fluid text-white" color="green">
-{% block content %}
-{% endblock %}
-</div> 
-<div class="scrollup">
-<!— Иконка fa-chevron-up (Font Awesome) —>
-<i class="fa fa-chevron-up"></i>
-</div>
+
+<body style="background-image: url(http://www.sclance.com/backgrounds/html-page-backgrou..); background-size:cover; margin:0;">
+    <div class="container-fluid" color="green">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="scrollup">
+        <i class="fa fa-chevron-up"></i>
+    </div>
 </body>
 <footer class="page-footer font-small bg-dark pt-4">
-<div class="container-fluid text-center text-md-left">
-<div class="row">
-<div class="col-md-6 mt-md-0 mt-3">
-<h5 class="text-uppercase text-light">Footer Content</h5>
-<p class="text-light">Here you can use rows and columns to organize your footer content.</p>
-</div>
-<hr class="clearfix w-100 d-md-none pb-3">
-<div class="col-md-3 mb-md-0 mb-3">
-<h5 class="text-uppercase text-light">Links</h5>
-<ul class="list-unstyled">
-<li>
-<a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0" target="_blank" class="text-light">О физиогномике</a>
-</li>
-</div><!— Grid column —>
-<div class="col-md-3 mb-md-0 mb-3">
-<h5 class="text-uppercase text-light">Links</h5>
-<ul class="list-unstyled">
-</ul>
-</div>
-</div>
-</div>
-<div class="footer-copyright text-center font-small bg-dark py-3"><font color="white"> © 2019 Copyright:
-<a href="https://mdbootstrap.com/education/bootstrap/"><font color="white">rsu.edu.ru</font></a></font>
-</div>
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5 class="text-uppercase text-light">Footer Content</h5>
+                <p class="text-light">Here you can use rows and columns to organize your footer content.</p>
+            </div>
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase text-light">Links</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0"
+                            target="_blank" class="text-light">О физиогномике</a>
+                    </li>
+            </div>
+            <!— Grid column —>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase text-light">Links</h5>
+                    <ul class="list-unstyled">
+                    </ul>
+                </div>
+        </div>
+    </div>
+    <div class="footer-copyright text-center font-small bg-dark py-3">
+        <font color="white"> © 2019 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/">
+                <font color="white">rsu.edu.ru</font>
+            </a></font>
+    </div>
 </footer>
+
 </html>
