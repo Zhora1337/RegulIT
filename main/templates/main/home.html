@@ -2,22 +2,8 @@
 
     {% load staticfiles %}
 {% block content %}
-    <div class="row">
-		<div class="col p-0 ml-0 mr-0">
-			<a href="/"><img src="{% static 'main/image/EN.png' %}" class="rounded float-left mr-3 pb-2" height="300px" width="200px"></a>
-		</div>
-		<div class="col text-right p-0 ml-0 mr-0 mt-2">
-			<a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
-			<a href="/login" class="btn btn-secondary text-righ">Вход </a>
-			<a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
-		</div>	
-	</div>
+		
 	<style>
-		html {
-			margin:0;
-			padding: 0;
-			width:100vw;
-		}
 		.hovered_product{
 			background:none;
 			color:#fff;
@@ -38,6 +24,7 @@
   			position: relative;
   			text-align: center;
   			font-size: 3em;
+<<<<<<< HEAD
 			background-image: url(https://media3.giphy.com/media/eYr7dxRhFnAsM/source.gif);
 			background-size:cover;
 		}
@@ -69,45 +56,85 @@
   			</div>
 		</div>
 		<div class="row mt-5 hovered_product rounded">
+=======
+		}
+		.included_video {
+			position: absolute;
+  			left: 0;
+  			top: 0;
+  			right: 0;
+  			bottom: 0;
+			padding: 0;
+  			margin: auto;
+  			z-index: -1;
+			height:100vh;
+		}
+	</style>
+	<div class="row">
+			<div class="col">
+			<a href="/"><img src="{% static 'main/image/logo.png' %}" class="rounded float-left mr-3 pb-2" style="height: 140px; width:120px;"></a>
+			</div>
+			<div class="col text-center mt-4">
+				<img src="{% static 'main/image/2.png' %}" style="max-width: 250px;">
+			</div>
+			<div class="col text-right mr-0 mt-4">
+			<a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
+			<a href="/login" class="btn btn-secondary text-righ">Вход </a>
+			<a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
+			</div> 
+			</div>
+			<div class="included_video_block">
+			<img class="included_video" src="{% static '/main/image/source.gif' %}">
+			<h1>Your face is your character</h1>
+			<div class="container text-center" style="margin-top:750px;">
+			<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
+			</div>
+			</div>
+			<div class="container mx-auto" style="margin-top:200px;">
+			<div class="row mt-2 rounded-2 hovered_product">
+>>>>>>> 1f3dc38e7ffc4c037ddb9bd0e09eae3a40fd8d0a
 			<div class="col ml-5">
-				<a href="/"><img src="{% static 'main/image/tech.jpg' %}" class="rounded float-left" height="260px" width="360px"></a>
+			<img src="{% static 'main/image/face.jpg' %}" class="rounded float-left mr-1" height="260px" width="360px"></a>
 			</div>
 			<div class="col">
-				<h3>Продукт №3</h3>
-				<p>Описание продукта №4...</p>
-				<a href="/"><p>Подробнее...</p></a>
+			<h3>Продукт №1</h3>
+			<p>Описание продукта №1...</p>
+			<a class="btn-success" href="/"><p>Подробнее...</p></a>
 			</div>
-		</div>
-		<div class="row mt-5 pb-2 hovered_product rounded">
+			</div> 
+			<div class="row mt-5 pb-2 text-right hovered_product">
+			<div class="col ml-5 text-right">
+			<h3>Продукт №2</h3>
+			<p>Описание продукта №2...</p>
+			<a href="/"><p>Подробнее...</p></a>
+			</div> 
+			<div class="col">
+			<a href="/"><img src="{% static 'main/image/rsu.jpg' %}" class="rounded float-left mr-3" height="260px" width="360px"></a>
+			</div>
+			</div>
+			<div class="row mt-5 pb-2 hovered_product">
 			<div class="col ml-5">
-				<h3>Продукт №4</h3>
-				<p>Описание продукта №4...</p>
-				<a href="/"><p>Подробнее...</p></a>
+			<a href="/"><img src="{% static 'main/image/tech.jpg' %}" class="rounded float-left mr-3" height="260px" width="360px"></a>
 			</div>
 			<div class="col">
-				<a href="/"><img src="{% static 'main/image/future.jpg' %}" class="rounded float-left" height="260px" width="360px"></a>
+			<h3>Продукт №3</h3>
+			<p>Описание продукта №3...</p>
+			<a href="/"><p>Подробнее...</p></a>
 			</div>
-		</div>
-	</div>
-  	<div class="container text-center pb-2">
-  		<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
-  	</div>
-</div>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="{% static '/js/jquery.backgroundvideo.min.js' %}"></script>
-<script>
-	$(document).ready(function() {
-	  var videobackground = new $.backgroundVideo($('videoBlock'), {
-		"align": "centerXY",
-		"width": 1280,
-		"height": 720,
-		"path": "{% static '/main/video/' %}",
-		"filename": "Sony-cam",
-		"types": ["mp4","ogg","webm"],
-		"preload": true,
-		"autoplay": true,
-		"loop": true
-	  });
-	});
-  </script>
+			</div>
+			<div class="row mt-5 pb-2 hovered_product">
+			<div class="col ml-5">
+			<h3>Продукт №4</h3>
+			<p>Описание продукта №4...</p>
+			<a href="/"><p>Подробнее...</p></a>
+			</div>
+			<div class="col">
+			<a href="/"><img src="{% static 'main/image/future.jpg' %}" class="rounded float-left mr-3" height="260px" width="360px"></a>
+			</div>
+			</div>
+			</div>
+			<div class="container text-center pb-2">
+			<a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать бесплатно</a>
+			</div>
+			</div>
 {% endblock %}
