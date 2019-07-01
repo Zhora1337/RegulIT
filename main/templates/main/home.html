@@ -80,5 +80,27 @@
 		<a href="/scan" class="btn btn-warning size"
 			style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать
 			бесплатно</a>
+		<span id='cwppButton'></span>
+		<script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
+		<span id='cwppButton'></span>
+		<script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
+		<script>
+		paypal.use( ['login'], function (login) {
+		  login.render ({
+			"appid":"AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
+			"authend":"sandbox",
+			"scopes":"email",
+			"containerid":"cwppButton",
+			"responseType":"code",
+			"locale":"ru-ru",
+			"theme":"neutral",
+			"buttonType":"CWP",
+			"buttonShape":"rectangle",
+			"buttonSize":"sm",
+			"fullPage":"true",
+			"returnurl":"REPLACE_WITH_YOUR_RETURN_URL"
+		  });
+		});
+		</script>
 	</div>
 	{% endblock %}
