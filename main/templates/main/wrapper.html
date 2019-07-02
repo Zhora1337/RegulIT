@@ -11,16 +11,19 @@
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
 </head>
 
-<body>
-    <div class="row" style="background-color: darkslategray">
-        <div class="col">
-            <a href="/"><img src="{% static 'main/image/EN.png' %}" class="rounded float-left mr-3 pb-2" height="150px"
-                    width="100px"></a>
-        </div>
-        <div class="col text-right mr-0 mt-4">
-            <a href="/" class="btn btn-secondary">Для юридических лиц</a>
-            <a href="/signin" class="btn btn-secondary">Вход </a>
-            <a href="/signup" class="btn btn-secondary">Регистрация</a>
+<body style="margin:0;">
+    <div class="container-fluid">
+        <div class="row" style="background-color: silver">
+            <div class="col">
+                <a href="/"><img src="/static/main/image/EN.png" class="rounded float-left mr-3 pb-2" height="150px"
+                        width="100px"></a>
+            </div>
+            <div class="col text-right mr-0 mt-4">
+                <a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
+                <a href="/signin" class="btn btn-secondary text-righ">Вход </a>
+                <a href="/signup" class="btn btn-secondary text-righ">Регистрация</a>
+                <a href="/AboutUs" class="btn btn-secondary text-righ">О нас<span class="sr-only">(current)</span></a>
+            </div>
         </div>
     </div>
     <div class="container-fluid">
@@ -47,12 +50,11 @@
                             target="_blank" class="text-light">О физиогномике</a>
                     </li>
             </div>
-            <!— Grid column —>
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <h5 class="text-uppercase text-light">Links</h5>
-                    <ul class="list-unstyled">
-                    </ul>
-                </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase text-light">Links</h5>
+                <ul class="list-unstyled">
+                </ul>
+            </div>
         </div>
     </div>
     <div class="footer-copyright text-center font-small bg-dark py-3">
