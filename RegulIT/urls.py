@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.urls import path
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('main.urls')),
+<<<<<<< HEAD
     url(r'^signup/', include('signup.urls')),
+=======
+    path('signup/', include('signup.urls')),
+>>>>>>> 84840f784d395f40c6ce3e99a137795073124cd4
 ]

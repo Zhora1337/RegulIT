@@ -77,12 +77,17 @@ WSGI_APPLICATION = 'RegulIT.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     'NAME': 'regul',
 	'USER': 'zhora1555',
 	'PASSWORD': 'fallen1998',
 	'HOST': '0.0.0.0',
 	'PORT': 5432,
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+>>>>>>> 84840f784d395f40c6ce3e99a137795073124cd4
     }
 }
 
