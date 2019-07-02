@@ -4,4 +4,4 @@ def index(request):
     return render(request, 'main/home.html')
 
 def AboutUs(request):
-    return render(request, 'main/AboutUs.html', {'content': ['Блядская Инфа']})
+    return render(request, 'main/AboutUs.html')
