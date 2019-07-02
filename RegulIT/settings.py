@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'main',
-    'paypal.standard.ipn',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +76,12 @@ WSGI_APPLICATION = 'RegulIT.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'regul',
+	'USER': 'zhora1555',
+	'PASSWORD': 'fallen1998',
+	'HOST': '0.0.0.0',
+	'PORT': 5432,
     }
 }
 
@@ -125,8 +128,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 
 STATICFILES_DIR = 'static/'
-
-# Paypal
-
-PAYPAL_RECEIVER_EMAIL = 'ya.seva910@yandex.ru'
-PAYPAL_TEST = True
