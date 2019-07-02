@@ -1,0 +1,19 @@
+{% extends "main/wrapper.html" %}
+
+{% load staticfiles %}
+{% block content %}
+<div style="min-height: 40vh;">
+    <div class="container text-center mt-5 pt-5 bg-secondary rounded  pb-3">
+        <form>
+            <p>Input your phone number</p>
+            <input placeholder="phone number" type="number">
+            <p>Input your password</p>
+            <input placeholder="password" type="password">
+            <p>Confirm your password</p>
+            <input placeholder="confirm password" type="password">
+            <br/>
+            <input class="btn btn-primary mt-2" type="submit">
+        </form>
+    </div>
+</div>
+{% endblock %}

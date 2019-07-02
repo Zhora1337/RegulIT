@@ -6,7 +6,7 @@
 <style>
 	.hovered_product {
 		background: none;
-		color: #fff;
+		color: rgb(0, 0, 0);
 		border-style: solid;
 		border-width: 1px;
 		border-color: #ffa;
@@ -19,19 +19,7 @@
 		color: #ffa;
 	}
 </style>
-<div class="row">
-	<div class="col">
-		<a href="/"><img src="{% static 'main/image/EN.png' %}" class="rounded float-left mr-3 pb-2" height="150px"
-				width="100px"></a>
-	</div>
-	<div class="col text-right mr-0 mt-4">
-		<a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
-		<a href="/login" class="btn btn-secondary text-righ">Вход </a>
-		<a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
-	</div>
-</div>
-<div class="included_video_block">
-</div>
+
 <div class="container text-center mt-2 pb-2">
 	<a href="/scan" class="btn btn-warning size"
 		style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать
@@ -40,7 +28,7 @@
 <div class="container mx-auto">
 	<div class="row mt-2 hovered_product rounded">
 		<div class="col ml-2">
-			<img src="{% static 'main/image/face.jpg' %}" class="rounded float-left" height="260px" width="360px"></a>
+			<img src="{% static 'main/image/face.jpg' %}" class="rounded float-left" height="260px" width="360px">
 		</div>
 		<div class="col">
 			<h3>Продукт №1</h3>
@@ -59,11 +47,10 @@
 			</a>
 		</div>
 		<div class="col">
-			<a href="/"><img src="{% static 'main/image/rsu.jpg' %}" class="rounded float-left" height="260px"
-					width="360px"></a>
+			<img src="{% static 'main/image/rsu.jpg' %}" class="rounded float-left" height="260px" width="360px">
 		</div>
 	</div>
-	<div class="row mt-5 pb-2 hovered_product">
+	<div class="row mt-5 mb-5 hovered_product">
 		<div class="col ml-5">
 			<h3>Продукт №4</h3>
 			<p>Описание продукта №4...</p>
@@ -72,8 +59,7 @@
 			</a>
 		</div>
 		<div class="col">
-			<a href="/"><img src="{% static 'main/image/future.jpg' %}" class="rounded float-left mr-3" height="260px"
-					width="360px"></a>
+			<img src="{% static 'main/image/future.jpg' %}" class="rounded float-left" height="260px" width="360px">
 		</div>
 	</div>
 	<div class="container text-center pb-2">
@@ -85,22 +71,23 @@
 		<span id='cwppButton'></span>
 		<script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
 		<script>
-		paypal.use( ['login'], function (login) {
-		  login.render ({
-			"appid":"AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
-			"authend":"sandbox",
-			"scopes":"email",
-			"containerid":"cwppButton",
-			"responseType":"code",
-			"locale":"ru-ru",
-			"theme":"neutral",
-			"buttonType":"CWP",
-			"buttonShape":"rectangle",
-			"buttonSize":"sm",
-			"fullPage":"true",
-			"returnurl":"REPLACE_WITH_YOUR_RETURN_URL"
-		  });
-		});
+			paypal.use(['login'], function (login) {
+				login.render({
+					"appid": "AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
+					"authend": "sandbox",
+					"scopes": "email",
+					"containerid": "cwppButton",
+					"responseType": "code",
+					"locale": "ru-ru",
+					"theme": "neutral",
+					"buttonType": "CWP",
+					"buttonShape": "rectangle",
+					"buttonSize": "sm",
+					"fullPage": "true",
+					"returnurl": "REPLACE_WITH_YOUR_RETURN_URL"
+				});
+			});
 		</script>
 	</div>
-	{% endblock %}
+</div>
+{% endblock %}
