@@ -18,13 +18,6 @@ from django.conf.urls import url, include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('main.urls')),
-<<<<<<< HEAD
     url(r'^signup/', include('signup.urls')),
-=======
-<<<<<<< HEAD
-    url(r'^signup/', include('signup.urls')),
-=======
-    path('signup/', include('signup.urls')),
->>>>>>> 84840f784d395f40c6ce3e99a137795073124cd4
->>>>>>> ffe3e8edf174c9380ec38085026167ba1eda4c70
+    url(r'^signin/', include('signin.urls')),
 ]
