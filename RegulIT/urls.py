@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^signup/', include('signup.urls')),
     url(r'^signin/', include('signin.urls')),
     url(r'^findlove/', include('findlove.urls')),
+    url(r'^friend/', include('friend.urls')),
 ]
