@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^signin/', include('signin.urls')),
     url(r'^findlove/', include('findlove.urls')),
     url(r'^friend/', include('friend.urls')),
+    url(r'^person/', include('person.urls')),
 ]
