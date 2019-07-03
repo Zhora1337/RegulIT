@@ -11,21 +11,21 @@
     <link rel="stylesheet" href="{% static '/css/hex.css' %}" type="text/css">
 </head>
 
-<body style="margin:0;">
+<body style="margin:0; background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/hexed-background-2.jpg); background-size: cover;">
     <div class="container-fluid">
-        <div class="row" style="background-color: silver">
+        <div class="row">
             <div class="col">
                 <a href="/"><img src="/static/main/image/EN.png" class="rounded float-left mr-3 pb-2" height="150px" width="100px"></a>
             </div>
             <div class="col text-right mr-0 mt-4">
-                <a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
+                <a href="/for_companies" class="btn btn-secondary text-righ">Для юридических лиц</a>
                 <a href="/signin" class="btn btn-secondary text-righ">Вход </a>
                 <a href="/signup" class="btn btn-secondary text-righ">Регистрация</a>
                 <a href="/AboutUs" class="btn btn-secondary text-righ">О нас<span class="sr-only">(current)</span></a>
             </div>
         </div>
     </div>
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0" style="min-height: 100vh;">
         {% block content %} {% endblock %}
     </div>
     <div class="scrollup">
@@ -54,12 +54,11 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright text-center font-small bg-dark py-3">
-        <font color="white"> © 2019 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/">
-                <font color="white">rsu.edu.ru</font>
+    <div class="footer-copyright text-center font-small bg-dark py-3 text-white">
+        © 2019 Copyright:
+        <a href="https://www.regul-it.com" style="color:white; text-decoration:none;"> 
+                REGUL-IT
             </a>
-        </font>
     </div>
 </footer>
 

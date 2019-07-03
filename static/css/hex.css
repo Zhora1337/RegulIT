@@ -1,7 +1,7 @@
 .hex {
     width: 450px;
     height: 258px;
-    background-color: #ccc;
+    background-color: #2600ff;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: auto 173px;
@@ -73,6 +73,7 @@
 .hex h4 {
     font-family: 'Josefin Sans', sans-serif;
     margin: 0;
+    font-size: 1.5em;
 }
 
 .hex hr {
@@ -83,20 +84,20 @@
 }
 
 .hex p {
-    font-size: 16px;
-    font-family: 'Kotta One', serif;
+    font-size: 32px;
+    font-family: 'Open Sans', serif;
     width: 80%;
     margin: 0 auto;
 }
 
 .hex.hex-1 {
-    background: #74cddb;
+    background: #2600ff;
 }
 
 .hex.hex-2 {
-    background: #f5c53c;
+    background: #2600ff;
 }
 
 .hex.hex-3 {
-    background: #80b971;
+    background: #2600ff;
 }

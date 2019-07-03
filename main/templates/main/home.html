@@ -1,7 +1,7 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}
 
 </style>
-<div class="container-fluid d-flex flex-column justify-content-lg-between p-0" style="background-image: url(https://media.giphy.com/media/fGDiqXII9Bl16/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
+<div class="container-fluid d-flex flex-column justify-content-lg-between p-0" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
     <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
         <h2>Your face is Your character</h2>
     </div>
@@ -21,9 +21,9 @@
                 <div class="inner">
                     <h4>НАЙДИ ЛЮБОВЬ</h4>
                     <hr />
-                    <p>Какое-то очень длинное описание</p>
+                    <p>Какое-то краткое понятное описание</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/"></a>
+                    <a class="btn btn-secondary" href="/findlove">Подробнее</a>
                 </div>
                 <a href="#"></a>
                 <div class="corner-1"></div>
@@ -33,9 +33,9 @@
                 <div class="inner">
                     <h4>УЗНАЙ КТО ТВОЙ ДРУГ</h4>
                     <hr />
-                    <p>Какое-то очень длинное описание</p>
+                    <p>Какое-то краткое понятное описание</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/"></a>
+                    <a class="btn btn-secondary" href="/friend">Подробнее</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
@@ -44,9 +44,9 @@
                 <div class="inner">
                     <h4>ПОДБЕРИ СЕБЕ ПОМОЩНИКА</h4>
                     <hr />
-                    <p>Какое-то очень длинное описание</p>
+                    <p>Какое-то краткое понятное описание</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/"></a>
+                    <a class="btn btn-secondary" href="/person">Подробнее</a>
                 </div>
                 <a href="#"></a>
                 <div class="corner-1"></div>
@@ -56,9 +56,9 @@
                 <div class="inner">
                     <h4>УЗНАЙ О ЧЕЛОВЕКЕ ВСЕ</h4>
                     <hr />
-                    <p>Какое-то очень длинное описание</p>
+                    <p>Какое-то краткое понятное описание</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/"></a>
+                    <a class="btn btn-secondary" href="/">Подробнее</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
@@ -67,9 +67,9 @@
                 <div class="inner">
                     <h4>ПРОФОРИЕНТАЦИЯ</h4>
                     <hr />
-                    <p>Какое-то очень длинное описание</p>
+                    <p>Какое-то краткое понятное описание</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/">some code</a>
+                    <a class="btn btn-secondary" href="/">Подробнее</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
@@ -78,8 +78,9 @@
                 <div class="inner">
                     <h4>СОВМЕСТИМОСТЬ В КОЛЛЕКТИВЕ</h4>
                     <hr />
-                    <p>Какое-то очень длинное описание</p>
+                    <p>Какое-то краткое понятное описание</p>
                     <hr/>
+                    <a class="btn btn-secondary" href="/">Подробнее</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
@@ -90,27 +91,30 @@
 <div class="container text-center pb-2">
     <a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать
 		бесплатно</a>
+</div>
+<div class="container text-center pb-2">
     <span id='cwppButton'></span>
     <script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
     <span id='cwppButton'></span>
-    <script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
-    <script>
-        paypal.use(['login'], function(login) {
-            login.render({
-                "appid": "AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
-                "authend": "sandbox",
-                "scopes": "email",
-                "containerid": "cwppButton",
-                "responseType": "code",
-                "locale": "ru-ru",
-                "theme": "neutral",
-                "buttonType": "CWP",
-                "buttonShape": "rectangle",
-                "buttonSize": "sm",
-                "fullPage": "true",
-                "returnurl": "REPLACE_WITH_YOUR_RETURN_URL"
-            });
+</div>
+<script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
+<script>
+    paypal.use(['login'], function(login) {
+        login.render({
+            "appid": "AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
+            "authend": "sandbox",
+            "scopes": "email",
+            "containerid": "cwppButton",
+            "responseType": "code",
+            "locale": "ru-ru",
+            "theme": "neutral",
+            "buttonType": "CWP",
+            "buttonShape": "rectangle",
+            "buttonSize": "sm",
+            "fullPage": "true",
+            "returnurl": "REPLACE_WITH_YOUR_RETURN_URL"
         });
-    </script>
+    });
+</script>
 </div>
 {% endblock %}

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'findlove',
     'friend',
     'person',
+    'for_companies',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
