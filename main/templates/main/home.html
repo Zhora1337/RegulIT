@@ -1,15 +1,15 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}
 
 </style>
-<div class="container-fluid d-flex flex-column justify-content-lg-between p-0" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
+<div id="myGifId" class="container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
     <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
         <h2>Your face is Your character</h2>
     </div>
     <div class="container d-inline-flex align-self-center justify-content-lg-center">
-        <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Конпка
+        <a span id="tryButton" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Кнопка
 			плэй</a>
     </div>
-    <div class="container d-inline-flex  align-items-center justify-content-lg-center mb-4">
+    <div class="container d-inline-flex  align-items-center justify-content-lg-center mb-4 ">
         <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать
 			бесплатно</a>
     </div>
@@ -116,5 +116,7 @@
         });
     });
 </script>
+
+<script src="{% static '/js/mainPageStyle.js' %}"></script>
 </div>
 {% endblock %}

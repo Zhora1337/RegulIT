@@ -101,3 +101,50 @@
 .hex.hex-3 {
     background: #2600ff;
 }
+
+
+/* Выплывающее видео */
+
+/* .myGif {
+    padding: 100px 0 0 0;
+    background-image: url(source.gif);
+    height: 400px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+} */
+#tryButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 70px;
+    background-color: rgb(255, 196, 0);
+    border-radius: 25px;
+}
+#tryButton:hover {
+    background-color: rgb(168, 129, 0);
+}
+#tryButton p {
+    margin: 20px;
+}
+.shadowPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    width: 100vw;
+    height: 2730px;
+    background: rgb(25, 27, 48);
+    opacity: .90;
+}
+.youTubeVideo {
+    position: absolute;
+    top: 25vh;
+    z-index: 3;
+    width: 900px; 
+    height: 400px;
+    opacity: 1;
+}
