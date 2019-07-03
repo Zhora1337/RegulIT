@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'main',
     'signup',
     'signin',
+    'findlove',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

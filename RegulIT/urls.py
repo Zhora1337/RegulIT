@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^$', include('main.urls')),
     url(r'^signup/', include('signup.urls')),
     url(r'^signin/', include('signin.urls')),
+    url(r'^findlove/', include('findlove.urls')),
 ]
