@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load i18n %}
+<!DOCTYPE html> {% load i18n %}
 <html lang="ru">
 
 <head>
@@ -9,14 +8,14 @@
     <title>{% block title %}Regul-IT{% endblock %}</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/hex.css' %}" type="text/css">
 </head>
 
 <body style="margin:0;">
     <div class="container-fluid">
         <div class="row" style="background-color: silver">
             <div class="col">
-                <a href="/"><img src="/static/main/image/EN.png" class="rounded float-left mr-3 pb-2" height="150px"
-                        width="100px"></a>
+                <a href="/"><img src="/static/main/image/EN.png" class="rounded float-left mr-3 pb-2" height="150px" width="100px"></a>
             </div>
             <div class="col text-right mr-0 mt-4">
                 <a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
@@ -27,8 +26,7 @@
         </div>
     </div>
     <div class="container-fluid p-0">
-        {% block content %}
-        {% endblock %}
+        {% block content %} {% endblock %}
     </div>
     <div class="scrollup">
         <i class="fa fa-chevron-up"></i>
@@ -46,8 +44,7 @@
                 <h5 class="text-uppercase text-light">Links</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0"
-                            target="_blank" class="text-light">О физиогномике</a>
+                        <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0" target="_blank" class="text-light">О физиогномике</a>
                     </li>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
@@ -61,7 +58,8 @@
         <font color="white"> © 2019 Copyright:
             <a href="https://mdbootstrap.com/education/bootstrap/">
                 <font color="white">rsu.edu.ru</font>
-            </a></font>
+            </a>
+        </font>
     </div>
 </footer>
 
