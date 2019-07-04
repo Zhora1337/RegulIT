@@ -24,20 +24,6 @@
                 <a href="/signin" class="btn btn-secondary text-righ">Вход </a>
                 <a href="/signup" class="btn btn-secondary text-righ">Регистрация</a>
                 <a href="/AboutUs" class="btn btn-secondary text-righ">О нас<span class="sr-only">(current)</span></a>
-            </div>
-        </div>Sign up
-    </div>
-    <div class="container-fluid p-0" style="min-height: 100vh;">
-        {% block content %} {% endblock %}
-        <div class="row">
-            <div class="col">
-                <a href="/"><img src="{% static 'main/image/EN.png' %}" class="rounded float-left mr-3 pb-2" height="150px" width="100px"></a>
-            </div>
-            <div class="col text-right mr-0 mt-4">
-                <a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
-                <a href="/login" class="btn btn-secondary text-righ">Вход </a>
-                <a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
-                <a href="/AboutUs" class="btn btn-secondary text-righ" href="#">{% trans "О нас" %}<span class="sr-only">(current)</span></a>
                 <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
                     <img src="{% static '/main/image/English.png' %}" alt="English"> English
                 </a>
@@ -57,6 +43,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container-fluid p-0" style="min-height: 100vh;">
         {% block content %} {% endblock %}
     </div>
     <div class="scrollup">
