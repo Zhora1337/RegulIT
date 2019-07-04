@@ -33,6 +33,11 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'main',
     'signup',
+    'signin',
+    'findlove',
+    'friend',
+    'person',
+    'for_companies',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

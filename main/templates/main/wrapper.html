@@ -1,56 +1,51 @@
-<!DOCTYPE html>
-{% load i18n %}
+<!DOCTYPE html> {% load i18n %}
 <html lang="ru">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-http-equiv="X-RU-Compatible" content="ie=edge">
-    <title>Regul-IT</title>
+    <title>{% block title %}Regul-IT{% endblock %}</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static '/css/hex.css' %}" type="text/css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="{% static '/js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
 </head>
 
-<body style="margin:0;">
+<body style="margin:0; background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/hexed-background-2.jpg); background-size: cover;">
     <div class="container-fluid">
-            <div class="row">
-                    <div class="col">
-                        <a href="/"><img src="{% static 'main/image/EN.png' %}" class="rounded float-left mr-3 pb-2" height="150px"
-                                width="100px"></a>
-                    </div>
-                    <div class="col text-right mr-0 mt-4">
-                        <a href="/" class="btn btn-secondary text-righ">Для юридических лиц</a>
-                        <a href="/login" class="btn btn-secondary text-righ">Вход </a>
-                        <a href="/register" class="btn btn-secondary text-righ">Регистрация</a>
-                        <a href="/AboutUs" class="btn btn-secondary text-righ" href="#">{% trans "О нас" %}<span class="sr-only">(current)</span></a>
-                        <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
-                            <img src="{% static '/main/image/English.png' %}" alt="English">
-                            English
-                        </a>
-                        <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
-                            <a class="dropdown-item" href="/en">
-                                <img src="{% static '/main/image/English.png' %}" alt="English">
-                                English
-                            </a>
-                            <a class="dropdown-item" href="/fr">
-                                <img src="{% static '/main/image/fr.png' %}" alt="Français">
-                                Français
-                            </a>
-                            <a class="dropdown-item" href="/de">
-                                <img src="{% static '/main/image/de.png' %}" alt="Deutsch">
-                               Deutsch
-                            </a>
-                            <a class="dropdown-item" href="/it">
-                                <img src="{% static '/main/image/it.png' %}" alt="Italiano">
-                                Italiano
-                            </a>
-                        </div>
-                    </div>  
+        <div class="row">
+            <div class="col">
+                <a href="/"><img src="/static/main/image/EN.png" class="rounded float-left mr-3 pb-2" height="150px" width="100px"></a>
             </div>
-        {% block content %}
-        {% endblock %}
+            <div class="col text-right mr-0 mt-4">
+                <a href="/for_companies" class="btn btn-secondary text-righ">Для юридических лиц</a>
+                <a href="/signin" class="btn btn-secondary text-righ">Вход </a>
+                <a href="/signup" class="btn btn-secondary text-righ">Регистрация</a>
+                <a href="/AboutUs" class="btn btn-secondary text-righ">О нас<span class="sr-only">(current)</span></a>
+                <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static '/main/image/English.png' %}" alt="English"> English
+                </a>
+                <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                    <a class="dropdown-item" href="/en">
+                        <img src="{% static '/main/image/English.png' %}" alt="English"> English
+                    </a>
+                    <a class="dropdown-item" href="/fr">
+                        <img src="{% static '/main/image/fr.png' %}" alt="Français"> Français
+                    </a>
+                    <a class="dropdown-item" href="/de">
+                        <img src="{% static '/main/image/de.png' %}" alt="Deutsch"> Deutsch
+                    </a>
+                    <a class="dropdown-item" href="/it">
+                        <img src="{% static '/main/image/it.png' %}" alt="Italiano"> Italiano
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-0" style="min-height: 100vh;">
+        {% block content %} {% endblock %}
     </div>
     <div class="scrollup">
         <i class="fa fa-chevron-up"></i>
@@ -68,23 +63,22 @@
                 <h5 class="text-uppercase text-light">Links</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0"
-                            target="_blank" class="text-light">О физиогномике</a>
+                        <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0" target="_blank" class="text-light">О физиогномике</a>
                     </li>
             </div>
-            <!— Grid column —>
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <h5 class="text-uppercase text-light">Links</h5>
-                    <ul class="list-unstyled">
-                    </ul>
-                </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase text-light">Links</h5>
+                <ul class="list-unstyled">
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="footer-copyright text-center font-small bg-dark py-3">
-        <font color="white"> © 2019 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/">
-                <font color="white">rsu.edu.ru</font>
-            </a></font>
+    <div class="footer-copyright text-center font-small bg-dark py-3 text-white">
+        © 2019 Copyright:
+        <a href="https://www.regul-it.com" style="color:white; text-decoration:none;"> 
+                REGUL-IT
+            </a>
     </div>
 </footer>
+
 </html>
