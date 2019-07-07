@@ -1,13 +1,80 @@
-{% extends "main/wrapper.html" %}
-
-{% load staticfiles %}
-{% block content %}
-<div class="container text-center">
+{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}
+<div class="container text-center text-white shadow rounded bg-secondary">
     <h1>Сhoose your case:</h1>
 </div>
-<div class="container d-flex justfy-content-between">
-    <a href="/" class="btn btn-primary m-5">Photo of your friend</a>
-    <a href="/" class="btn btn-primary m-5">Your photo and photo of your friend</a>
-    <a href="/" class="btn btn-primary m-5">Your photo and photo of your friends (max 2)r</a>
+<div class="container d-flex justfy-content-between align-items-center flex-wrap">
+    <a href="#collapseExample1" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Photo of your partner/potential partner</a>
+    <a href="#collapseExample2" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Your photo and photo of your partner</a>
+    <a href="#collapseExample3" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Your photo and photo of your potential partners (max 2)r</a>
+    <div class="collapse" id="collapseExample1">
+        <div class="card card-body bg-secondary" style="min-width:50vw;">
+            <div class="row">
+                <label>Загрузить один файл:</label>
+                <input type="file" id="file" name="file" />
+            </div>
+            <div class="row">
+                <span id="output"></span>
+            </div>
+        </div>
+    </div>
+    <div class="collapse" id="collapseExample2">
+        <div class="card card-body bg-secondary" style="min-width:50vw;">
+            <div class="col">
+                <div class="row">
+                    <label>Загрузить своё фото:</label>
+                    <input type="file" id="files_two_first" name="file" />
+                </div>
+                <div class="row">
+                    <span id="output_ftf"></span>
+                </div>
+            </div>
+        </div>
+        <div class="card card-body bg-secondary" style="min-width:50vw;">
+            <div class="col">
+                <div class="row">
+                    <label>Загрузить фото партнера:</label>
+                    <input type="file" id="files_two_second" name="file" />
+                </div>
+                <div class="row">
+                    <span id="output_fts"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="collapse" id="collapseExample3" style="min-width:50vw;">
+        <div class="card card-body bg-secondary" style="min-width:50vw;">
+            <div class="col">
+                <div class="row">
+                    <label>Загрузить своё фото:</label>
+                    <input type="file" id="files_three_first" name="file" />
+                </div>
+                <div class="row">
+                    <span id="output_fthf"></span>
+                </div>
+            </div>
+        </div>
+        <div class="card card-body bg-secondary" style="min-width:50vw;">
+            <div class="col">
+                <div class="row">
+                    <label>Загрузить своё фото:</label>
+                    <input type="file" id="files_three_second" name="file" />
+                </div>
+                <div class="row">
+                    <span id="output_fths"></span>
+                </div>
+            </div>
+        </div>
+        <div class="card card-body bg-secondary" style="min-width:50vw;">
+            <div class="col">
+                <div class="row">
+                    <label>Загрузить своё фото:</label>
+                    <input type="file" id="files_three_third" name="file" />
+                </div>
+                <div class="row">
+                    <span id="output_ftht"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
