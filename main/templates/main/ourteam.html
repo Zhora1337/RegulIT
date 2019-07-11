@@ -1,0 +1,30 @@
+{% extends "main/wrapper.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col mr-3">
+                <img src="{% static 'main/image/pgv.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+                <h3>Печерица Георгий Витальевич</h3>
+                <p>Программист.</p>
+            </div>
+            <div class="col">
+                <img src="{% static 'main/image/mda.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+                <h3>Муругов Дмитрий Александрович</h3>
+                <p>Програмист.</p>
+            </div>
+        </div>
+        <div class="row mt-5 pb-5" >
+            <div class="col mr-3">
+                <img src="{% static 'main/image/sas.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+                <h3>Севальников Алексей Сергеевич</h3>
+                <p>Программист</p>
+            </div>
+            <div class="col">
+                <img src="{% static 'main/image/rva.jpg' %}" class="rounded float-left mr-3" height="260px" width="260px">
+                <h3>Романчук Виталий Александрович</h3>
+                <p>Ответственный за backend.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

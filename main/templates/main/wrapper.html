@@ -11,40 +11,63 @@
     <link rel="stylesheet" href="{% static '/css/hex.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static '/css/inputfile.css' %}" type="text/css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
+<script src="{% static '/js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<script src="{% static '/js/inputfile.js' %}" type="text/javascript"></script>
+<script src="{% static '/js/jquery.min.js' %}" type="text/javascript"></script>
 
 <body style="margin:0; background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/hexed-background-2.jpg); background-size: cover; background-attachment: fixed">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <a href="/"><img src="/static/main/image/EN.png" class="rounded float-left mr-3 pb-2" height="150px" width="100px"></a>
-            </div>
-            <div class="col text-right mr-0 mt-4">
-                <a href="/for_companies" class="btn btn-secondary text-righ">Для юридических лиц</a>
-                <a href="/signin" class="btn btn-secondary text-righ">Вход </a>
-                <a href="/signup" class="btn btn-secondary text-righ">Регистрация</a>
-                <a href="/AboutUs" class="btn btn-secondary text-righ">О нас<span class="sr-only">(current)</span></a>
-                <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{% static '/main/image/English.png' %}" alt="English"> English
-                </a>
-                <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
-                    <a class="dropdown-item" href="/en">
+    <nav class="navbar navbar-expand-lg navbar-light text-center">
+            <a href="/"><img src="/static/main/image/2.png" height="50px" width="250px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">  
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-secondary text-righ" href="/for_companies">Для юридических лиц</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/signin" class="btn btn-secondary text-righ">Вход </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/signup" class="btn btn-secondary text-righ">Регистрация</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    О нас
+                  </a>
+                  <div class="dropdown-menu" data-display="static" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/AboutUs">Кто мы такие</a>
+                    <a class="dropdown-item" href="/ourgoal">Чего мы хотим добиться</a>
+                    <a class="dropdown-item" href="/ourteam">Наша команда</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
                         <img src="{% static '/main/image/English.png' %}" alt="English"> English
                     </a>
-                    <a class="dropdown-item" href="/fr">
-                        <img src="{% static '/main/image/fr.png' %}" alt="Français"> Français
-                    </a>
-                    <a class="dropdown-item" href="/de">
-                        <img src="{% static '/main/image/de.png' %}" alt="Deutsch"> Deutsch
-                    </a>
-                    <a class="dropdown-item" href="/it">
-                        <img src="{% static '/main/image/it.png' %}" alt="Italiano"> Italiano
-                    </a>
-                </div>
-            </div>
+                    <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                        <a class="dropdown-item" href="/en">
+                            <img src="{% static '/main/image/English.png' %}" alt="English"> English
+                        </a>
+                        <a class="dropdown-item" href="/fr">
+                            <img src="{% static '/main/image/fr.png' %}" alt="Français"> Français
+                        </a>
+                        <a class="dropdown-item" href="/de">
+                            <img src="{% static '/main/image/de.png' %}" alt="Deutsch"> Deutsch
+                        </a>
+                        <a class="dropdown-item" href="/it">
+                            <img src="{% static '/main/image/it.png' %}" alt="Italiano"> Italiano
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
     <div class="container-fluid p-0" style="min-height: 100vh;">
         {% block content %} {% endblock %}
     </div>
@@ -80,9 +103,6 @@
                 REGUL-IT
             </a>
     </div>
-
-    <script src="{% static '/js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
-    <script src="{% static '/js/inputfile.js' %}" type="text/javascript"></script>
 </footer>
 
 </html>
