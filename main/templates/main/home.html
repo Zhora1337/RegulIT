@@ -1,17 +1,15 @@
-{% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}
+{% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}{% load i18n %}
 
 </style>
 <div class="container-fluid d-flex flex-column justify-content-lg-between p-0" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
     <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
-        <h2>Your face is Your character</h2>
+        <h2>{% trans "Your face is Your character" %}</h2>
     </div>
     <div class="container d-inline-flex align-self-center justify-content-lg-center">
-        <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Конпка
-			плэй</a>
+        <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Button play" %}</a>
     </div>
     <div class="container d-inline-flex  align-items-center justify-content-lg-center mb-4">
-        <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать
-			бесплатно</a>
+        <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
     </div>
 </div>
 <div class="container mx-auto">
@@ -19,11 +17,11 @@
         <div class="container-fluid d-flex align-items-between align-content-between flex-wrap justify-content-center">
             <div class="hex hex-3">
                 <div class="inner">
-                    <h4>НАЙДИ ЛЮБОВЬ</h4>
+                    <h4>{% trans "FIND LOVE" %}</h4>
                     <hr />
-                    <p>Какое-то краткое понятное описание</p>
+                    <p>{% trans "Some short clear description" %}</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/findlove">Подробнее</a>
+                    <a class="btn btn-secondary" href="/findlove">{% trans "Detail" %}</a>
                 </div>
                 <a href="#"></a>
                 <div class="corner-1"></div>
@@ -31,22 +29,22 @@
             </div>
             <div class="hex hex-2">
                 <div class="inner">
-                    <h4>УЗНАЙ КТО ТВОЙ ДРУГ</h4>
+                    <h4>{% trans "Find out who your friend is" %}</h4>
                     <hr />
-                    <p>Какое-то краткое понятное описание</p>
+                    <p>{% trans "Some short clear description" %}</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/friend">Подробнее</a>
+                    <a class="btn btn-secondary" href="/friend">{% trans "Detail" %}</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
             </div>
             <div class="hex hex-1">
                 <div class="inner">
-                    <h4>ПОДБЕРИ СЕБЕ ПОМОЩНИКА</h4>
+                    <h4>{% trans "Pick your assistant" %}</h4>
                     <hr />
-                    <p>Какое-то краткое понятное описание</p>
+                    <p>{% trans "Some short clear description" %}</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/person">Подробнее</a>
+                    <a class="btn btn-secondary" href="/person">{% trans "Detail" %}</a>
                 </div>
                 <a href="#"></a>
                 <div class="corner-1"></div>
@@ -54,33 +52,33 @@
             </div>
             <div class="hex hex">
                 <div class="inner">
-                    <h4>УЗНАЙ О ЧЕЛОВЕКЕ ВСЕ</h4>
+                    <h4>{% trans "Learn all about man" %}</h4>
                     <hr />
-                    <p>Какое-то краткое понятное описание</p>
+                    <p>{% trans "Some short clear description" %}</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/">Подробнее</a>
+                    <a class="btn btn-secondary" href="/">{% trans "Detail" %}</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
             </div>
             <div class="hex hex-1">
                 <div class="inner">
-                    <h4>ПРОФОРИЕНТАЦИЯ</h4>
+                    <h4>{% trans "Career guidance" %}</h4>
                     <hr />
-                    <p>Какое-то краткое понятное описание</p>
+                    <p>{% trans "Some short clear description" %}</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/">Подробнее</a>
+                    <a class="btn btn-secondary" href="/">{% trans "Detail" %}</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
             </div>
             <div class="hex hex-1">
                 <div class="inner">
-                    <h4>СОВМЕСТИМОСТЬ В КОЛЛЕКТИВЕ</h4>
+                    <h4>{% trans "Team Compatibility" %}</h4>
                     <hr />
-                    <p>Какое-то краткое понятное описание</p>
+                    <p>{% trans "Some short clear description" %}</p>
                     <hr/>
-                    <a class="btn btn-secondary" href="/">Подробнее</a>
+                    <a class="btn btn-secondary" href="/">{% trans "Detail" %}</a>
                 </div>
                 <div class="corner-1"></div>
                 <div class="corner-2"></div>
@@ -89,8 +87,7 @@
     </div>
 </div>
 <div class="container text-center pb-2">
-    <a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">Попробовать
-		бесплатно</a>
+    <a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
 </div>
 <div class="container text-center pb-2">
     <span id='cwppButton'></span>
