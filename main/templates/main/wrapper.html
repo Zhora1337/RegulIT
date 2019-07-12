@@ -47,7 +47,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
-                        <img src="{% static '/main/image/English.png' %}" alt="English"> English
+                        <img src="{% static '/main/image/English.png' %}" alt="English"> {% trans "Language" %}
                     </a>
                     <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
                         <a class="dropdown-item" href="/en">
@@ -78,19 +78,19 @@
     <div class="container-fluid text-center text-md-left">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
-                <h5 class="text-uppercase text-light">Footer Content</h5>
-                <p class="text-light">Here you can use rows and columns to organize your footer content.</p>
+                <h5 class="text-uppercase text-light">{% trans "Footer Content" %}</h5>
+                <p class="text-light">{% trans "Here you can use rows and columns to organize your footer content." %}</p>
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
             <div class="col-md-3 mb-md-0 mb-3">
-                <h5 class="text-uppercase text-light">Links</h5>
+                <h5 class="text-uppercase text-light">{% trans "Links" %}</h5>
                 <ul class="list-unstyled">
                     <li>
                         <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%B7%D0%B8%D0%BE%D0%B3%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0" target="_blank" class="text-light">О физиогномике</a>
                     </li>
             </div>
             <div class="col-md-3 mb-md-0 mb-3">
-                <h5 class="text-uppercase text-light">Links</h5>
+                <h5 class="text-uppercase text-light">{% trans "Links" %}</h5>
                 <ul class="list-unstyled">
                 </ul>
             </div>
