@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-12 14:47+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: main/templates/main/home.html:6
+msgid "Your face is Your character"
+msgstr "Твое лицо твой-характер"
+
+#: main/templates/main/home.html:9
+msgid "Button play"
+msgstr "Плей"
+
+#: main/templates/main/home.html:12 main/templates/main/home.html:90
+msgid "Try for free"
+msgstr "Попробовать бесплатно"
+
+#: main/templates/main/home.html:20
+msgid "FIND LOVE"
+msgstr "Найди любовь"
+
+#: main/templates/main/home.html:22 main/templates/main/home.html:34
+#: main/templates/main/home.html:45 main/templates/main/home.html:57
+#: main/templates/main/home.html:68 main/templates/main/home.html:79
+msgid "Some short clear description"
+msgstr "Какое-то краткое понятное описание"
+
+#: main/templates/main/home.html:24 main/templates/main/home.html:36
+#: main/templates/main/home.html:47 main/templates/main/home.html:59
+#: main/templates/main/home.html:70 main/templates/main/home.html:81
+msgid "Detail"
+msgstr "Подробнее"
+
+#: main/templates/main/home.html:32
+msgid "Find out who your friend is"
+msgstr "Узнай кто твой друг"
+
+#: main/templates/main/home.html:43
+msgid "Pick your assistant"
+msgstr "Подбери помощника"
+
+#: main/templates/main/home.html:55
+msgid "Learn all about man"
+msgstr "Узнай о человеке все"
+
+#: main/templates/main/home.html:66
+msgid "Career guidance"
+msgstr "Профориентация"
+
+#: main/templates/main/home.html:77
+msgid "Team Compatibility"
+msgstr "Совместимость в коллективе"
+
+#: main/templates/main/wrapper.html:31
+msgid "For companies"
+msgstr "Для юрлиц"
+
+#: main/templates/main/wrapper.html:34
+msgid "Signin"
+msgstr "Вход"
+
+#: main/templates/main/wrapper.html:37
+msgid "Signup"
+msgstr "Регистрация"
+
+#: main/templates/main/wrapper.html:41
+msgid "About Us"
+msgstr "О нас"
+
+#: main/templates/main/wrapper.html:44
+msgid "Who we are"
+msgstr "Кто мы такие"
+
+#: main/templates/main/wrapper.html:45
+msgid "What we want to achieve"
+msgstr "Чего мы хотим добиться"
+
+#: main/templates/main/wrapper.html:46
+msgid "Our Team"
+msgstr "Наша команда"
