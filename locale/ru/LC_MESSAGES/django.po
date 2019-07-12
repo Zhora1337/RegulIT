@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 17:42+0300\n"
+"POT-Creation-Date: 2019-07-12 18:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,9 @@ msgid ""
 "We are students and want to learn to earn a lot of money))) Do not judge "
 "strictly this is our first site in Python and generally the first site we "
 "have created."
-msgstr "Мы студенты и хотим учиться зарабатывать много денег))) Не судите строго это наш первый сайт на Python и вообще первый сайт который мы создали."
+msgstr ""
+"Мы студенты и хотим учиться зарабатывать много денег))) Не судите строго это "
+"наш первый сайт на Python и вообще первый сайт который мы создали."
 
 #: main/templates/main/home.html:6
 msgid "Your face is Your character"
@@ -184,11 +186,17 @@ msgstr "Футер контент"
 
 #: main/templates/main/wrapper.html:82
 msgid "Here you can use rows and columns to organize your footer content."
-msgstr "Здесь вы можете использовать строки и столбцы для организации содержимого нижнего колонтитула."
+msgstr ""
+"Здесь вы можете использовать строки и столбцы для организации содержимого "
+"нижнего колонтитула."
 
 #: main/templates/main/wrapper.html:86 main/templates/main/wrapper.html:93
 msgid "Links"
 msgstr "Связи"
+
+#: main/templates/main/wrapper.html:89
+msgid "About physiognomy"
+msgstr "О физиогномике"
 
 #: signin/templates/signin/signin.html:9
 #, fuzzy
