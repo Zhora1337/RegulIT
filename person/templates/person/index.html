@@ -1,4 +1,4 @@
-{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}
+{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %} {% if user.is_active %}
 <div class="container text-center text-white shadow rounded bg-secondary">
     <h1>{% trans "Сhoose your case:" %}</h1>
 </div>
