@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^person/', include('person.urls')),
     url(r'^for_companies/', include('for_companies.urls')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^helper/', include('helper.urls')),
+    url(r'^guidance/', include('guidance.urls')),
+    url(r'^compatibility/', include('compatibility.urls')),   
 ]
