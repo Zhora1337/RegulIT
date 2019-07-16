@@ -1,5 +1,6 @@
 <!DOCTYPE html> {% load i18n %}
 <html lang="ru">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,33 +18,40 @@
 
 <body style="margin:0; background-image: url(https://backgrounddownload.com/wp-content/uploads/2018/09/hexed-background-2.jpg); background-size: cover; background-attachment: fixed">
     <nav class="navbar navbar-expand-lg navbar-light text-center">
-            <a href="/"><img src="/static/main/image/2.png" height="50px" width="250px"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="/"><img src="/static/main/image/2.png" height="50px" width="250px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-        
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">  
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-secondary text-righ" href="/for_companies">{% trans "For companies" %}</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/signin" class="btn btn-secondary text-righ">{% trans "Signin" %}</a>
+                {% if user.is_active %}{% load account %}
+                <li class="nav-item btn btn-secondary"> {% user_display user as user_display %} {% blocktrans %} You're logges as {{ user_display }}{% endblocktrans %}
                 </li>
                 <li class="nav-item">
-                    <a href="/signup" class="btn btn-secondary text-righ">{% trans "Signup" %}</a>
+                    <a href="/accounts/logout/" class="btn btn-secondary text-righ">{% trans "Logout" %}</a>
+                </li> {% else %}
+                <li class="nav-item">
+                    <a href="/accounts/login/" class="btn btn-secondary text-righ">{% trans "Signin" %}</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/accounts/signup/" class="btn btn-secondary text-righ">{% trans "Signup" %}</a>
+                </li>
+
+                {% endif %}
                 <li class="nav-item dropdown">
-                  <a class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {% trans "About Us" %}
                   </a>
-                  <div class="dropdown-menu" data-display="static" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/AboutUs">{% trans "Who we are" %}</a>
-                    <a class="dropdown-item" href="/ourgoal">{% trans "What we want to achieve" %}</a>
-                    <a class="dropdown-item" href="/ourteam">{% trans "Our Team" %}</a>
-                  </div>
+                    <div class="dropdown-menu" data-display="static" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/AboutUs">{% trans "Who we are" %}</a>
+                        <a class="dropdown-item" href="/ourgoal">{% trans "What we want to achieve" %}</a>
+                        <a class="dropdown-item" href="/ourteam">{% trans "Our Team" %}</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">

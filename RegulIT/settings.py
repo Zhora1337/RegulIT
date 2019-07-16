@@ -26,17 +26,24 @@ SECRET_KEY = '7e^6cq_qp9nww(^#)*$ip@4+!20gv3kck8zk%-m%=413+4%@p9'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Application definition
 
 INSTALLED_APPS = [
     'main',
-    'signup',
-    'signin',
     'findlove',
     'friend',
     'person',
+    'helper',
+    'guidance',
+    'compatibility',
     'for_companies',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,7 +51,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # ... include the providers you want to enable:,
 ]
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL = '/accounts/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
@@ -59,6 +79,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'RegulIT.urls'
 
+SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
