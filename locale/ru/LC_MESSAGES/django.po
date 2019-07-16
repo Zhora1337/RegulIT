@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 14:47+0300\n"
+"POT-Creation-Date: 2019-07-12 18:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,57 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: findlove/templates/findlove/index.html:3
+#: friend/templates/friend/index.html:3 person/templates/person/index.html:3
+msgid "Сhoose your case:"
+msgstr "Выберите ваш случай:"
+
+#: findlove/templates/findlove/index.html:11
+msgid "One photo. Cost: 3$"
+msgstr "Одно фото. Стоимость: 200р"
+
+#: findlove/templates/findlove/index.html:13
+#: friend/templates/friend/index.html:12 person/templates/person/index.html:12
+msgid "Upload one file:"
+msgstr "Загрузить один файл:"
+
+#: findlove/templates/findlove/index.html:23
+msgid "Two photos. Cost: 5.5$"
+msgstr "Два фото. Стоимость: 300р"
+
+#: findlove/templates/findlove/index.html:26
+#: findlove/templates/findlove/index.html:51
+#: findlove/templates/findlove/index.html:62
+#: findlove/templates/findlove/index.html:73
+#: friend/templates/friend/index.html:24 friend/templates/friend/index.html:48
+#: friend/templates/friend/index.html:59 friend/templates/friend/index.html:70
+#: person/templates/person/index.html:24 person/templates/person/index.html:48
+#: person/templates/person/index.html:59 person/templates/person/index.html:70
+msgid "Upload your photo:"
+msgstr "Загрузите свое фото:"
+
+#: findlove/templates/findlove/index.html:37
+#: friend/templates/friend/index.html:35 person/templates/person/index.html:35
+msgid "Upload partner photo:"
+msgstr "Загрузить партнерское фото:"
+
+#: findlove/templates/findlove/index.html:48
+msgid "Three photos. Cost: 7.25$"
+msgstr "Три фото. Стоимость: 450"
+
+#: for_companies/templates/for_companies/index.html:3
+msgid "This page will be for companies"
+msgstr "Эта страница будет для компаний"
+
+#: main/templates/main/AboutUs.html:6
+msgid ""
+"We are students and want to learn to earn a lot of money))) Do not judge "
+"strictly this is our first site in Python and generally the first site we "
+"have created."
+msgstr ""
+"Мы студенты и хотим учиться зарабатывать много денег))) Не судите строго это "
+"наш первый сайт на Python и вообще первый сайт который мы создали."
 
 #: main/templates/main/home.html:6
 msgid "Your face is Your character"
@@ -68,30 +119,106 @@ msgstr "Профориентация"
 msgid "Team Compatibility"
 msgstr "Совместимость в коллективе"
 
-#: main/templates/main/wrapper.html:31
+#: main/templates/main/ourgoal.html:6
+msgid "Information about our good purpose is indicated here."
+msgstr "Информация о нашей доброй цели указана здесь."
+
+#: main/templates/main/ourteam.html:9
+msgid "Pecheritsa Georgiy Vitalyevich"
+msgstr "Печерица Георгий Витальевич"
+
+#: main/templates/main/ourteam.html:10 main/templates/main/ourteam.html:15
+#: main/templates/main/ourteam.html:22
+msgid "Programmer."
+msgstr "Программист."
+
+#: main/templates/main/ourteam.html:14
+msgid "Murugov Dmitry Alexandrovich"
+msgstr "Муругов Дмитрий Александрович"
+
+#: main/templates/main/ourteam.html:21
+msgid "Sevalnikov Alexey Sergeevich"
+msgstr "Севальников Алексей Сергеевич"
+
+#: main/templates/main/ourteam.html:26
+msgid "Romanchuk Vitaly Alexandrovich"
+msgstr "Романчук Виталий Александрович"
+
+#: main/templates/main/ourteam.html:27
+msgid "Responsible for the backend."
+msgstr "Ответственный за backend часть."
+
+#: main/templates/main/wrapper.html:30
 msgid "For companies"
 msgstr "Для юрлиц"
 
-#: main/templates/main/wrapper.html:34
+#: main/templates/main/wrapper.html:33
 msgid "Signin"
 msgstr "Вход"
 
-#: main/templates/main/wrapper.html:37
+#: main/templates/main/wrapper.html:36
 msgid "Signup"
 msgstr "Регистрация"
 
-#: main/templates/main/wrapper.html:41
+#: main/templates/main/wrapper.html:40
 msgid "About Us"
 msgstr "О нас"
 
-#: main/templates/main/wrapper.html:44
+#: main/templates/main/wrapper.html:43
 msgid "Who we are"
 msgstr "Кто мы такие"
 
-#: main/templates/main/wrapper.html:45
+#: main/templates/main/wrapper.html:44
 msgid "What we want to achieve"
 msgstr "Чего мы хотим добиться"
 
-#: main/templates/main/wrapper.html:46
+#: main/templates/main/wrapper.html:45
 msgid "Our Team"
 msgstr "Наша команда"
+
+#: main/templates/main/wrapper.html:50
+msgid "Language"
+msgstr "Язык"
+
+#: main/templates/main/wrapper.html:81
+msgid "Footer Content"
+msgstr "Футер контент"
+
+#: main/templates/main/wrapper.html:82
+msgid "Here you can use rows and columns to organize your footer content."
+msgstr ""
+"Здесь вы можете использовать строки и столбцы для организации содержимого "
+"нижнего колонтитула."
+
+#: main/templates/main/wrapper.html:86 main/templates/main/wrapper.html:93
+msgid "Links"
+msgstr "Связи"
+
+#: main/templates/main/wrapper.html:89
+msgid "About physiognomy"
+msgstr "О физиогномике"
+
+#: signin/templates/signin/signin.html:9
+#, fuzzy
+#| msgid "Signin"
+msgid "Sign In"
+msgstr "Вход"
+
+#: signin/templates/signin/signin.html:11
+#: signup/templates/signup/signup.html:10
+msgid "Email address"
+msgstr "Email почта"
+
+#: signin/templates/signin/signin.html:18
+#: signup/templates/signup/signup.html:17
+msgid "Password"
+msgstr "Пароль"
+
+#: signin/templates/signin/signin.html:23
+#: signup/templates/signup/signup.html:22
+msgid "Check me out"
+msgstr "Сохранить меня"
+
+#: signin/templates/signin/signin.html:25
+msgid "Submit"
+msgstr "Отправить"
