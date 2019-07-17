@@ -52,7 +52,7 @@
                         <a class="dropdown-item" href="/ourteam">{% trans "Our Team" %}</a>
                     </div>
                 </li>
-                <form action="{% url 'set_language' %}" method="POST"> {% csrf_token %}
+                <form method="POST"> {% csrf_token %}
                     <input type="hidden" name="next" value="{{ redirect_to }}">
                     <select class="nav-item dropdown" name="language" id="" role="button">
                         {% get_available_languages as LANGUAGES %}
