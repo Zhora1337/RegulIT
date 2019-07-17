@@ -18,7 +18,6 @@ from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^', include('main.urls')),
     url(r'^signup/', include('signup.urls')),
     url(r'^signin/', include('signin.urls')),
@@ -26,6 +25,7 @@ urlpatterns = [
     url(r'^friend/', include('friend.urls')),
     url(r'^person/', include('person.urls')),
     url(r'^for_companies/', include('for_companies.urls')),
+     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
 #urlpatterns =i18n_patterns(
 #   url(r'^', include('main.urls')),
