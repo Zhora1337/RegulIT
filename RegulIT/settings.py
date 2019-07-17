@@ -35,6 +35,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Application definition
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
 
 INSTALLED_APPS = [
     'main',
@@ -56,6 +60,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # ... include the providers you want to enable:,
+
+    'allauth.socialaccount.providers.vk',
 ]
 
 LOGIN_REDIRECT_URL = '/'
