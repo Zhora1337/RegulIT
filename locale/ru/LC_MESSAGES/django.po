@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-12 18:15+0300\n"
+"POT-Creation-Date: 2019-07-14 12:54+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,5 +220,6 @@ msgid "Check me out"
 msgstr "Сохранить меня"
 
 #: signin/templates/signin/signin.html:25
+#: signup/templates/signup/signup.html:24
 msgid "Submit"
 msgstr "Отправить"

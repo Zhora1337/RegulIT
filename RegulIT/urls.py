@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^', include('main.urls')),
     url(r'^findlove/', include('findlove.urls')),
     url(r'^friend/', include('friend.urls')),
@@ -27,3 +29,12 @@ urlpatterns = [
     url(r'^guidance/', include('guidance.urls')),
     url(r'^compatibility/', include('compatibility.urls')),   
 ]
+#urlpatterns =i18n_patterns(
+#   url(r'^', include('main.urls')),
+#    url(r'^signup/', include('signup.urls')),
+#    url(r'^signin/', include('signin.urls')),
+#    url(r'^findlove/', include('findlove.urls')),
+#    url(r'^friend/', include('friend.urls')),
+#    url(r'^person/', include('person.urls')),
+#    url(r'^for_companies/', include('for_companies.urls')),
+#)
