@@ -1,7 +1,7 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}{% load i18n %}
 
 </style>
-<div class="container-fluid d-flex flex-column justify-content-lg-between p-0" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
+<div id="myGifId" class="container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
     <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
         <h2>{% trans "Your face is Your character" %}</h2>
     </div>
@@ -113,5 +113,7 @@
         });
     });
 </script>
+
+<script src="{% static '/js/mainPageStyle.js' %}"></script>
 </div>
 {% endblock %}
