@@ -61,6 +61,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # ... include the providers you want to enable:,
     'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.amazon',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.microsoft',
+    'allauth.socialaccount.providers.paypal',
+    'allauth.socialaccount.providers.twitter',
 ]
 
 LOGIN_REDIRECT_URL = '/'
