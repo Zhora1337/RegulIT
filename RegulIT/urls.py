@@ -23,14 +23,11 @@ urlpatterns = [
     url(r'^friend/', include('friend.urls')),
     url(r'^person/', include('person.urls')),
     url(r'^for_companies/', include('for_companies.urls')),
-<<<<<<< HEAD
     url(r'^accounts/', include('allauth.urls')),
     url(r'^helper/', include('helper.urls')),
     url(r'^guidance/', include('guidance.urls')),
     url(r'^compatibility/', include('compatibility.urls')),   
-=======
      url(r'^i18n/', include('django.conf.urls.i18n')),
->>>>>>> origin/languages
 ]
 #urlpatterns =i18n_patterns(
 #   url(r'^', include('main.urls')),
