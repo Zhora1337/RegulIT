@@ -1,0 +1,24 @@
+{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}{% if user.is_active %}
+<div class="container text-center text-white shadow rounded bg-secondary">
+    <h1>{% trans "Free Try" %}</h1>
+</div>
+<div class="container d-flex justfy-content-between align-items-center flex-wrap">
+
+    <div class="card card-body bg-secondary" style="min-width:50vw;">
+        <h2>{% trans "One photo" %}</h2>
+        <div class="row">
+            <label>{% trans "Upload one file:" %}</label>
+            <input type="file" id="file" name="file" />
+        </div>
+        <div class="row">
+            <span id="output"></span>
+        </div>
+    </div>
+
+</div>
+{% else %}
+<div class="container bg-light">
+    <h1>Приносим свои извинения, но сначала необходимо зарегистрироваться</h1>
+    <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
+</div>
+{% endif %} {% endblock %}

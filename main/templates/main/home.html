@@ -1,7 +1,7 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}{% load i18n %}
 
 </style>
-<div id="myGifId" class="container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
+<div id="myGifId" class="p-3 shadow-lg container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
     <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
         <h2>{% trans "Your face is Your character" %}</h2>
     </div>
@@ -9,111 +9,90 @@
         <a span id="tryButton" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Button play" %}</a>
     </div>
     <div class="container d-inline-flex  align-items-center justify-content-lg-center mb-4">
-        <a href="/scan" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
+        <a href="/freetry" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
     </div>
 </div>
-<div class="container mx-auto">
-    <div class="container-fluid d-flex flex-wrap" style="min-height: 150vh; margin-top:150px; margin-bottom: 150px;">
+<div class="container mx-auto mt-5">
+    <div class="container-fluid d-flex flex-wrap">
         <div class="container-fluid d-flex align-items-between align-content-between flex-wrap justify-content-center">
-            <div class="hex hex-3">
-                <div class="inner">
-                    <h4>{% trans "FIND LOVE" %}</h4>
-                    <hr />
-                    <p>{% trans "Some short clear description" %}</p>
-                    <hr/>
-                    <a class="btn btn-secondary" href="/findlove">{% trans "Detail" %}</a>
+            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
+                <div class="card-header text-center">{% trans "FIND LOVE" %}</div>
+                <img src="{% static '/main/image/love.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+                <div class="card-body">
+                    <p class="card-text">{% trans "Some short clear description" %}</p>
+                    <a href="/findlove" class="btn btn-primary">{% trans "Detail" %}</a>
                 </div>
-                <a href="#"></a>
-                <div class="corner-1"></div>
-                <div class="corner-2"></div>
             </div>
-            <div class="hex hex-2">
-                <div class="inner">
-                    <h4>{% trans "Find out who your friend is" %}</h4>
-                    <hr />
-                    <p>{% trans "Some short clear description" %}</p>
-                    <hr/>
-                    <a class="btn btn-secondary" href="/friend">{% trans "Detail" %}</a>
+            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
+                <div class="card-header text-center">{% trans "Find out who your friend is" %}</div>
+                <img src="{% static '/main/image/friend.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+                <div class="card-body">
+                    <p class="card-text">{% trans "Some short clear description" %}</p>
+                    <a href="/friend" class="btn btn-primary">{% trans "Detail" %}</a>
                 </div>
-                <div class="corner-1"></div>
-                <div class="corner-2"></div>
             </div>
-            <div class="hex hex-1">
-                <div class="inner">
-                    <h4>{% trans "Pick your assistant" %}</h4>
-                    <hr />
-                    <p>{% trans "Some short clear description" %}</p>
-                    <hr/>
-                    <a class="btn btn-secondary" href="/helper">{% trans "Detail" %}</a>
+            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
+                <div class="card-header text-center">{% trans "Pick your assistant" %}</div>
+                <img src="{% static '/main/image/helper.png' %}" class="card-img-top" alt="..." style="min-height: 50%">
+                <div class="card-body">
+                    <p class="card-text">{% trans "Some short clear description" %}</p>
+                    <a href="/helper" class="btn btn-primary">{% trans "Detail" %}</a>
                 </div>
-                <a href="#"></a>
-                <div class="corner-1"></div>
-                <div class="corner-2"></div>
             </div>
-            <div class="hex hex">
-                <div class="inner">
-                    <h4>{% trans "Learn all about man" %}</h4>
-                    <hr />
-                    <p>{% trans "Some short clear description" %}</p>
-                    <hr/>
-                    <a class="btn btn-secondary" href="/person">{% trans "Detail" %}</a>
+            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
+                <div class="card-header text-center">{% trans "Learn all about man" %}</div>
+                <img src="{% static '/main/image/person.png.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+                <div class="card-body">
+                    <p class="card-text">{% trans "Some short clear description" %}</p>
+                    <a href="/person" class="btn btn-primary">{% trans "Detail" %}</a>
                 </div>
-                <div class="corner-1"></div>
-                <div class="corner-2"></div>
             </div>
-            <div class="hex hex-1">
-                <div class="inner">
-                    <h4>{% trans "Career guidance" %}</h4>
-                    <hr />
-                    <p>{% trans "Some short clear description" %}</p>
-                    <hr/>
-                    <a class="btn btn-secondary" href="/guidance">{% trans "Detail" %}</a>
+            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
+                <div class="card-header text-center">{% trans "Career guidance" %}</div>
+                <img src="{% static '/main/image/guidance.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+                <div class="card-body">
+                    <p class="card-text">{% trans "Some short clear description" %}</p>
+                    <a href="/guidance" class="btn btn-primary">{% trans "Detail" %}</a>
                 </div>
-                <div class="corner-1"></div>
-                <div class="corner-2"></div>
             </div>
-            <div class="hex hex-1">
-                <div class="inner">
-                    <h4>{% trans "Team Compatibility" %}</h4>
-                    <hr />
-                    <p>{% trans "Some short clear description" %}</p>
-                    <hr/>
-                    <a class="btn btn-secondary" href="/compatibility">{% trans "Detail" %}</a>
+            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
+                <div class="card-header text-center">{% trans "Team Compatibility" %}</div>
+                <img src="{% static '/main/image/compatibility.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
+                <div class="card-body">
+                    <p class="card-text">{% trans "Some short clear description" %}</p>
+                    <a href="/compatibility" class="btn btn-primary">{% trans "Detail" %}</a>
                 </div>
-                <div class="corner-1"></div>
-                <div class="corner-2"></div>
             </div>
         </div>
     </div>
-</div>
-<div class="container text-center pb-2">
-    <a href="/scan" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
-</div>
-<div class="container text-center pb-2">
-    <span id='cwppButton'></span>
+    <div class="container text-center pb-2">
+        <a href="/freetry" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
+    </div>
+    <div class="container text-center pb-2">
+        <span id='cwppButton'></span>
+        <script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
+        <span id='cwppButton'></span>
+    </div>
     <script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
-    <span id='cwppButton'></span>
-</div>
-<script src='https://www.paypalobjects.com/js/external/connect/api.js'></script>
-<script>
-    paypal.use(['login'], function(login) {
-        login.render({
-            "appid": "AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
-            "authend": "sandbox",
-            "scopes": "email",
-            "containerid": "cwppButton",
-            "responseType": "code",
-            "locale": "ru-ru",
-            "theme": "neutral",
-            "buttonType": "CWP",
-            "buttonShape": "rectangle",
-            "buttonSize": "sm",
-            "fullPage": "true",
-            "returnurl": "REPLACE_WITH_YOUR_RETURN_URL"
+    <script>
+        paypal.use(['login'], function(login) {
+            login.render({
+                "appid": "AW40OpWzKzh98JbodIICoX73Cd35KmoaAMZT43zfoM3fXTwOWXc30pG9eJQO-ci5nXk92BjWwsy-70FxREPLACE_WITH_YOUR_APPLICATION_ID",
+                "authend": "sandbox",
+                "scopes": "email",
+                "containerid": "cwppButton",
+                "responseType": "code",
+                "locale": "ru-ru",
+                "theme": "neutral",
+                "buttonType": "CWP",
+                "buttonShape": "rectangle",
+                "buttonSize": "sm",
+                "fullPage": "true",
+                "returnurl": "REPLACE_WITH_YOUR_RETURN_URL"
+            });
         });
-    });
-</script>
+    </script>
 
-<script src="{% static '/js/mainPageStyle.js' %}"></script>
+    <script src="{% static '/js/mainPageStyle.js' %}"></script>
 </div>
 {% endblock %}

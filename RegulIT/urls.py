@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^guidance/', include('guidance.urls')),
     url(r'^compatibility/', include('compatibility.urls')),   
      url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^freetry/', include('freetry.urls')),
 ]
 #urlpatterns =i18n_patterns(
 #   url(r'^', include('main.urls')),
