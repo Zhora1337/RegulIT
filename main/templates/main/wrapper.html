@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <a class="btn btn-secondary text-righ" href="/for_companies">{% trans "For companies" %}</a>
                 </li>
-                {% if user.is_active %}{% load account %}
+                {% load account %}{% if user.is_active %}
                 <li class="nav-item btn btn-secondary"> {% user_display user as user_display %} {% blocktrans %} You're logges as {{ user_display }}{% endblocktrans %}
                 </li>
                 <li class="nav-item">
