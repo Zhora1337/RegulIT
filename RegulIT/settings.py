@@ -39,8 +39,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
-
 INSTALLED_APPS = [
+    'myprofile',
     'freetry',
     'main',
     'findlove',

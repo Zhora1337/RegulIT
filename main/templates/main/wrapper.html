@@ -17,7 +17,7 @@
 <script src="{% static '/js/jquery.min.js' %}" type="text/javascript"></script>
 
 <body class="bg-white">
-    <nav class="navbar navbar-expand-lg navbar-light text-center">
+    <nav class="bg-light navbar navbar-expand-lg navbar-light text-center">
         <a href="/"><img src="/static/main/image/2.png" height="50px" width="250px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -30,10 +30,14 @@
                     <a class="btn btn-secondary text-righ" href="/for_companies">{% trans "For companies" %}</a>
                 </li>
                 {% load account %}{% if user.is_active %}
-                <li class="nav-item btn btn-secondary"> {% user_display user as user_display %} {% blocktrans %} You're logges as {{ user_display }}{% endblocktrans %}
+                <li class="nav-item"> <a href="/myprofile" class="btn btn-secondary">{% user_display user as user_display %} {% blocktrans %} You're logges as {{ user_display }} with {{ user.get_provider }}{% endblocktrans %}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/accounts/logout/" class="btn btn-secondary text-righ">{% trans "Logout" %}</a>
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %} {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+                        <button class="btn btn-secondary" type="submit">{% trans 'Sign Out' %}</button>
+                    </form>
                 </li> {% else %}
                 <li class="nav-item">
                     <a href="/accounts/login/" class="btn btn-secondary text-righ">{% trans "Signin" %}</a>
