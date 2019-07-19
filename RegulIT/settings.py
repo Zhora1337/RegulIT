@@ -67,6 +67,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.microsoft',
     'allauth.socialaccount.providers.paypal',
     'allauth.socialaccount.providers.twitter',
+
+    'allauth.socialaccount.providers.facebook',
 ]
 
 LOGIN_REDIRECT_URL = '/'
