@@ -41,6 +41,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 
 INSTALLED_APPS = [
+    'result',
     'myprofile',
     'freetry',
     'main',

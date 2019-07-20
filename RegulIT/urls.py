@@ -30,6 +30,7 @@ urlpatterns = [
      url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^freetry/', include('freetry.urls')),
     url(r'^myprofile/', include('myprofile.urls')),
+    url(r'^result/', include('result')),
 ]
 #urlpatterns =i18n_patterns(
 #   url(r'^', include('main.urls')),
