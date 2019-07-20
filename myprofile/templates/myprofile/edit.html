@@ -1,8 +1,8 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}{% if user.is_active %}
 <div class="container text-center text-white shadow rounded bg-secondary pb-5">
     <h1>{% trans "Profile" %}</h1>
-    <form action="/myprofile/" method="POST">
-        {% csrf_token %} {{ user_form }}
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
         <input type="submit" value="save">
     </form>
 </div>
