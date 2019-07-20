@@ -1,8 +1,9 @@
-from django.conf.urls import url, include
+from django.urls import path
 from . import views
+from django.conf.urls import url
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^edit_email/$', views.email, name='email'),
-    url(r'^edit_names/$', views.names, name='names')
+    path('edit/<int:id>/', views.edit),
 ]

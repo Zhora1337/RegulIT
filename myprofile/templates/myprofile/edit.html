@@ -2,8 +2,8 @@
 <div class="container text-center text-white shadow rounded bg-secondary pb-5">
     <h1>{% trans "Profile" %}</h1>
     <form action="/myprofile/" method="POST">
-        {% csrf_token %} {{ form_class }}
-        <input type="submit" class="btn btn-primary" value="{% trans 'Save' %}">
+        {% csrf_token %} {{ user_form }}
+        <input type="submit" value="save">
     </form>
 </div>
 </div>
