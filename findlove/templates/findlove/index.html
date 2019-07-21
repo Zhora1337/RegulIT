@@ -3,9 +3,9 @@
     <h1>{% trans "Сhoose your case:" %}</h1>
 </div>
 <div class="container d-flex justfy-content-between align-items-center flex-wrap">
-    <a href="#collapseExample1" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Photo of your partner/potential partner</a>
-    <a href="#collapseExample2" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Your photo and photo of your partner</a>
-    <a href="#collapseExample3" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Your photo and photo of your potential partners (max 2)r</a>
+    <a href="#collapseExample1" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">{% trans "Photo of your partner/potential partner" %}</a>
+    <a href="#collapseExample2" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">{% trans "Your photo and photo of your partner" %}</a>
+    <a href="#collapseExample3" class="btn btn-primary m-5 flex-fill" style="min-width:25%;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">{% trans "Your photo and photo of your potential partners (max 2)" %}</a>
     <div class="collapse" id="collapseExample1">
         <div class="card card-body bg-secondary" style="min-width:50vw;">
             <h2>{% trans "One photo. Cost: 3$" %}</h2>
@@ -82,8 +82,8 @@
 </div>
 {% else %}
 <div class="container text-center text-white">
-    <h1>Для данной функции необходимо войти в свой аккаунт или зарегестрироваться</h1>
-    <a class="btn btn-primary" href="/accounts/login">Login</a>
-    <a class="btn btn-primary" href="/accounts/signup">Sign Up</a>
+    <h1>{% trans "For this function, you must sign in to your account or sign up." %}</h1>
+    <a class="btn btn-primary" href="/accounts/login">{% trans "Sign In" %}</a>
+    <a class="btn btn-primary" href="/accounts/signup">{% trans "Sign Up" %}</a>
 </div>
 {% endif %} {% endblock %}

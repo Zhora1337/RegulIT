@@ -2,7 +2,7 @@
 <div class="container bg-secondary text-center text-white">
     <h1>{% trans "E-mail Addresses" %}</h1>
     {% if user.emailaddress_set.all %}
-    <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
+    <p>{% trans "The following e-mail addresses are associated with your account:" %}</p>
 
     <form action="{% url 'account_email' %}" class="email_list" method="post">
         {% csrf_token %}
@@ -26,9 +26,9 @@
             {% endfor %}
 
             <div class="buttonHolder">
-                <button class="secondaryAction" type="submit" name="action_primary">{% trans 'Make Primary' %}</button>
-                <button class="secondaryAction" type="submit" name="action_send">{% trans 'Re-send Verification' %}</button>
-                <button class="primaryAction" type="submit" name="action_remove">{% trans 'Remove' %}</button>
+                <button class="secondaryAction" type="submit" name="action_primary">{% trans "Make Primary" %}</button>
+                <button class="secondaryAction" type="submit" name="action_send">{% trans "Re-send Verification" %}</button>
+                <button class="primaryAction" type="submit" name="action_remove">{% trans "Remove" %}</button>
             </div>
 
         </fieldset>
