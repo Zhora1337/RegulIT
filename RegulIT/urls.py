@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^helper/', include('helper.urls')),
     url(r'^guidance/', include('guidance.urls')),
     url(r'^compatibility/', include('compatibility.urls')),   
-     url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^freetry/', include('freetry.urls')),
     url(r'^myprofile/', include('myprofile.urls')),
     url(r'^result/', include('result.urls')),
