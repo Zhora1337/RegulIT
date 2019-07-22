@@ -1,9 +1,11 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}{% if user.is_active %}
 <div class="container text-center text-white shadow rounded bg-secondary pb-5">
     <h1>{% trans "Profile" %}</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %} {{ form1.as_p }} {{form2.as_p}}
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %} {{ form2.as_p }}
         <input type="submit" value="save">
+    </form>
+    <form enctype="multipart/form-data">
     </form>
 </div>
 </div>

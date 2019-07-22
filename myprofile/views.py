@@ -1,10 +1,11 @@
 from django.contrib.auth.models import User
+from .models import UserPhoto
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-
+from django.contrib import messages
 from django.contrib.auth.forms import UserChangeForm
-from .forms import EditProfileForm, RegistrationForm
+from .forms import EditProfileForm, RegistrationForm, EditUserPhoto
 
 
 def index(request):
@@ -29,14 +30,20 @@ def register(request):
             return render(request, '/myprofile/', args)
 
 
-def edit(request):
+def edit(request, username):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
+        form1 = EditProfileForm(request.POST, instance=request.user)
+        form2 = EditUserPhoto(request.POST, request.FILES, instance=request.user.userphoto)
+        if form1.is_valid() and form2.is_valid():
+            request.user.userphoto.user_photo = form2.cleaned_data['user_photo']
+            form1.save()
+            form2.save()
             return HttpResponseRedirect('/myprofile')
     else:
-        form = EditProfileForm(instance=request.user)
+        form1 = EditProfileForm(instance=request.user)
+        form2 = EditUserPhoto(instance=request.user.userphoto)
 
-    return render(request, 'myprofile/edit.html', {'form':form})
-
+    return render(request, 'myprofile/edit.html', {
+        'form1':form1,
+        'form2':form2
+    })

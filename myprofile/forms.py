@@ -1,5 +1,5 @@
 import unicodedata
-
+from .models import UserPhoto
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
@@ -31,10 +31,19 @@ class RegistrationForm(UserCreationForm):
 
         return user
 
-        
+
 class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name')
+        exclude = ('password',)
+
+
+class EditUserPhoto(forms.ModelForm):
+    class Meta:
+        model = UserPhoto
+        fields = ('user_photo',)
+        exclude = ('password',)
+
 
     

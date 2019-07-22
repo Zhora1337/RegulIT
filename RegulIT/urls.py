@@ -32,6 +32,13 @@ urlpatterns = [
     url(r'^myprofile/', include('myprofile.urls')),
     url(r'^result/', include('result.urls')),
 ]
+from django.conf import settings
+from django.conf.urls.static import static
+# ... your normal urlpatterns here
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #urlpatterns =i18n_patterns(
 #   url(r'^', include('main.urls')),
 #    url(r'^signup/', include('signup.urls')),

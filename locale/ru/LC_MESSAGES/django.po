@@ -238,8 +238,8 @@ msgid "For companies"
 msgstr "Для юрлиц"
 
 #: main/templates/main/wrapper.html:33
-msgid "You're logges as"
-msgstr "Вы вошли как"
+msgid "Hello"
+msgstr "Здравствуйте"
 
 #: main/templates/main/wrapper.html:33
 msgid "with"

@@ -30,7 +30,7 @@
                     <a class="btn btn-secondary text-righ" href="/for_companies">{% trans "For companies" %}</a>
                 </li>
                 {% load account %}{% if user.is_active %}
-                <li class="nav-item"> <a href="/myprofile" class="btn btn-secondary">{% user_display user as user_display %} {% trans "You're logges as" %} {{ user_display }} {% trans "with" %} {{ user.get_provider }}</a>
+                <li class="nav-item"> <a href="/myprofile" class="btn btn-secondary">{% trans "Hello" %}, {{user.first_name}}<img src="{{user.userphoto.user_photo.url}}"style="border:50%; width:32px; height: 32px"></a>
                 </li>
                 <li class="nav-item">
                     <form method="post" action="{% url 'account_logout' %}">
@@ -63,15 +63,15 @@
                     </a>
                     <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
                         <form id='lang_en' action='/i18n/setlang/' method='POST'>{% csrf_token %}
-                            <input type='hidden' name='language' value='en'/>
+                            <input type='hidden' name='language' value='en' />
                             <a class="dropdown-item" href='#' title='English' onclick="document.getElementById('lang_en').submit()">
-                            <img src="{% static 'main/image/English.png' %}" alt="English"> English
+                                <img src="{% static 'main/image/English.png' %}" alt="English"> English
                             </a>
                         </form>
                         <form id='lang_ru' action='/i18n/setlang/' method='POST'>{% csrf_token %}
-                            <input type='hidden' name='language' value='ru'/>
+                            <input type='hidden' name='language' value='ru' />
                             <a class="dropdown-item" href='#' title='Russian' onclick="document.getElementById('lang_ru').submit()">
-                            <img src="{% static 'main/image/ru.png' %}" alt="Русский"> Русский
+                                <img src="{% static 'main/image/ru.png' %}" alt="Русский"> Русский
                             </a>
                         </form>
                         <!-- <a class="dropdown-item" href="/fr">
@@ -84,7 +84,7 @@
                             <img src="{% static '/main/image/it.png' %}" alt="Italiano"> Italiano
                         </a> -->
                     </div>
-                </li> 
+                </li>
             </ul>
         </div>
     </nav>
