@@ -15,6 +15,11 @@
         </div>
     </div>
 
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %} {{form}}
+        <input type="submit" value="Save">
+    </form>
+
 </div>
 {% else %}
 <div class="container bg-light">

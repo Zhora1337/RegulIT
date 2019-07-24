@@ -1,0 +1,8 @@
+{% extends 'main/wrapper.html' %}{% load staticfiles %} {% block content %}{% load i18n %}
+<p class="bg-secondary">
+    <form method="POST">
+        {% csrf_token %}
+        <li><b>{{form.as_table}}</b></li>
+        <input type="submit" value="Save">
+    </form>
+</p>{% endblock %}
