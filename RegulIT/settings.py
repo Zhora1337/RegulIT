@@ -44,6 +44,7 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 INSTALLED_APPS = [
     'result',
+    'mail',
     'myprofile',
     'freetry',
     'main',
@@ -176,3 +177,10 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIR = 'static/'
+
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "ya.seva910@yandex.ru"
+EMAIL_HOST_PASSWORD = "ezebig22"
+EMAIL_USE_SSL = True

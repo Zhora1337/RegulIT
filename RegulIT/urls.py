@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^freetry/', include('freetry.urls')),
     url(r'^myprofile/', include('myprofile.urls')),
     url(r'^result/', include('result.urls')),
+    url(r'^mail/', include('mail.urls')),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
