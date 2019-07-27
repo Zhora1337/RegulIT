@@ -22,45 +22,51 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-secondary text-righ" href="/for_companies">{% trans "For companies" %}</a>
-                </li>
+        <div class="collapse navbar-collapse" role="group" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto btn-group">
+                <a class="btn btn-secondary text-righ" href="/for_companies">
+                    <li class="nav-item btn text-white">
+                        {% trans "For companies" %}
+                    </li>
+                </a>
                 {% load account %}{% if user.is_active %}
-                <li class="nav-item"> <a href="/myprofile" class="btn btn-secondary">{% trans "Hello" %}, {{user.first_name}}<img src="{{user.userphoto.user_photo.url}}"style="border:50%; width:32px; height: 32px"></a>
-                </li>
-                <li class="nav-item">
+                <a href="/myprofile" class="btn btn-secondary">
+                    <li class="nav-item btn text-white">{% trans "Hello" %}, {{user.first_name}}<img src="{{user.userphoto.user_photo.url}}" style="border:50%; width:32px; height: 32px">
+                    </li>
+                </a>
+                <li class="btn-group btn btn-secondary nav-item">
                     <form method="post" action="{% url 'account_logout' %}">
                         {% csrf_token %} {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
-                        <button class="btn btn-secondary" type="submit">{% trans 'Sign Out' %}</button>
+                        <button class="btn text-white" type="submit">{% trans 'Sign Out' %}</button>
                     </form>
                 </li> {% else %}
-                <li class="nav-item">
-                    <a href="/accounts/login/" class="btn btn-secondary text-righ">{% trans "Signin" %}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/accounts/signup/" class="btn btn-secondary text-righ">{% trans "Signup" %}</a>
-                </li>
-
+                <a href="/accounts/login/" class="btn btn-secondary text-righ">
+                    <li class="nav-item btn text-white">
+                        {% trans "Signin" %}
+                    </li>
+                </a>
+                <a href="/accounts/signup/" class="btn btn-secondary text-righ">
+                    <li class="nav-item btn text-white">
+                        {% trans "Signup" %}
+                    </li>
+                </a>
                 {% endif %}
-                <li class="nav-item dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </a>
+                <li class="btn-group nav-item dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {% trans "About Us" %}
-                  </a>
+                    </button>
                     <div class="dropdown-menu" data-display="static" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/AboutUs">{% trans "Who we are" %}</a>
                         <a class="dropdown-item" href="/ourgoal">{% trans "What we want to achieve" %}</a>
                         <a class="dropdown-item" href="/ourteam">{% trans "Our Team" %}</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
+                <li class="btn-group nav-item dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle pt-0 pb-0" href="/en" data-toggle="dropdown" aria-expanded="false">
                         <img src="{% static '/main/image/English.png' %}" alt="English"> {% trans "Language" %}
-                    </a>
+                    </button>
                     <div class="dropdown-menu" style="min-width: 150px; position: absolute; transform: translate3d(0px, 32px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
                         <form id='lang_en' action='/i18n/setlang/' method='POST'>{% csrf_token %}
                             <input type='hidden' name='language' value='en' />
