@@ -13,6 +13,10 @@ def index(request):
         if form.is_valid():
             form.photo = form.cleaned_data['photo'] 
             form.save()
+            photo = Photo.objects.latest('id')
+            photo.height = photo.img_stat()[0]
+            photo.width = photo.img_stat()[1]
+            photo.save()
             return HttpResponseRedirect('/freetry/results/')
     else:
         form = PhotoForm()
@@ -28,8 +32,5 @@ def result(request, id):
 
 def show(request):
     photos = Photo.objects.all()
-    for photo in photos:
-        photo.height = photo.img_stat()[0]
-        photo.width = photo.img_stat()[1]
     return render(request, 'freetry/results.html',{'photos':photos})
 
