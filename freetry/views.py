@@ -15,7 +15,7 @@ def index(request):
             form.photo = form.cleaned_data['photo']
             photo = form.save(commit=False)
             print(photo.photo)
-            photo.user = request.user
+            #photo.user = request.user
             photo.save()
             photo.height = photo.img_stat()[0]
             photo.width = photo.img_stat()[1]
@@ -32,6 +32,9 @@ def result(request, id):
 
 
 def show(request):
-    users_photos = Photo.objects.filter(user=request.user)
+    users_photos = Photo.objects.all()
+    for photo in users_photos:
+        if photo.photo == '':
+            photo.photo = 'none.png'
     return render(request, 'freetry/results.html',{'photos':users_photos})
 

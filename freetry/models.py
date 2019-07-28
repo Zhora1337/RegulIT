@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 class Photo(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     height = models.IntegerField(default=0, name='height')
     width = models.IntegerField(default=0, name='width')
     photo = models.ImageField(blank=True, null=True, name='photo')

@@ -1,4 +1,4 @@
-{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}{% if user.is_active %}
+{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}
 <div class="container text-center text-white shadow rounded bg-secondary">
     <h1>{% trans "Free Try" %}</h1>
 </div>
@@ -21,9 +21,7 @@
     </form>
 
 </div>
-{% else %}
 <div class="container bg-light">
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
-</div>
-{% endif %} {% endblock %}
+</div>{% endblock %}
