@@ -1,0 +1,377 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../main/migrations/0001_initial.py	1;"	kind:file	line:1
+0001_initial.py	../myprofile/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_delete_profile.py	../myprofile/migrations/0002_delete_profile.py	1;"	kind:file	line:1
+0002_remove_user_users_key.py	../main/migrations/0002_remove_user_users_key.py	1;"	kind:file	line:1
+0003_auto_20190702_1843.py	../main/migrations/0003_auto_20190702_1843.py	1;"	kind:file	line:1
+0003_profile.py	../myprofile/migrations/0003_profile.py	1;"	kind:file	line:1
+0004_delete_profile.py	../myprofile/migrations/0004_delete_profile.py	1;"	kind:file	line:1
+0004_human.py	../main/migrations/0004_human.py	1;"	kind:file	line:1
+0005_profile.py	../myprofile/migrations/0005_profile.py	1;"	kind:file	line:1
+0005_remove_human_profile_photo.py	../main/migrations/0005_remove_human_profile_photo.py	1;"	kind:file	line:1
+0006_delete_human.py	../main/migrations/0006_delete_human.py	1;"	kind:file	line:1
+0006_profile_birth_date.py	../myprofile/migrations/0006_profile_birth_date.py	1;"	kind:file	line:1
+0007_auto_20190720_1631.py	../myprofile/migrations/0007_auto_20190720_1631.py	1;"	kind:file	line:1
+0008_auto_20190720_1706.py	../myprofile/migrations/0008_auto_20190720_1706.py	1;"	kind:file	line:1
+0009_delete_user.py	../myprofile/migrations/0009_delete_user.py	1;"	kind:file	line:1
+0010_userphoto.py	../myprofile/migrations/0010_userphoto.py	1;"	kind:file	line:1
+0011_delete_userphoto.py	../myprofile/migrations/0011_delete_userphoto.py	1;"	kind:file	line:1
+0012_userphoto.py	../myprofile/migrations/0012_userphoto.py	1;"	kind:file	line:1
+ACCOUNT_AUTHENTICATION_METHOD	../RegulIT/settings.py	/^ACCOUNT_AUTHENTICATION_METHOD = 'email'$/;"	kind:variable	line:41
+ACCOUNT_AUTHENTICATION_METHOD	../RegulIT/settings.py	/^ACCOUNT_AUTHENTICATION_METHOD = ("email")$/;"	kind:variable	line:181
+ACCOUNT_EMAIL_REQUIRED	../RegulIT/settings.py	/^ACCOUNT_EMAIL_REQUIRED = True$/;"	kind:variable	line:39
+ACCOUNT_EMAIL_REQUIRED	../RegulIT/settings.py	/^ACCOUNT_EMAIL_REQUIRED =True$/;"	kind:variable	line:187
+ACCOUNT_EMAIL_VERIFICATION	../RegulIT/settings.py	/^ACCOUNT_EMAIL_VERIFICATION = ("mandatory")$/;"	kind:variable	line:182
+ACCOUNT_LOGOUT_ON_GET	../RegulIT/settings.py	/^ACCOUNT_LOGOUT_ON_GET =False$/;"	kind:variable	line:190
+ACCOUNT_LOGOUT_REDIRECT_URL	../RegulIT/settings.py	/^ACCOUNT_LOGOUT_REDIRECT_URL = '\/'$/;"	kind:variable	line:191
+ACCOUNT_SIGNUP_PASSWORD_VERIFICATION	../RegulIT/settings.py	/^ACCOUNT_SIGNUP_PASSWORD_VERIFICATION  = False$/;"	kind:variable	line:183
+ACCOUNT_UNIQUE_EMAIL	../RegulIT/settings.py	/^ACCOUNT_UNIQUE_EMAIL = True$/;"	kind:variable	line:184
+ACCOUNT_USERNAME_REQUIRED	../RegulIT/settings.py	/^ACCOUNT_USERNAME_REQUIRED = False$/;"	kind:variable	line:185
+ACCOUNT_USERNAME_REQUIRED	../RegulIT/settings.py	/^ACCOUNT_USERNAME_REQUIRED = False$/;"	kind:variable	line:40
+ACCOUNT_USER_MODEL_USERNAME_FIELD	../RegulIT/settings.py	/^ACCOUNT_USER_MODEL_USERNAME_FIELD = None$/;"	kind:variable	line:38
+ALLOWED_HOSTS	../RegulIT/settings.py	/^ALLOWED_HOSTS = ['*']$/;"	kind:variable	line:28
+AUTHENTICATION_BACKENDS	../RegulIT/settings.py	/^AUTHENTICATION_BACKENDS = [$/;"	kind:variable	line:29
+AUTH_PASSWORD_VALIDATORS	../RegulIT/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:134
+AboutUs	../main/views.py	/^def AboutUs(request):$/;"	kind:function	line:18
+BASE_DIR	../RegulIT/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+DATABASES	../RegulIT/settings.py	/^DATABASES = {$/;"	kind:variable	line:123
+DEBUG	../RegulIT/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+EMAIL_BACKEND	../RegulIT/settings.py	/^EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'$/;"	kind:variable	line:85
+EMAIL_CONFIRMATION_SIGNUP	../RegulIT/settings.py	/^EMAIL_CONFIRMATION_SIGNUP = True$/;"	kind:variable	line:186
+EMAIL_USE_TLS	../RegulIT/settings.py	/^EMAIL_USE_TLS = True/;"	kind:variable	line:195
+EditProfileForm	../myprofile/forms.py	/^class EditProfileForm(UserChangeForm):$/;"	kind:class	line:35
+EditUserPhoto	../myprofile/forms.py	/^class EditUserPhoto(forms.ModelForm):$/;"	kind:class	line:42
+FindloveConfig	../findlove/apps.py	/^class FindloveConfig(AppConfig):$/;"	kind:class	line:4
+ForCompaniesConfig	../for_companies/apps.py	/^class ForCompaniesConfig(AppConfig):$/;"	kind:class	line:4
+FreetryConfig	../freetry/apps.py	/^class FreetryConfig(AppConfig):$/;"	kind:class	line:4
+FriendConfig	../friend/apps.py	/^class FriendConfig(AppConfig):$/;"	kind:class	line:4
+HelperConfig	../compatibility/apps.py	/^class HelperConfig(AppConfig):$/;"	kind:class	line:4
+HelperConfig	../guidance/apps.py	/^class HelperConfig(AppConfig):$/;"	kind:class	line:4
+HelperConfig	../helper/apps.py	/^class HelperConfig(AppConfig):$/;"	kind:class	line:4
+INSTALLED_APPS	../RegulIT/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:45
+LANGUAGES	../RegulIT/settings.py	/^LANGUAGES = ($/;"	kind:variable	line:162
+LANGUAGE_CODE	../RegulIT/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:153
+LOCALE_PATHS	../RegulIT/settings.py	/^LOCALE_PATHS = ($/;"	kind:variable	line:167
+LOGIN_REDIRECT_URL	../RegulIT/settings.py	/^LOGIN_REDIRECT_URL = '\/'$/;"	kind:variable	line:188
+LOGIN_REDIRECT_URL	../RegulIT/settings.py	/^LOGIN_REDIRECT_URL = '\/'$/;"	kind:variable	line:79
+LOGIN_URL	../RegulIT/settings.py	/^LOGIN_URL = '\/accounts\/login\/'$/;"	kind:variable	line:83
+LOGOUT_REDIRECT_URL	../RegulIT/settings.py	/^LOGOUT_REDIRECT_URL = '\/'$/;"	kind:variable	line:81
+LOGOUT_URL	../RegulIT/settings.py	/^LOGOUT_URL = '\/'$/;"	kind:variable	line:189
+MEDIA_ROOT	../RegulIT/settings.py	/^MEDIA_ROOT = os.path.join(BASE_DIR, 'media')$/;"	kind:variable	line:178
+MEDIA_URL	../RegulIT/settings.py	/^MEDIA_URL = '\/media\/'$/;"	kind:variable	line:175
+MIDDLEWARE	../RegulIT/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:87
+MailConfig	../mail/apps.py	/^class MailConfig(AppConfig):$/;"	kind:class	line:4
+MainConfig	../main/apps.py	/^class MainConfig(AppConfig):$/;"	kind:class	line:4
+MainView	../main/views.py	/^class MainView(TemplateView):$/;"	kind:class	line:28
+Meta	../myprofile/forms.py	/^    class Meta:$/;"	kind:class	line:12
+Meta	../myprofile/forms.py	/^    class Meta:$/;"	kind:class	line:36
+Meta	../myprofile/forms.py	/^    class Meta:$/;"	kind:class	line:43
+Migration	../main/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:7
+Migration	../main/migrations/0002_remove_user_users_key.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../main/migrations/0003_auto_20190702_1843.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../main/migrations/0004_human.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../main/migrations/0005_remove_human_profile_photo.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../main/migrations/0006_delete_human.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../myprofile/migrations/0002_delete_profile.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0003_profile.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../myprofile/migrations/0004_delete_profile.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0005_profile.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../myprofile/migrations/0006_profile_birth_date.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0007_auto_20190720_1631.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0008_auto_20190720_1706.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0009_delete_user.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0010_userphoto.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0011_delete_userphoto.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+Migration	../myprofile/migrations/0012_userphoto.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+MyprofileConfig	../myprofile/apps.py	/^class MyprofileConfig(AppConfig):$/;"	kind:class	line:4
+PaymentConfig	../payment/apps.py	/^class PaymentConfig(AppConfig):$/;"	kind:class	line:4
+PersonConfig	../person/apps.py	/^class PersonConfig(AppConfig):$/;"	kind:class	line:4
+ROOT_URLCONF	../RegulIT/settings.py	/^ROOT_URLCONF = 'RegulIT.urls'$/;"	kind:variable	line:98
+RegistrationForm	../myprofile/forms.py	/^class RegistrationForm(UserCreationForm):$/;"	kind:class	line:8
+ResultConfig	../result/apps.py	/^class ResultConfig(AppConfig):$/;"	kind:class	line:4
+SECRET_KEY	../RegulIT/settings.py	/^SECRET_KEY = '7e^6cq_qp9nww(^#)*$ip@4+!20gv3kck8zk%-m%=413+4%@p9'$/;"	kind:variable	line:23
+SITE_ID	../RegulIT/settings.py	/^SITE_ID = 1$/;"	kind:variable	line:100
+SOCIALACCOUNT_AUTO_SIGNUP	../RegulIT/settings.py	/^SOCIALACCOUNT_AUTO_SIGNUP = True$/;"	kind:variable	line:193
+SOCIALACCOUNT_AVATAR_SUPPORT	../RegulIT/settings.py	/^SOCIALACCOUNT_AVATAR_SUPPORT = ( 'avatar' in INSTALLED_APPS)$/;"	kind:variable	line:194
+SOCIALACCOUNT_QUERY_EMAIL	../RegulIT/settings.py	/^SOCIALACCOUNT_QUERY_EMAIL = (ACCOUNT_EMAIL_REQUIRED)$/;"	kind:variable	line:192
+STATICFILES_DIR	../RegulIT/settings.py	/^STATICFILES_DIR = 'static\/'$/;"	kind:variable	line:179
+STATICFILES_DIRS	../RegulIT/settings.py	/^STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]$/;"	kind:variable	line:177
+STATIC_URL	../RegulIT/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:174
+TEMPLATES	../RegulIT/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:101
+TIME_ZONE	../RegulIT/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:155
+USE_I18N	../RegulIT/settings.py	/^USE_I18N = True$/;"	kind:variable	line:157
+USE_L10N	../RegulIT/settings.py	/^USE_L10N = True$/;"	kind:variable	line:159
+USE_TZ	../RegulIT/settings.py	/^USE_TZ = True$/;"	kind:variable	line:161
+UserPhoto	../myprofile/models.py	/^class UserPhoto(models.Model):$/;"	kind:class	line:7
+UserPhotoAdmin	../myprofile/admin.py	/^class UserPhotoAdmin(admin.ModelAdmin):$/;"	kind:class	line:4
+WSGI_APPLICATION	../RegulIT/settings.py	/^WSGI_APPLICATION = 'RegulIT.wsgi.application'$/;"	kind:variable	line:117
+__init__.py	../RegulIT/__init__.py	1;"	kind:file	line:1
+__init__.py	../compatibility/__init__.py	1;"	kind:file	line:1
+__init__.py	../compatibility/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../findlove/__init__.py	1;"	kind:file	line:1
+__init__.py	../findlove/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../for_companies/__init__.py	1;"	kind:file	line:1
+__init__.py	../for_companies/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../freetry/__init__.py	1;"	kind:file	line:1
+__init__.py	../freetry/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../friend/__init__.py	1;"	kind:file	line:1
+__init__.py	../friend/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../guidance/__init__.py	1;"	kind:file	line:1
+__init__.py	../guidance/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../helper/__init__.py	1;"	kind:file	line:1
+__init__.py	../helper/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../mail/__init__.py	1;"	kind:file	line:1
+__init__.py	../mail/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../main/__init__.py	1;"	kind:file	line:1
+__init__.py	../main/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../myprofile/__init__.py	1;"	kind:file	line:1
+__init__.py	../myprofile/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../payment/__init__.py	1;"	kind:file	line:1
+__init__.py	../payment/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../person/__init__.py	1;"	kind:file	line:1
+__init__.py	../person/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../result/__init__.py	1;"	kind:file	line:1
+__init__.py	../result/migrations/__init__.py	1;"	kind:file	line:1
+admin.py	../compatibility/admin.py	1;"	kind:file	line:1
+admin.py	../findlove/admin.py	1;"	kind:file	line:1
+admin.py	../for_companies/admin.py	1;"	kind:file	line:1
+admin.py	../freetry/admin.py	1;"	kind:file	line:1
+admin.py	../friend/admin.py	1;"	kind:file	line:1
+admin.py	../guidance/admin.py	1;"	kind:file	line:1
+admin.py	../helper/admin.py	1;"	kind:file	line:1
+admin.py	../mail/admin.py	1;"	kind:file	line:1
+admin.py	../main/admin.py	1;"	kind:file	line:1
+admin.py	../myprofile/admin.py	1;"	kind:file	line:1
+admin.py	../payment/admin.py	1;"	kind:file	line:1
+admin.py	../person/admin.py	1;"	kind:file	line:1
+admin.py	../result/admin.py	1;"	kind:file	line:1
+application	../RegulIT/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../compatibility/apps.py	1;"	kind:file	line:1
+apps.py	../findlove/apps.py	1;"	kind:file	line:1
+apps.py	../for_companies/apps.py	1;"	kind:file	line:1
+apps.py	../freetry/apps.py	1;"	kind:file	line:1
+apps.py	../friend/apps.py	1;"	kind:file	line:1
+apps.py	../guidance/apps.py	1;"	kind:file	line:1
+apps.py	../helper/apps.py	1;"	kind:file	line:1
+apps.py	../mail/apps.py	1;"	kind:file	line:1
+apps.py	../main/apps.py	1;"	kind:file	line:1
+apps.py	../myprofile/apps.py	1;"	kind:file	line:1
+apps.py	../payment/apps.py	1;"	kind:file	line:1
+apps.py	../person/apps.py	1;"	kind:file	line:1
+apps.py	../result/apps.py	1;"	kind:file	line:1
+bind	../RegulIT/gunicorn.conf.py	/^bind = "127.0.0.1:8000"$/;"	kind:variable	line:1
+dependencies	../main/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:11
+dependencies	../main/migrations/0002_remove_user_users_key.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../main/migrations/0003_auto_20190702_1843.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../main/migrations/0004_human.py	/^    dependencies = [$/;"	kind:variable	line:10
+dependencies	../main/migrations/0005_remove_human_profile_photo.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../main/migrations/0006_delete_human.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../myprofile/migrations/0002_delete_profile.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0003_profile.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../myprofile/migrations/0004_delete_profile.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0005_profile.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../myprofile/migrations/0006_profile_birth_date.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0007_auto_20190720_1631.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0008_auto_20190720_1706.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0009_delete_user.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0010_userphoto.py	/^    dependencies = [$/;"	kind:variable	line:10
+dependencies	../myprofile/migrations/0011_delete_userphoto.py	/^    dependencies = [$/;"	kind:variable	line:8
+dependencies	../myprofile/migrations/0012_userphoto.py	/^    dependencies = [$/;"	kind:variable	line:12
+edit	../myprofile/views.py	/^def edit(request, username):$/;"	kind:function	line:33
+email	../myprofile/forms.py	/^    email = forms.EmailField(required=True)$/;"	kind:variable	line:9
+email	../myprofile/views.py	/^def email(request):$/;"	kind:function	line:16
+exclude	../myprofile/forms.py	/^        exclude = ('password',)$/;"	kind:variable	line:39
+exclude	../myprofile/forms.py	/^        exclude = ('password',)$/;"	kind:variable	line:46
+field	../main/migrations/0001_initial.py	/^            field=models.ManyToManyField(help_text='Select user for this photo', to='main.User'),$/;"	kind:variable	line:37
+field	../myprofile/migrations/0006_profile_birth_date.py	/^            field=models.DateField(blank=True, null=True),$/;"	kind:variable	line:16
+field	../myprofile/migrations/0007_auto_20190720_1631.py	/^            field=models.CharField(blank=True, max_length=30),$/;"	kind:variable	line:16
+field	../myprofile/migrations/0007_auto_20190720_1631.py	/^            field=models.CharField(blank=True, max_length=30),$/;"	kind:variable	line:21
+field	../myprofile/migrations/0007_auto_20190720_1631.py	/^            field=models.ImageField(blank=True, upload_to=''),$/;"	kind:variable	line:26
+fields	../main/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:17
+fields	../main/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:25
+fields	../main/migrations/0004_human.py	/^            fields=[$/;"	kind:variable	line:17
+fields	../myprofile/forms.py	/^        fields = ($/;"	kind:variable	line:14
+fields	../myprofile/forms.py	/^        fields = ('first_name', 'last_name')$/;"	kind:variable	line:38
+fields	../myprofile/forms.py	/^        fields = ('user_photo',)$/;"	kind:variable	line:45
+fields	../myprofile/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:19
+fields	../myprofile/migrations/0003_profile.py	/^            fields=[$/;"	kind:variable	line:20
+fields	../myprofile/migrations/0005_profile.py	/^            fields=[$/;"	kind:variable	line:20
+fields	../myprofile/migrations/0008_auto_20190720_1706.py	/^            fields=[$/;"	kind:variable	line:16
+fields	../myprofile/migrations/0010_userphoto.py	/^            fields=[$/;"	kind:variable	line:17
+fields	../myprofile/migrations/0012_userphoto.py	/^            fields=[$/;"	kind:variable	line:20
+forms.py	../myprofile/forms.py	1;"	kind:file	line:1
+get	../main/views.py	/^    def get(self, request):$/;"	kind:member	line:31
+gunicorn.conf.py	../RegulIT/gunicorn.conf.py	1;"	kind:file	line:1
+index	../compatibility/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../findlove/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../for_companies/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../freetry/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../friend/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../guidance/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../helper/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../mail/views.py	/^def index(request):$/;"	kind:function	line:4
+index	../main/views.py	/^def index(request):$/;"	kind:function	line:7
+index	../myprofile/views.py	/^def index(request):$/;"	kind:function	line:11
+index	../person/views.py	/^def index(request):$/;"	kind:function	line:3
+index	../result/views.py	/^def index(request):$/;"	kind:function	line:5
+initial	../main/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:9
+initial	../main/migrations/0004_human.py	/^    initial = True$/;"	kind:variable	line:8
+initial	../myprofile/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:10
+initial	../myprofile/migrations/0003_profile.py	/^    initial = True$/;"	kind:variable	line:10
+initial	../myprofile/migrations/0005_profile.py	/^    initial = True$/;"	kind:variable	line:10
+initial	../myprofile/migrations/0010_userphoto.py	/^    initial = True$/;"	kind:variable	line:8
+initial	../myprofile/migrations/0012_userphoto.py	/^    initial = True$/;"	kind:variable	line:10
+manage.py	../manage.py	1;"	kind:file	line:1
+model	../myprofile/forms.py	/^        model = User$/;"	kind:variable	line:13
+model	../myprofile/forms.py	/^        model = User$/;"	kind:variable	line:37
+model	../myprofile/forms.py	/^        model = UserPhoto$/;"	kind:variable	line:44
+model_name	../main/migrations/0001_initial.py	/^            model_name='photo',$/;"	kind:variable	line:35
+model_name	../main/migrations/0002_remove_user_users_key.py	/^            model_name='user',$/;"	kind:variable	line:14
+model_name	../main/migrations/0003_auto_20190702_1843.py	/^            model_name='photo',$/;"	kind:variable	line:14
+model_name	../main/migrations/0005_remove_human_profile_photo.py	/^            model_name='human',$/;"	kind:variable	line:14
+model_name	../myprofile/migrations/0006_profile_birth_date.py	/^            model_name='profile',$/;"	kind:variable	line:14
+model_name	../myprofile/migrations/0007_auto_20190720_1631.py	/^            model_name='profile',$/;"	kind:variable	line:14
+model_name	../myprofile/migrations/0007_auto_20190720_1631.py	/^            model_name='profile',$/;"	kind:variable	line:19
+model_name	../myprofile/migrations/0007_auto_20190720_1631.py	/^            model_name='profile',$/;"	kind:variable	line:24
+models.py	../compatibility/models.py	1;"	kind:file	line:1
+models.py	../findlove/models.py	1;"	kind:file	line:1
+models.py	../for_companies/models.py	1;"	kind:file	line:1
+models.py	../freetry/models.py	1;"	kind:file	line:1
+models.py	../friend/models.py	1;"	kind:file	line:1
+models.py	../guidance/models.py	1;"	kind:file	line:1
+models.py	../helper/models.py	1;"	kind:file	line:1
+models.py	../mail/models.py	1;"	kind:file	line:1
+models.py	../main/models.py	1;"	kind:file	line:1
+models.py	../myprofile/models.py	1;"	kind:file	line:1
+models.py	../payment/models.py	1;"	kind:file	line:1
+models.py	../person/models.py	1;"	kind:file	line:1
+models.py	../result/models.py	1;"	kind:file	line:1
+name	../compatibility/apps.py	/^    name = 'helper'$/;"	kind:variable	line:5
+name	../findlove/apps.py	/^    name = 'findlove'$/;"	kind:variable	line:5
+name	../for_companies/apps.py	/^    name = 'for_companies'$/;"	kind:variable	line:5
+name	../freetry/apps.py	/^    name = 'freetry'$/;"	kind:variable	line:5
+name	../friend/apps.py	/^    name = 'friend'$/;"	kind:variable	line:5
+name	../guidance/apps.py	/^    name = 'helper'$/;"	kind:variable	line:5
+name	../helper/apps.py	/^    name = 'helper'$/;"	kind:variable	line:5
+name	../mail/apps.py	/^    name = 'mail'$/;"	kind:variable	line:5
+name	../main/apps.py	/^    name = 'main'$/;"	kind:variable	line:5
+name	../main/migrations/0001_initial.py	/^            name='Photo',$/;"	kind:variable	line:16
+name	../main/migrations/0001_initial.py	/^            name='User',$/;"	kind:variable	line:24
+name	../main/migrations/0001_initial.py	/^            name='photo_key',$/;"	kind:variable	line:36
+name	../main/migrations/0002_remove_user_users_key.py	/^            name='users_key',$/;"	kind:variable	line:15
+name	../main/migrations/0003_auto_20190702_1843.py	/^            name='Photo',$/;"	kind:variable	line:18
+name	../main/migrations/0003_auto_20190702_1843.py	/^            name='User',$/;"	kind:variable	line:21
+name	../main/migrations/0003_auto_20190702_1843.py	/^            name='photo_key',$/;"	kind:variable	line:15
+name	../main/migrations/0004_human.py	/^            name='Human',$/;"	kind:variable	line:16
+name	../main/migrations/0005_remove_human_profile_photo.py	/^            name='profile_photo',$/;"	kind:variable	line:15
+name	../main/migrations/0006_delete_human.py	/^            name='Human',$/;"	kind:variable	line:14
+name	../myprofile/apps.py	/^    name = 'myprofile'$/;"	kind:variable	line:5
+name	../myprofile/migrations/0001_initial.py	/^            name='Profile',$/;"	kind:variable	line:18
+name	../myprofile/migrations/0002_delete_profile.py	/^            name='Profile',$/;"	kind:variable	line:14
+name	../myprofile/migrations/0003_profile.py	/^            name='Profile',$/;"	kind:variable	line:19
+name	../myprofile/migrations/0004_delete_profile.py	/^            name='Profile',$/;"	kind:variable	line:14
+name	../myprofile/migrations/0005_profile.py	/^            name='Profile',$/;"	kind:variable	line:19
+name	../myprofile/migrations/0006_profile_birth_date.py	/^            name='birth_date',$/;"	kind:variable	line:15
+name	../myprofile/migrations/0007_auto_20190720_1631.py	/^            name='first_name',$/;"	kind:variable	line:15
+name	../myprofile/migrations/0007_auto_20190720_1631.py	/^            name='last_name',$/;"	kind:variable	line:20
+name	../myprofile/migrations/0007_auto_20190720_1631.py	/^            name='user_photo',$/;"	kind:variable	line:25
+name	../myprofile/migrations/0008_auto_20190720_1706.py	/^            name='Profile',$/;"	kind:variable	line:34
+name	../myprofile/migrations/0008_auto_20190720_1706.py	/^            name='User',$/;"	kind:variable	line:15
+name	../myprofile/migrations/0009_delete_user.py	/^            name='User',$/;"	kind:variable	line:14
+name	../myprofile/migrations/0010_userphoto.py	/^            name='UserPhoto',$/;"	kind:variable	line:16
+name	../myprofile/migrations/0011_delete_userphoto.py	/^            name='UserPhoto',$/;"	kind:variable	line:14
+name	../myprofile/migrations/0012_userphoto.py	/^            name='UserPhoto',$/;"	kind:variable	line:19
+name	../payment/apps.py	/^    name = 'payment'$/;"	kind:variable	line:5
+name	../person/apps.py	/^    name = 'person'$/;"	kind:variable	line:5
+name	../result/apps.py	/^    name = 'result'$/;"	kind:variable	line:5
+operations	../main/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:14
+operations	../main/migrations/0002_remove_user_users_key.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../main/migrations/0003_auto_20190702_1843.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../main/migrations/0004_human.py	/^    operations = [$/;"	kind:variable	line:14
+operations	../main/migrations/0005_remove_human_profile_photo.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../main/migrations/0006_delete_human.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:16
+operations	../myprofile/migrations/0002_delete_profile.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0003_profile.py	/^    operations = [$/;"	kind:variable	line:17
+operations	../myprofile/migrations/0004_delete_profile.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0005_profile.py	/^    operations = [$/;"	kind:variable	line:17
+operations	../myprofile/migrations/0006_profile_birth_date.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0007_auto_20190720_1631.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0008_auto_20190720_1706.py	/^    operations = [$/;"	kind:variable	line:13
+operations	../myprofile/migrations/0009_delete_user.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0010_userphoto.py	/^    operations = [$/;"	kind:variable	line:14
+operations	../myprofile/migrations/0011_delete_userphoto.py	/^    operations = [$/;"	kind:variable	line:12
+operations	../myprofile/migrations/0012_userphoto.py	/^    operations = [$/;"	kind:variable	line:17
+options	../myprofile/migrations/0008_auto_20190720_1706.py	/^            options={$/;"	kind:variable	line:29
+ourgoal	../main/views.py	/^def ourgoal(request):$/;"	kind:function	line:21
+ourteam	../main/views.py	/^def ourteam(request):$/;"	kind:function	line:24
+register	../myprofile/views.py	/^def register(request):$/;"	kind:function	line:20
+save	../myprofile/forms.py	/^    def save(self, commit=True):$/;"	kind:member	line:23
+save_profile	../myprofile/signals.py	/^def save_profile(sender, instance, created, **kwargs):$/;"	kind:function	line:8
+settings.py	../RegulIT/settings.py	1;"	kind:file	line:1
+signals.py	../myprofile/signals.py	1;"	kind:file	line:1
+template_name	../main/views.py	/^    template_name = 'main\/home.html'$/;"	kind:variable	line:29
+tests.py	../compatibility/tests.py	1;"	kind:file	line:1
+tests.py	../findlove/tests.py	1;"	kind:file	line:1
+tests.py	../for_companies/tests.py	1;"	kind:file	line:1
+tests.py	../freetry/tests.py	1;"	kind:file	line:1
+tests.py	../friend/tests.py	1;"	kind:file	line:1
+tests.py	../guidance/tests.py	1;"	kind:file	line:1
+tests.py	../helper/tests.py	1;"	kind:file	line:1
+tests.py	../mail/tests.py	1;"	kind:file	line:1
+tests.py	../main/tests.py	1;"	kind:file	line:1
+tests.py	../myprofile/tests.py	1;"	kind:file	line:1
+tests.py	../payment/tests.py	1;"	kind:file	line:1
+tests.py	../person/tests.py	1;"	kind:file	line:1
+tests.py	../result/tests.py	1;"	kind:file	line:1
+urlpatterns	../RegulIT/urls.py	/^urlpatterns = [$/;"	kind:variable	line:19
+urlpatterns	../compatibility/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../findlove/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../for_companies/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../freetry/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../friend/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../guidance/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../helper/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../mail/urls.py	/^urlpatterns = [$/;"	kind:variable	line:5
+urlpatterns	../main/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../myprofile/urls.py	/^urlpatterns = [$/;"	kind:variable	line:6
+urlpatterns	../person/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urlpatterns	../result/urls.py	/^urlpatterns = [$/;"	kind:variable	line:4
+urls.py	../RegulIT/urls.py	1;"	kind:file	line:1
+urls.py	../compatibility/urls.py	1;"	kind:file	line:1
+urls.py	../findlove/urls.py	1;"	kind:file	line:1
+urls.py	../for_companies/urls.py	1;"	kind:file	line:1
+urls.py	../freetry/urls.py	1;"	kind:file	line:1
+urls.py	../friend/urls.py	1;"	kind:file	line:1
+urls.py	../guidance/urls.py	1;"	kind:file	line:1
+urls.py	../helper/urls.py	1;"	kind:file	line:1
+urls.py	../mail/urls.py	1;"	kind:file	line:1
+urls.py	../main/urls.py	1;"	kind:file	line:1
+urls.py	../myprofile/urls.py	1;"	kind:file	line:1
+urls.py	../person/urls.py	1;"	kind:file	line:1
+urls.py	../result/urls.py	1;"	kind:file	line:1
+user	../RegulIT/gunicorn.conf.py	/^user = "nobody"$/;"	kind:variable	line:3
+user	../myprofile/models.py	/^    user = models.OneToOneField(User, on_delete=models.CASCADE)$/;"	kind:variable	line:8
+user_photo	../myprofile/models.py	/^    user_photo = models.ImageField(default='\/none.png')$/;"	kind:variable	line:9
+views.py	../compatibility/views.py	1;"	kind:file	line:1
+views.py	../findlove/views.py	1;"	kind:file	line:1
+views.py	../for_companies/views.py	1;"	kind:file	line:1
+views.py	../freetry/views.py	1;"	kind:file	line:1
+views.py	../friend/views.py	1;"	kind:file	line:1
+views.py	../guidance/views.py	1;"	kind:file	line:1
+views.py	../helper/views.py	1;"	kind:file	line:1
+views.py	../mail/views.py	1;"	kind:file	line:1
+views.py	../main/views.py	1;"	kind:file	line:1
+views.py	../myprofile/views.py	1;"	kind:file	line:1
+views.py	../payment/views.py	1;"	kind:file	line:1
+views.py	../person/views.py	1;"	kind:file	line:1
+views.py	../result/views.py	1;"	kind:file	line:1
+workers	../RegulIT/gunicorn.conf.py	/^workers = 3$/;"	kind:variable	line:2
+wsgi.py	../RegulIT/wsgi.py	1;"	kind:file	line:1
