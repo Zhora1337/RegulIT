@@ -2,7 +2,7 @@
 <p class="bg-secondary">
     <form method="POST">
         {% csrf_token %} {% for photo in photos %}
-        <li>{{photo.id}}<b>{{photo.height}}</b> | <b>{{photo.width}}</b> <img src="{{photo.photo.url}}"></li>
+        <li>{{photo.id}}<b>{{photo.height}}</b> | <b>{{photo.width}}</b> {{photo.user}}</li>
         {% endfor %}
     </form>
 </p>{% endblock %}
