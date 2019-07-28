@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.forms.models import model_to_dict
 from .models import Photo
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse    
 import os
 
 
@@ -21,7 +22,9 @@ def index(request):
             photo.width = photo.img_stat()[1]
             form.save()
             os.remove(photo.photo.path)
-            return redirect('result', id=photo.id)
+            return JsonResponse({'error': False, 'photo': photo.photo.url, 'width': photo.width})
+        else:
+            return JsonResponse({'error': True, 'errors': form.errors})
     else:
         form = PhotoForm()
     return render(request, 'freetry/index.html',{'form':form})

@@ -3,25 +3,110 @@
     <h1>{% trans "Free Try" %}</h1>
 </div>
 <div class="container d-flex justfy-content-between align-items-center flex-wrap">
+    <style type="text/css">
+        #photodiv {
+          float: left;
+          width: 30%;
+          position: relative;
+          padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        #photo-rect {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: auto;
+        }
+        #priznaki {
+            float: left;
+        }
+        li {
+            list-style-type: none;
+        }
+    </style>
 
-    <div class="card card-body bg-secondary" style="min-width:50vw;">
-        <h2>{% trans "One photo" %}</h2>
-        <div class="row">
-            <label>{% trans "Upload one file:" %}</label>
-            <input type="file" id="file" name="file" />
-        </div>
-        <div class="row">
-            <span id="output"></span>
-        </div>
-    </div>
 
-    <form method='POST' enctype="multipart/form-data">
-        {% csrf_token %} {{form}} {{from.user.as_hidden}}
-        <input type="submit" value="Save">
-    </form>
+   <form 
+    enctype="multipart/form-data"
+    id="id_ajax_upload_form" method="POST"
+    novalidate="">
+      {% csrf_token %}
+      {{ form }} {{from.user.as_hidden}}
+      <input type="submit" />
+   </form>
+   <script 
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript">
+   $(document).ready(function() { 
+    // form upload
+    $('#id_ajax_upload_form').submit(function(e){
+        e.preventDefault();
+        $form = $(this)
+        var formData = new FormData(this);
+        $.ajax({
+            url: window.location.pathname,
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                $('.error').remove();
+                console.log(response)
+                if(response.error){
+                    $.each(response.errors, function(name, error){
+                        error = '<small class="text-muted error">' + error + '</small>'
+                        $form.find('[name=' + name + ']').after(error);
+                    })
+                }
+                else{
+                    if (document.getElementById("photo-rect"))
+                    {
+                        document.getElementById("photo-rect").remove();
+                    }
+
+                    var img = document.createElement("img");
+                    img.id = "photo-rect";
+                    img.setAttribute("src", response.photo);
+                    photodiv.appendChild(img);
+
+                    signs = [3, 4, 57];
+
+                    for (var i = 0; i < signs.length; i++) {
+                        var newLi = document.createElement('li');
+                        var str = i + ": " + signs[i];
+                        if (signs[i] >= 50) {
+                            str = "<b>" + i + ": " + signs[i] + "</b>"
+                        };
+                        newLi.innerHTML = str;
+
+                        list.appendChild(newLi);
+                    }
+                    /*var div = document.createElement("div");
+                    div.id = "n1";
+                    div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение " + response.width;
+                    priznaki.appendChild(div);*/
+                }
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+   });
+    // end
+   </script>
+
+</div>
+
+<div id="photodiv">
+</div>
+
+<div id = "priznaki">
+    <ol id = "list">
+    </ol>
+</div>
 
 </div>
 <div class="container bg-light">
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
 </div>{% endblock %}
+

@@ -15,6 +15,6 @@ class Photo(models.Model):
         else:
             im = Image.open(self.photo.path, mode='r')
             print(im.size)
-        print('called')
-        return im.size
+            print('called')
+            return im.size
         
