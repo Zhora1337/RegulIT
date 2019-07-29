@@ -12,7 +12,6 @@
             width: 100%;
         }
         #photodiv{
-            float: left;
             width: 20%;
         }
         #photo-rect {
@@ -21,16 +20,19 @@
             top: 0;
             width: 100%;
             height: auto;
-            margin-bottom: 100%;
         }
-        
-        .priznaki {
+        .priznaki{
             float: left;
         }
+
         li {
             list-style-type: none;
+            font-size: 16px;
         }
     </style>
+
+<script src="../../static/js/names_script.js"></script>
+
 <div class="container d-flex justfy-content-between align-items-center flex-wrap">
 
     <div id="main">
@@ -63,19 +65,13 @@
                                 $form.find('[name=' + name + ']').after(error);
                             })
                         } else {
-                            
-
-                            //var img = document.createElement("img");
-                            //img.id = "photo-rect";
-                            //img.setAttribute("src", response.photo);
-                            //photodiv.appendChild(img);
 
                             signs = [];
                             signs = JSON.parse(response.width);
 
                             for (var i = 1; i < signs.length; i++) {
                                 var newLi = document.createElement('li');
-                                var str = i + ": " + signs[i];
+                                var str = i + ". " + names[i] + ": " + signs[i];
                                 if (signs[i] >= 50) {
                                     str = "<b>" + str + "</b>"
                                 };
@@ -105,7 +101,7 @@
         // end
     </script>
 
-
+</div>
 
 <script>
     function handleFileSelect(evt) {
@@ -127,7 +123,7 @@
                     }
                 }
                 var span = document.createElement('span');
-                span.innerHTML = ['<img class="thumb" id = "photo-rect" title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                span.innerHTML = ['<img class="thumb"  title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
                 document.getElementById('photodiv').insertBefore(span, null);
             };
         })(f);
@@ -150,7 +146,7 @@
         </ol>
     </div>
 
-</div>
+
 <div class="container bg-light">
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
