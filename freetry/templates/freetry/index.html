@@ -4,122 +4,141 @@
 </div>
 <div class="container d-flex justfy-content-between align-items-center flex-wrap">
     <style type="text/css">
-        #photodiv {
-          float: left;
-          width: 30%;
-          position: relative;
-          padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        .thumb {
+            height: 220px;
+            border: 1px;
+            margin: 10px 5px 0 0;
         }
+        
         #photo-rect {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
         }
+        
         .priznaki {
             float: left;
         }
-
+        
         li {
             list-style-type: none;
         }
     </style>
+    <div id="photodiv">
+        <span id="output"></span>
+    </div>
+    <form enctype="multipart/form-data" id="id_ajax_upload_form" method="POST" novalidate="">
+        {% csrf_token %} {{ form }} {{from.user.as_hidden}}
+        <input type="submit" />
+    </form>
 
+    <div id="photodiv">
+        <span id="output"></span>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // form upload
+            $('#id_ajax_upload_form').submit(function(e) {
+                e.preventDefault();
+                $form = $(this)
+                var formData = new FormData(this);
+                $.ajax({
+                    url: window.location.pathname,
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('.error').remove();
+                        console.log(response)
+                        if (response.error) {
+                            $.each(response.errors, function(name, error) {
+                                error = '<small class="text-muted error">' + error + '</small>'
+                                $form.find('[name=' + name + ']').after(error);
+                            })
+                        } else {
+                            if (document.getElementById("photo-rect")) {
+                                document.getElementById("photo-rect").remove();
+                                $('.photo-li').remove();
+                            }
 
-   <form 
-    enctype="multipart/form-data"
-    id="id_ajax_upload_form" method="POST"
-    novalidate="">
-      {% csrf_token %}
-      {{ form }} {{from.user.as_hidden}}
-      <input type="submit" />
-   </form>
+                            //var img = document.createElement("img");
+                            //img.id = "photo-rect";
+                            //img.setAttribute("src", response.photo);
+                            //photodiv.appendChild(img);
 
-   <script type="text/javascript">
-   $(document).ready(function() { 
-    // form upload
-    $('#id_ajax_upload_form').submit(function(e){
-        e.preventDefault();
-        $form = $(this)
-        var formData = new FormData(this);
-        $.ajax({
-            url: window.location.pathname,
-            type: 'POST',
-            data: formData,
-            success: function (response) {
-                $('.error').remove();
-                console.log(response)
-                if(response.error){
-                    $.each(response.errors, function(name, error){
-                        error = '<small class="text-muted error">' + error + '</small>'
-                        $form.find('[name=' + name + ']').after(error);
-                    })
-                }
-                else{
-                    if (document.getElementById("photo-rect"))
-                    {
-                        document.getElementById("photo-rect").remove();
-                        $('.photo-li').remove();
-                    }
+                            signs = [];
+                            signs = JSON.parse(response.width);
 
-                    var img = document.createElement("img");
-                    img.id = "photo-rect";
-                    img.setAttribute("src", response.photo);
-                    photodiv.appendChild(img);
+                            for (var i = 1; i < signs.length; i++) {
+                                var newLi = document.createElement('li');
+                                var str = i + ": " + signs[i];
+                                if (signs[i] >= 50) {
+                                    str = "<b>" + str + "</b>"
+                                };
+                                newLi.innerHTML = str;
+                                newLi.className = "photo-li";
 
-                    signs = [];
-                    signs = JSON.parse(response.width);
-
-                    for (var i = 1; i < signs.length; i++) {
-                        var newLi = document.createElement('li');
-                        var str = i + ": " + signs[i];
-                        if (signs[i] >= 50) {
-                            str = "<b>" + str + "</b>"
-                        };
-                        newLi.innerHTML = str;
-                        newLi.className = "photo-li";
-                        
-                        if (i <= 22) {
-                            list1.appendChild(newLi);
+                                if (i <= 22) {
+                                    list1.appendChild(newLi);
+                                } else if (i <= 44) {
+                                    list2.appendChild(newLi);
+                                } else {
+                                    list3.appendChild(newLi);
+                                }
+                            }
+                            /*var div = document.createElement("div");
+                            div.id = "n1";
+                            div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение " + response.width;
+                            priznaki.appendChild(div);*/
                         }
-                        else if (i <= 44) {
-                            list2.appendChild(newLi);
-                        }
-                        else {
-                            list3.appendChild(newLi);
-                        }
-                    }
-                    /*var div = document.createElement("div");
-                    div.id = "n1";
-                    div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение " + response.width;
-                    priznaki.appendChild(div);*/
-                }
-            },
-            cache: false,
-            contentType: false,
-            processData: false
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
         });
-    });
-   });
-    // end
-   </script>
+        // end
+    </script>
+
 
 </div>
 
-<div id="photodiv">
-</div>
 
+<script>
+    function handleFileSelect(evt) {
+        var file = evt.target.files; // FileList object
+        var f = file[0];
+        // Only process image files.
+        if (!f.type.match('image.*')) {
+            alert("Image only please....");
+        }
+        var reader = new FileReader();
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+            return function(e) {
+                // Render thumbnail.
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                document.getElementById('output').insertBefore(span, null);
+            };
+        })(f);
+        // Read in the image file as a data URL.
+        reader.readAsDataURL(f);
+    }
+    document.getElementById('id_photo').addEventListener('change', handleFileSelect, false);
+</script>
 <div class="priznaki">
-    <ol id = "list1">
+    <ol id="list1">
     </ol>
 </div>
 <div class="priznaki">
-    <ol id = "list2">
+    <ol id="list2">
     </ol>
 </div>
 <div class="priznaki">
-    <ol id = "list3">
+    <ol id="list3">
     </ol>
 </div>
 
@@ -129,4 +148,3 @@
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
 </div>{% endblock %}
-

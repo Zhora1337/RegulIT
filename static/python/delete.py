@@ -12,6 +12,7 @@ from skimage.feature import hog
 import numpy as np
 import math
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def script(image1, image):
 	
@@ -34,7 +35,7 @@ def script(image1, image):
 
 	#else:
 
-	predictor_model = "C:/shape_predictor_68_face_landmarks.dat" # Модель определения 68 точек на лице
+	predictor_model = os.path.join(BASE_DIR, 'python/shape_predictor_68_face_landmarks.dat') # Модель определения 68 точек на лице
 
 	face_detector = dlib.get_frontal_face_detector()
 

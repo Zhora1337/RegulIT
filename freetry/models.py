@@ -4,8 +4,9 @@ from PIL import Image
 from skimage import io
 import json
 import sys
-sys.path.insert(1, 'C:/Users/GraySnow/Documents/GameMakerStudio2/lockstep-rollback/RegulIT/static/python')
-
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(1, os.path.join(BASE_DIR, 'static/python'))
 import delete
 
 
