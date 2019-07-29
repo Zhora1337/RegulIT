@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 import matplotlib.transforms as mtransforms
 import scriptsVector
 
-def asymmetry(predictor_model,file_name):
-    pose_landmarks=scriptsVector.face_aligner_func(predictor_model,file_name)
+def asymmetry(predictor_model,image1):
+    pose_landmarks=scriptsVector.face_aligner_func(predictor_model,image1)
     i=0
     asymmetry=0
     while i<68:
@@ -33,8 +33,8 @@ def asymmetry(predictor_model,file_name):
     #print(asymmetry)
     return right, left
 
-def nose(predictor_model,file_name,pose_landmarks):
-    im = Image.open(file_name) # Can be many different formats.
+def nose(predictor_model,image1,pose_landmarks):
+    im = Image.open(image1) # Can be many different formats.
     pix = im.load()
     #print('Image Size: '+str(im.size))  # Get the width and hight of the image for iterating over
     limit_y1=round(pose_landmarks.part(27).y)
@@ -60,7 +60,7 @@ def nose(predictor_model,file_name,pose_landmarks):
         # Get the RGBA Value of the a pixel of an image
         #pix[pix_x,y] = (255,255,255)  # Set the RGBA Value of the image (tuple)
         y-=1
-    #im.save(file_name)
+    #im.save(image1)
     sum_avs=sum_avs/counter
     print('sum_avs: '+str(sum_avs))
     
@@ -74,7 +74,7 @@ def nose(predictor_model,file_name,pose_landmarks):
     unstraight=100-straight
     return straight,unstraight
 
-def nose_size(predictor_model,file_name,pose_landmarks):
+def nose_size(predictor_model,image1,pose_landmarks):
     big = 0
     small = 0
     tip=0
@@ -101,9 +101,9 @@ def nose_size(predictor_model,file_name,pose_landmarks):
     
     return big,small,tip
 
-def nose_wings(predictor_model,file_name,pose_landmarks):
+def nose_wings(predictor_model,image1,pose_landmarks):
     nose_wings=0
-    im = Image.open(file_name) # Can be many different formats.
+    im = Image.open(image1) # Can be many different formats.
     pix = im.load()
     a=27
     b=30
@@ -152,14 +152,14 @@ def nose_wings(predictor_model,file_name,pose_landmarks):
         nose_wings=100
     else:
         nose_wings=(maximum-minimal)/0.4
-    im.save(file_name)
+    im.save(image1)
 
     return nose_wings
 
-def hump_nose(predictor_model,file_name,pose_landmarks):
+def hump_nose(predictor_model,image1,pose_landmarks):
 
     hump_nose = 0
-    im = Image.open(file_name) # Can be many different formats.
+    im = Image.open(image1) # Can be many different formats.
     pix = im.load()
     #print('Image Size: '+str(im.size))  # Get the width and hight of the image for iterating over
 
@@ -214,15 +214,15 @@ def hump_nose(predictor_model,file_name,pose_landmarks):
         hump_nose=100
     else:
         hump_nose=(abs(s[0]-s[1]))/0.1
-    #im.save(file_name)
+    #im.save(image1)
 
 
     return hump_nose
 
-def forehead(predictor_model,file_name,pose_landmarks):
+def forehead(predictor_model,image1,pose_landmarks):
     smooth=0
     convex=0
-    im = Image.open(file_name) # Can be many different formats.
+    im = Image.open(image1) # Can be many different formats.
     pix = im.load()
     #print('Image Size: '+str(im.size))  # Get the width and hight of the image for iterating over
     x1=pose_landmarks.part(18).x
@@ -256,14 +256,14 @@ def forehead(predictor_model,file_name,pose_landmarks):
         smooth=100
     convex=100-0
         
-    #im.save(file_name)
+    #im.save(image1)
     return smooth,convex
 
-def eyelids(predictor_model,file_name,pose_landmarks):
+def eyelids(predictor_model,image1,pose_landmarks):
     inside=0
     center=0
     outside=0
-    im = Image.open(file_name) # Can be many different formats.
+    im = Image.open(image1) # Can be many different formats.
     pix = im.load()
     distance_1=scriptsVector.distance(pose_landmarks.part(27).x,pose_landmarks.part(27).y,pose_landmarks.part(0).x,pose_landmarks.part(0).y)
     distance_2=scriptsVector.distance(pose_landmarks.part(27).x,pose_landmarks.part(27).y,pose_landmarks.part(16).x,pose_landmarks.part(16).y)
@@ -303,11 +303,9 @@ def eyelids(predictor_model,file_name,pose_landmarks):
         fig, ax = plt.subplots()
         ax.plot(y_data, average_s_data)
         ax.set_title('Plot of point: ' + str(a+counter))
-        fig.savefig(file_name.replace(".jpg",str(a+counter)+"_.jpg"))
+        fig.savefig(image1.replace(".jpg",str(a+counter)+"_.jpg"))
         counter+=3
-    #im.save(file_name)
-    
-    plt.show()
+    #im.save(image1)
 
 
     """

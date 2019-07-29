@@ -2,9 +2,9 @@ import sys
 import dlib
 import detect
 import detectEugene
-#import detectVector
+import detectVector
 import os
-#import openface
+import openface
 import imageio
 from PIL import Image, ImageDraw
 from skimage import io
@@ -14,7 +14,7 @@ import math
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-def script(image1, image):
+def script(image1, image, file_name):
 	
 
 	ubuntu = True #Эта переменная используется для разработки на Ubuntu. 
@@ -142,30 +142,30 @@ def script(image1, image):
 		priznak[45], priznak[46], priznak[63] = detectEugene.cheekbones(pose_landmarks, image1, prop)
 		print("Скулы выше уровня глаз: ", priznak[45], "Скулы на уровне глаз: ", priznak[46], "Скулы ниже уровня глаз: ", priznak[63])
 		
-		#priznak[1], priznak[2] = detectVector.asymmetry(predictor_model, file_name)
-		#print("Ассиметрия в правую сторону: ", priznak[1], "Ассиметрия в левую сторону: ", priznak[2])
+		priznak[1], priznak[2] = detectVector.asymmetry(predictor_model, file_name)
+		print("Ассиметрия в правую сторону: ", priznak[1], "Ассиметрия в левую сторону: ", priznak[2])
 
 
-		#priznak[48], priznak[65] = detectEugene.earlobe_size(pose_landmarks, image1, prop)
-		#print("Мочка уха большая: ", priznak[48], "Мочка уха маленькая: ", priznak[65])
+		priznak[48], priznak[65] = detectEugene.earlobe_size(pose_landmarks, image1, prop)
+		print("Мочка уха большая: ", priznak[48], "Мочка уха маленькая: ", priznak[65])
 
-		#priznak[62], priznak[39] = detectVector.nose(predictor_model, file_name,pose_landmarks)
-		#print("Прямой нос: ", priznak[62], "Переносица с впадиной: ", priznak[39])
+		priznak[62], priznak[39] = detectVector.nose(predictor_model, file_name,pose_landmarks)
+		print("Прямой нос: ", priznak[62], "Переносица с впадиной: ", priznak[39])
 
-		#priznak[36], priznak[37],priznak[60] = detectVector.nose_size(predictor_model, file_name,pose_landmarks)
-		#print("Нос картошкой: ", priznak[36], "Курносый нос: ", priznak[37], "Кончик носа вниз: ", priznak[60])
+		priznak[36], priznak[37],priznak[60] = detectVector.nose_size(predictor_model, file_name,pose_landmarks)
+		print("Нос картошкой: ", priznak[36], "Курносый нос: ", priznak[37], "Кончик носа вниз: ", priznak[60])
 
-		#priznak[61] = detectVector.nose_wings(predictor_model, file_name,pose_landmarks)
-		#print("Крылья носа очерчены: ", priznak[61])
+		priznak[61] = detectVector.nose_wings(predictor_model, file_name,pose_landmarks)
+		print("Крылья носа очерчены: ", priznak[61])
 
-		#priznak[39] = detectVector.hump_nose(predictor_model, file_name,pose_landmarks)
-		#print("Горбинка на носу: ", priznak[39])
+		priznak[39] = detectVector.hump_nose(predictor_model, file_name,pose_landmarks)
+		print("Горбинка на носу: ", priznak[39])
 
-		#priznak[33],priznak[31] = detectVector.forehead(predictor_model, file_name,pose_landmarks)
-		#print("Прямой лоб : ", priznak[33],"Выпуклый лоб : ", priznak[31])
+		priznak[33],priznak[31] = detectVector.forehead(predictor_model, file_name,pose_landmarks)
+		print("Прямой лоб : ", priznak[33],"Выпуклый лоб : ", priznak[31])
 
-		#priznak[15],priznak[13], priznak[14] = detectVector.eyelids(predictor_model, file_name,pose_landmarks)
-		#print("Веки, закрытые внутри : ", priznak[15],"Веки, закрытые посередине  : ", priznak[13],"Веки, закрытые снаружи  : ", priznak[14])'''
+		priznak[15],priznak[13], priznak[14] = detectVector.eyelids(predictor_model, file_name,pose_landmarks)
+		print("Веки, закрытые внутри : ", priznak[15],"Веки, закрытые посередине  : ", priznak[13],"Веки, закрытые снаружи  : ", priznak[14])
 
 
 

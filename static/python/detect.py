@@ -89,6 +89,7 @@ def eye_posadka(pose_landmarks):
 
 #расчет цвет глаз
 def eye_color(pose_landmarks, im):
+    print(type(im))
     count=((pose_landmarks.part(44).x- pose_landmarks.part(43).x)*(pose_landmarks.part(47).y-pose_landmarks.part(43).y))+((pose_landmarks.part(37).x - pose_landmarks.part(38).x) * (pose_landmarks.part(37).y - pose_landmarks.part(41).y))
     rs=0
     bs=0
