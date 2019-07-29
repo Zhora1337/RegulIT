@@ -2,9 +2,9 @@ import sys
 import dlib
 import detect
 import detectEugene
-#import detectVector
+import detectVector
 import os
-#import openface
+import openface
 import imageio
 from PIL import Image, ImageDraw
 from skimage import io
