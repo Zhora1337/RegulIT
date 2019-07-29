@@ -17,9 +17,10 @@
           width: 100%;
           height: auto;
         }
-        #priznaki {
+        .priznaki {
             float: left;
         }
+
         li {
             list-style-type: none;
         }
@@ -59,6 +60,7 @@
                     if (document.getElementById("photo-rect"))
                     {
                         document.getElementById("photo-rect").remove();
+                        $('.photo-li').remove();
                     }
 
                     var img = document.createElement("img");
@@ -66,17 +68,27 @@
                     img.setAttribute("src", response.photo);
                     photodiv.appendChild(img);
 
-                    signs = [3, 4, 57, response.width];
+                    signs = [];
+                    signs = JSON.parse(response.width);
 
-                    for (var i = 0; i < signs.length; i++) {
+                    for (var i = 1; i < signs.length; i++) {
                         var newLi = document.createElement('li');
                         var str = i + ": " + signs[i];
                         if (signs[i] >= 50) {
-                            str = "<b>" + i + ": " + signs[i] + "</b>"
+                            str = "<b>" + str + "</b>"
                         };
                         newLi.innerHTML = str;
-
-                        list.appendChild(newLi);
+                        newLi.className = "photo-li";
+                        
+                        if (i <= 22) {
+                            list1.appendChild(newLi);
+                        }
+                        else if (i <= 44) {
+                            list2.appendChild(newLi);
+                        }
+                        else {
+                            list3.appendChild(newLi);
+                        }
                     }
                     /*var div = document.createElement("div");
                     div.id = "n1";
@@ -98,10 +110,19 @@
 <div id="photodiv">
 </div>
 
-<div id = "priznaki">
-    <ol id = "list">
+<div class="priznaki">
+    <ol id = "list1">
     </ol>
 </div>
+<div class="priznaki">
+    <ol id = "list2">
+    </ol>
+</div>
+<div class="priznaki">
+    <ol id = "list3">
+    </ol>
+</div>
+
 
 </div>
 <div class="container bg-light">

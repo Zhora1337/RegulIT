@@ -6,6 +6,7 @@ from .models import Photo
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse    
 import os
+import json
 
 
 
@@ -19,7 +20,7 @@ def index(request):
             #photo.user = request.user
             photo.save()
             photo.height = photo.img_stat()[0]
-            photo.width = photo.img_stat()[1]
+            photo.width = json.dumps(photo.img_signs())
             form.save()
             os.remove(photo.photo.path)
             return JsonResponse({'error': False, 'photo': photo.photo.url, 'width': photo.width})
