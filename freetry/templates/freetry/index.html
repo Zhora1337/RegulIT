@@ -1,29 +1,153 @@
-{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}{% if user.is_active %}
+{% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}
 <div class="container text-center text-white shadow rounded bg-secondary">
     <h1>{% trans "Free Try" %}</h1>
 </div>
+    <style type="text/css">
+        .thumb {
+            height: 220px;
+            border: 1px;
+            margin: 10px 5px 0 0;
+        }
+        #main{
+            width: 100%;
+        }
+        #photodiv{
+            width: 20%;
+        }
+        #photo-rect {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
+        }
+        .priznaki{
+            float: left;
+        }
+
+        li {
+            list-style-type: none;
+            font-size: 16px;
+        }
+    </style>
+
+<script src="../../static/js/names_script.js"></script>
+
 <div class="container d-flex justfy-content-between align-items-center flex-wrap">
 
-    <div class="card card-body bg-secondary" style="min-width:50vw;">
-        <h2>{% trans "One photo" %}</h2>
-        <div class="row">
-            <label>{% trans "Upload one file:" %}</label>
-            <input type="file" id="file" name="file" />
-        </div>
-        <div class="row">
-            <span id="output"></span>
-        </div>
+    <div id="main">
+        <form enctype="multipart/form-data" id="id_ajax_upload_form" method="POST" novalidate="">
+            {% csrf_token %} {{ form }} {{from.user.as_hidden}}
+            <input type="submit" />
+        </form>
+    </div>
+    <div id="photodiv">
+        <span id="output"></span>
     </div>
 
-    <form method='POST' enctype="multipart/form-data">
-        {% csrf_token %} {{form}} {{from.user.as_hidden}}
-        <input type="submit" value="Save">
-    </form>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // form upload
+            $('#id_ajax_upload_form').submit(function(e) {
+                e.preventDefault();
+                $form = $(this)
+                var formData = new FormData(this);
+                $.ajax({
+                    url: window.location.pathname,
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('.error').remove();
+                        console.log(response)
+                        if (response.error) {
+                            $.each(response.errors, function(name, error) {
+                                error = '<small class="text-muted error">' + error + '</small>'
+                                $form.find('[name=' + name + ']').after(error);
+                            })
+                        } else {
+
+                            signs = [];
+                            signs = JSON.parse(response.width);
+
+                            for (var i = 1; i < signs.length; i++) {
+                                var newLi = document.createElement('li');
+                                var str = i + ". " + names[i] + ": " + signs[i];
+                                if (signs[i] >= 50) {
+                                    str = "<b>" + str + "</b>"
+                                };
+                                newLi.innerHTML = str;
+                                newLi.className = "photo-li";
+
+                                if (i <= 22) {
+                                    list1.appendChild(newLi);
+                                } else if (i <= 44) {
+                                    list2.appendChild(newLi);
+                                } else {
+                                    list3.appendChild(newLi);
+                                }
+                            }
+                            /*var div = document.createElement("div");
+                            div.id = "n1";
+                            div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение " + response.width;
+                            priznaki.appendChild(div);*/
+                        }
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+        });
+        // end
+    </script>
 
 </div>
-{% else %}
+
+<script>
+    function handleFileSelect(evt) {
+        var file = evt.target.files; // FileList object
+        var f = file[0];
+        // Only process image files.
+        if (!f.type.match('image.*')) {
+            alert("Image only please....");
+        }
+        var reader = new FileReader();
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+            return function(e) {
+                // Render thumbnail.
+                 if (document.getElementById("photo-rect")) {
+                    document.getElementById("photo-rect").remove();
+                    if (document.getElementsByClassName("photo-li")) {
+                        $('.photo-li').remove();
+                    }
+                }
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb"  title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                document.getElementById('photodiv').insertBefore(span, null);
+            };
+        })(f);
+        // Read in the image file as a data URL.
+        reader.readAsDataURL(f);
+    }
+    document.getElementById('id_photo').addEventListener('change', handleFileSelect, false);
+</script>
+
+    <div class="priznaki">
+        <ol id="list1">
+        </ol>
+    </div>
+    <div class="priznaki">
+        <ol id="list2">
+        </ol>
+    </div>
+    <div class="priznaki">
+        <ol id="list3">
+        </ol>
+    </div>
+
+
 <div class="container bg-light">
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
-</div>
-{% endif %} {% endblock %}
+</div>{% endblock %}

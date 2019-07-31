@@ -4,7 +4,9 @@ from django.http import HttpResponseRedirect
 from django.forms.models import model_to_dict
 from .models import Photo
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse    
 import os
+import json
 
 
 
@@ -15,13 +17,17 @@ def index(request):
             form.photo = form.cleaned_data['photo']
             photo = form.save(commit=False)
             print(photo.photo)
-            photo.user = request.user
+            #photo.user = request.user
             photo.save()
+            photo_path = photo.photo.path
+            print(photo_path)
             photo.height = photo.img_stat()[0]
-            photo.width = photo.img_stat()[1]
+            photo.width = json.dumps(photo.img_signs())
             form.save()
             os.remove(photo.photo.path)
-            return redirect('result', id=photo.id)
+            return JsonResponse({'error': False, 'photo': photo.photo.url, 'width': photo.width})
+        else:
+            return JsonResponse({'error': True, 'errors': form.errors})
     else:
         form = PhotoForm()
     return render(request, 'freetry/index.html',{'form':form})
@@ -32,6 +38,9 @@ def result(request, id):
 
 
 def show(request):
-    users_photos = Photo.objects.filter(user=request.user)
+    users_photos = Photo.objects.all()
+    for photo in users_photos:
+        if photo.photo == '':
+            photo.photo = 'none.png'
     return render(request, 'freetry/results.html',{'photos':users_photos})
 
