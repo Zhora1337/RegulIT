@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import PhotoForm, ShowForm
+from .forms import PhotoForm
 from django.http import HttpResponseRedirect
 from django.forms.models import model_to_dict
 from .models import Photo
@@ -21,7 +21,6 @@ def index(request):
             photo.save()
             photo_path = photo.photo.path
             print(photo_path)
-            photo.height = photo.img_stat()[0]
             photo.width = json.dumps(photo.img_signs())
             form.save()
             os.remove(photo.photo.path)
@@ -32,15 +31,4 @@ def index(request):
         form = PhotoForm()
     return render(request, 'freetry/index.html',{'form':form})
 
-def result(request, id):
-    photo = get_object_or_404(Photo, id=id)
-    return render(request, 'freetry/result.html',{'form':photo})
-
-
-def show(request):
-    users_photos = Photo.objects.all()
-    for photo in users_photos:
-        if photo.photo == '':
-            photo.photo = 'none.png'
-    return render(request, 'freetry/results.html',{'photos':users_photos})
 

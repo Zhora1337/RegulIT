@@ -2,34 +2,38 @@
 <div class="container text-center text-white shadow rounded bg-secondary">
     <h1>{% trans "Free Try" %}</h1>
 </div>
-    <style type="text/css">
-        .thumb {
-            height: 220px;
-            border: 1px;
-            margin: 10px 5px 0 0;
-        }
-        #main{
-            width: 100%;
-        }
-        #photodiv{
-            width: 20%;
-        }
-        #photo-rect {
-            position: relative;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: auto;
-        }
-        .priznaki{
-            float: left;
-        }
-
-        li {
-            list-style-type: none;
-            font-size: 16px;
-        }
-    </style>
+<style type="text/css">
+    .thumb {
+        height: 220px;
+        border: 1px;
+        margin: 10px 5px 0 0;
+    }
+    
+    #main {
+        width: 100%;
+    }
+    
+    #photodiv {
+        width: 20%;
+    }
+    
+    #photo-rect {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+    
+    .priznaki {
+        float: left;
+    }
+    
+    li {
+        list-style-type: none;
+        font-size: 16px;
+    }
+</style>
 
 <script src="../../static/js/names_script.js"></script>
 
@@ -52,6 +56,12 @@
                 e.preventDefault();
                 $form = $(this)
                 var formData = new FormData(this);
+                if (document.getElementById('list_1') != null) {
+                    for (var i = 1; i < 66; i++) {
+                        list = document.getElementById("list_" + i);
+                        list.remove()
+                    }
+                }
                 $.ajax({
                     url: window.location.pathname,
                     type: 'POST',
@@ -69,8 +79,10 @@
                             signs = [];
                             signs = JSON.parse(response.width);
 
+
                             for (var i = 1; i < signs.length; i++) {
                                 var newLi = document.createElement('li');
+                                newLi.setAttribute("id", "list_" + i);
                                 var str = i + ". " + names[i] + ": " + signs[i];
                                 if (signs[i] >= 50) {
                                     str = "<b>" + str + "</b>"
@@ -116,14 +128,19 @@
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
-                 if (document.getElementById("photo-rect")) {
+                if (document.getElementById("photo-rect")) {
                     document.getElementById("photo-rect").remove();
                     if (document.getElementsByClassName("photo-li")) {
                         $('.photo-li').remove();
                     }
                 }
+                if (document.getElementById('uploadPhoto') != null) {
+                    prevSpan = document.getElementById('uploadPhoto');
+                    console.log(prevSpan)
+                    prevSpan.remove();
+                }
                 var span = document.createElement('span');
-                span.innerHTML = ['<img class="thumb"  title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                span.innerHTML = ['<img class="thumb" id="uploadPhoto"  title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
                 document.getElementById('photodiv').insertBefore(span, null);
             };
         })(f);
@@ -133,18 +150,18 @@
     document.getElementById('id_photo').addEventListener('change', handleFileSelect, false);
 </script>
 
-    <div class="priznaki">
-        <ol id="list1">
-        </ol>
-    </div>
-    <div class="priznaki">
-        <ol id="list2">
-        </ol>
-    </div>
-    <div class="priznaki">
-        <ol id="list3">
-        </ol>
-    </div>
+<div class="priznaki">
+    <ol id="list1">
+    </ol>
+</div>
+<div class="priznaki">
+    <ol id="list2">
+    </ol>
+</div>
+<div class="priznaki">
+    <ol id="list3">
+    </ol>
+</div>
 
 
 <div class="container bg-light">

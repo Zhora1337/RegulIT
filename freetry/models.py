@@ -12,19 +12,8 @@ import delete
 
 class Photo(models.Model):
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
-    height = models.IntegerField(default=0, name='height')
     width = models.CharField(max_length=1000, name='width')
     photo = models.ImageField(blank=True, null=True, name='photo')
-    
-
-    def img_stat(self):
-        if self.photo.path == None:
-            print('none') 
-        else:
-            im = Image.open(self.photo.path, mode='r')
-            print(im.size)
-            print('called')
-            return im.size
     
     def img_signs(self):
         if self.photo.path == None:

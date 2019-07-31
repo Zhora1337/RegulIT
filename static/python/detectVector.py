@@ -152,7 +152,7 @@ def nose_wings(predictor_model,image1,pose_landmarks):
         nose_wings=100
     else:
         nose_wings=(maximum-minimal)/0.4
-    im.save(image1)
+    #im.save(image1)
 
     return nose_wings
 
@@ -303,7 +303,7 @@ def eyelids(predictor_model,image1,pose_landmarks):
         fig, ax = plt.subplots()
         ax.plot(y_data, average_s_data)
         ax.set_title('Plot of point: ' + str(a+counter))
-        fig.savefig(image1.replace(".jpg",str(a+counter)+"_.jpg"))
+        #fig.savefig(image1.replace(".jpg",str(a+counter)+"_.jpg"))
         counter+=3
     #im.save(image1)
 

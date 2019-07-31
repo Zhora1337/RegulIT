@@ -10,13 +10,3 @@ class PhotoForm(forms.ModelForm):
             'photo',
         )
 
-    
-
-class ShowForm(forms.ModelForm):
-    class Meta:
-        model = Photo
-        fields = (
-            'width',
-            'height',
-        )
-

@@ -27,7 +27,7 @@ def face_aligner_func(predictor_path,face_file_path):
         alignedFace=face_aligner.align(1000,image,face_rect,landmarkIndices=openface.AlignDlib.OUTER_EYES_AND_NOSE)
         cv2.imwrite(face_file_path.replace(".jpg","_aligned.jpg"),alignedFace)
         pose_landmarks = face_pose_predictor(alignedFace, face_rect)
-
+        os.remove(face_file_path.replace(".jpg","_aligned.jpg"))
     return pose_landmarks
 
 def distance(x1,y1,x2,y2):
