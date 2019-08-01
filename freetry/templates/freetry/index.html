@@ -116,8 +116,8 @@
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
-                 if (document.getElementById("photo-rect")) {
-                    document.getElementById("photo-rect").remove();
+                 if (document.getElementsByClassName("thumb")) {
+                    $('.thumb').remove();
                     if (document.getElementsByClassName("photo-li")) {
                         $('.photo-li').remove();
                     }
