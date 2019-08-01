@@ -56,7 +56,7 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = "aregulov@yandex.ru"
 EMAIL_HOST_PASSWORD = "qweasd1122"
 EMAIL_USE_SSL = True
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 INSTALLED_APPS = [
     'result',
