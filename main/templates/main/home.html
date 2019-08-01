@@ -1,15 +1,15 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}{% load i18n %}
 
 </style>
-<div id="myGifId" class="p-3 shadow-lg container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://media0.giphy.com/media/5OPMC6RJKzVYI/giphy.gif); min-height: 100vh; background-size: cover; padding: 0;">
+<div id="myGifId" class="p-3 shadow-lg container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://www.nabilmir.com/starki.gif); min-height: 100vh; background-size: cover; padding: 0;">
     <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
-        <h2>{% trans "Your face is Your character" %}</h2>
+        <h2 id="slogan">{% trans "Your face is Your character" %}</h2>
     </div>
     <div class="container d-inline-flex align-self-center justify-content-lg-center">
-        <a span id="tryButton" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Button play" %}</a>
+        <a href="" id="tryButton" class="play-btn btn " style="border-width:1px;"></a>
     </div>
     <div class="container d-inline-flex  align-items-center justify-content-lg-center mb-4">
-        <a href="/freetry" class="btn btn-warning " style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
+        <a href="/freetry" class="regul-btn btn " style="border-width:1px;">{% trans "Try for free" %}</a>
     </div>
 </div>
 <div class="container mx-auto">

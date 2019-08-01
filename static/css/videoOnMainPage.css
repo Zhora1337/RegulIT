@@ -1,19 +1,67 @@
-#tryButton {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-    height: 70px;
-    background-color: red;
-    border-radius: 25px;
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Blinker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+.menu-btn {
+    font-family: 'Rubik', sans-serif;
+    color: black !important;
+    border-radius: 0;
 }
 
-#tryButton:hover {
-    background-color: rgb(168, 129, 0);
+.menu-btn:hover {
+    color: white;
+    background-color: lightslategray;
+}
+
+.play-btn {
+    width: 6.5em;
+    color: lightblue;
+    height: 6.5em;
+    background-color: inherit;
+    font-size: 2.4em;
+    border-radius: 50%;
+    border-width: 1px !important;
+    border-style: solid;
+    text-align: center;
+    padding: 0;
+    background-image: url(http://zaimfind.ru/themes/light/img/play-button.svg);
+    background-size: cover;
+}
+
+.play-btn:hover {
+    background-color: lightblue;
+    text-decoration: none;
+    color: black;
+}
+
+.regul-btn {
+    font-family: 'Blinker', sans-serif;
+    width: content;
+    color: lightblue;
+    height: content;
+    background-color: inherit;
+    font-size: 2.4em;
+    border-radius: 0;
+    border-width: 1px !important;
+    border-style: solid;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+.regul-btn:hover {
+    background-color: lightblue;
+    text-decoration: none;
+    color: black;
 }
 
 #tryButton p {
     margin: 20px;
+}
+
+#slogan {
+    font-family: 'Blinker', sans-serif;
+    color: lightblue;
+    margin-top: 5%;
+    font-size: 2.7em;
 }
 
 .shadowPage {
