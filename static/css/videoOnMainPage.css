@@ -4,15 +4,18 @@
     align-items: center;
     width: 200px;
     height: 70px;
-    background-color: rgb(255, 196, 0);
+    background-color: red;
     border-radius: 25px;
 }
+
 #tryButton:hover {
     background-color: rgb(168, 129, 0);
 }
+
 #tryButton p {
     margin: 20px;
 }
+
 .shadowPage {
     display: flex;
     flex-direction: column;
@@ -25,11 +28,12 @@
     background: rgb(25, 27, 48);
     opacity: .90;
 }
+
 .youTubeVideo {
     position: absolute;
     top: 25vh;
     z-index: 3;
-    width: 900px; 
+    width: 900px;
     height: 400px;
     opacity: 1;
 }
