@@ -1,20 +1,16 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %} {% block content %}{% load i18n %}
-<div class="container text-center text-white shadow rounded bg-secondary">
+<div class="container text-center product-name">
     <h1>{% trans "Free Try" %}</h1>
 </div>
 <style type="text/css">
     .thumb {
-        height: 220px;
+        height: 256px;
         border: 1px;
-        margin: 10px 5px 0 0;
+        margin: 12px;
     }
     
     #main {
         width: 100%;
-    }
-    
-    #photodiv {
-        width: 20%;
     }
     
     #photo-rect {
@@ -27,6 +23,7 @@
     
     .priznaki {
         float: left;
+        font-family: 'Rubik', sans-serif;
     }
     
     li {
@@ -41,13 +38,20 @@
 
     <div id="main">
         <form enctype="multipart/form-data" id="id_ajax_upload_form" method="POST" novalidate="">
-            {% csrf_token %} {{ form }} {{from.user.as_hidden}}
-            <input type="submit" />
+            <div class="container d-flex justify-content-center">
+                {% csrf_token %} {{ form.as_p }}
+            </div>
+            <div id="photodiv" class="d-flex justify-content-center photo-div">
+                <span id="output">
+                    <img class="thumb" src="{% static 'main/image/none.png' %}">
+                </span>
+            </div>
+            <div class="container d-flex justify-content-center">
+                <input type="submit" class="send-btn btn" value="{% trans 'Send'%}" />
+            </div>
         </form>
     </div>
-    <div id="photodiv">
-        <span id="output"></span>
-    </div>
+
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -112,59 +116,56 @@
         });
         // end
     </script>
-
-</div>
-
-<script>
-    function handleFileSelect(evt) {
-        var file = evt.target.files; // FileList object
-        var f = file[0];
-        // Only process image files.
-        if (!f.type.match('image.*')) {
-            alert("Image only please....");
-        }
-        var reader = new FileReader();
-        // Closure to capture the file information.
-        reader.onload = (function(theFile) {
-            return function(e) {
-                // Render thumbnail.
-                if (document.getElementsByClassName("thumb")) {
-                    $('.thumb').remove();
-                    if (document.getElementsByClassName("photo-li")) {
-                        $('.photo-li').remove();
+    <script>
+        function handleFileSelect(evt) {
+            var file = evt.target.files; // FileList object
+            var f = file[0];
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                alert("Image only please....");
+            }
+            var reader = new FileReader();
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+                return function(e) {
+                    // Render thumbnail.
+                    if (document.getElementsByClassName("thumb")) {
+                        $('.thumb').remove();
+                        if (document.getElementsByClassName("photo-li")) {
+                            $('.photo-li').remove();
+                        }
                     }
-                }
-                if (document.getElementById('uploadPhoto') != null) {
-                    prevSpan = document.getElementById('uploadPhoto');
-                    console.log(prevSpan)
-                    prevSpan.remove();
-                }
-                var span = document.createElement('span');
-                span.innerHTML = ['<img class="thumb" id="uploadPhoto"  title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
-                document.getElementById('photodiv').insertBefore(span, null);
-            };
-        })(f);
-        // Read in the image file as a data URL.
-        reader.readAsDataURL(f);
-    }
-    document.getElementById('id_photo').addEventListener('change', handleFileSelect, false);
-</script>
-
-<div class="priznaki">
-    <ol id="list1">
-    </ol>
+                    if (document.getElementById('uploadPhoto') != null) {
+                        prevSpan = document.getElementById('uploadPhoto');
+                        console.log(prevSpan)
+                        prevSpan.remove();
+                    }
+                    var span = document.createElement('span');
+                    span.innerHTML = ['<img class="thumb" id="uploadPhoto"  title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
+                    document.getElementById('photodiv').insertBefore(span, null);
+                };
+            })(f);
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f);
+        }
+        document.getElementById('id_photo').addEventListener('change', handleFileSelect, false);
+    </script>
+    <div class="container d-flex">
+        <div class="priznaki flex-fill">
+            <ol id="list1">
+            </ol>
+        </div>
+        <div class="priznaki flex-fill">
+            <ol id="list2">
+            </ol>
+        </div>
+        <div class="priznaki flex-fill">
+            <ol id="list3">
+            </ol>
+        </div>
+    </div>
 </div>
-<div class="priznaki">
-    <ol id="list2">
-    </ol>
-</div>
-<div class="priznaki">
-    <ol id="list3">
-    </ol>
-</div>
-
-
-<div class="container bg-light">
+<!--<div class="container bg-light">
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
-</div>{% endblock %}
+</div>-->{% endblock %}

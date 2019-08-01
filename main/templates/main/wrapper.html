@@ -19,7 +19,7 @@
 <script src="{% static '/js/inputfile.js' %}" type="text/javascript"></script>
 <script src="{% static '/js/jquery.min.js' %}" type="text/javascript"></script>
 
-<body class="bg-white">
+<body class="bg-light">
     <nav class="bg-light navbar navbar-expand-lg navbar-light text-center">
         <a href="/"><img src="/static/main/image/2.png" height="50px" width="250px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,32 +28,32 @@
         <div class="collapse navbar-collapse" role="group" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto btn-group">
                 <a class="btn menu-btn " href="/for_companies">
-                    <li class="nav-item btn">
+                    <li class="nav-item">
                         {% trans "For companies" %}
                     </li>
                 </a>
                 {% load account %}{% if user.is_active %}
                 <a href="/myprofile" class="btn menu-btn ">
-                    <li class="nav-item btn">{% trans "Hello" %}, {{user.first_name}}<img src="{{user.userphoto.user_photo.url}}" style="border-radius:50%; width:24px; height: 24px">
+                    <li class="nav-item">{% trans "Hello" %}, {{user.first_name}}<img src="{{user.userphoto.user_photo.url}}" style="border-radius:50%; width:32px; height: 32px">
                     </li>
                 </a>
-                <a href="{% url 'account_logout' %}" class="btn menu-btn">
-                    <li class="btn nav-item">
+                <a href="{% url 'account_logout' %}" class="menu-btn">
+                    <li class="nav-item">
                         {% trans 'Sign Out' %}
                         <!--<form method="post" action="{% url 'account_logout' %}">
                         {% csrf_token %} {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
-                        <button class="btn" type="submit">{% trans 'Sign Out' %}</button>
+                        <button class="btn" type="submit"></button>
                     </form>-->
                     </li>
-                </a>{% else %}
+                </a> {% else %}
                 <a href="/accounts/login/" class="btn menu-btn">
-                    <li class="nav-item btn">
+                    <li class="nav-item">
                         {% trans "Signin" %}
                     </li>
                 </a>
                 <a href="/accounts/signup/" class="btn menu-btn">
-                    <li class="nav-item btn">
+                    <li class="nav-item">
                         {% trans "Signup" %}
                     </li>
                 </a>

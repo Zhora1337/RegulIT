@@ -3,13 +3,33 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 .menu-btn {
     font-family: 'Rubik', sans-serif;
-    color: black !important;
+    color: black;
     border-radius: 0;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-name {
+    font-family: 'Blinker', sans-serif;
+    color: black;
+    font-size: 3.2em;
 }
 
 .menu-btn:hover {
     color: white;
-    background-color: lightslategray;
+    background-color: black;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.photo-div {
+    display: flex;
+    height: 270px;
+    width: auto;
+    border-radius: 0;
+    align-content: center;
 }
 
 .play-btn {
@@ -47,10 +67,53 @@
     padding: 15px 30px;
 }
 
+footer {
+    background: black;
+}
+
 .regul-btn:hover {
     background-color: lightblue;
     text-decoration: none;
     color: black;
+}
+
+.send-btn:hover {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+}
+
+#id_ajax_upload_form>div p label {
+    margin-top: 5%;
+    font-family: 'Rubik', sans-serif;
+    color: black;
+    font-size: 1.5em;
+    padding: 15px 30px;
+}
+
+#id_photo {
+    font-family: 'Rubik', sans-serif;
+    width: content;
+    color: black;
+    height: content;
+    background-color: inherit;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+.send-btn {
+    font-family: 'Rubik', sans-serif;
+    width: content;
+    color: black;
+    height: content;
+    background-color: inherit;
+    font-size: 1.5em;
+    border-radius: 0;
+    border-width: 1px !important;
+    border-style: solid;
+    text-align: center;
+    padding: 15px 30px;
 }
 
 #tryButton p {
