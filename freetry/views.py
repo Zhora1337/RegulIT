@@ -19,6 +19,8 @@ def index(request):
             print(photo.photo)
             #photo.user = request.user
             photo.save()
+            photo_path = photo.photo.path
+            print(photo_path)
             photo.height = photo.img_stat()[0]
             photo.width = json.dumps(photo.img_signs())
             form.save()

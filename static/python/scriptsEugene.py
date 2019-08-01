@@ -218,7 +218,7 @@ class Ear(object):
 
     # The class "constructor" - It actually an initializer 
 		def __init__(self, pose, image, scale, pose_number1 = 1, pose_number2 = 28):
-
+			
 			# Создание точкек Ушей
 			dir_ = point_direction(pose.part(pose_number2).x, pose.part(pose_number2).y, pose.part(pose_number1).x, pose.part(pose_number1).y)
 
@@ -230,7 +230,6 @@ class Ear(object):
 
 			x = pose.part(pose_number1).x +  length * lendir_x
 			y = pose.part(pose_number1).y +  length * lendir_y
-
 			r, g, b = image.getpixel((x, y))
 			color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
 

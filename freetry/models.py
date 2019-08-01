@@ -30,12 +30,13 @@ class Photo(models.Model):
         if self.photo.path == None:
             print('none') 
         else:
+            image_path = self.photo.path
             image1 = Image.open(self.photo.path, mode='r')
             image = io.imread(self.photo.path)
             signs = []
             for i in range(0, 66):
                 signs.append(0)
-            signs = delete.script(image1, image)
+            signs = delete.script(image1, image, image_path)
             
         print('called')
         return signs
