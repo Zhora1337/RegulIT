@@ -27,6 +27,12 @@
             </button>
         <div class="collapse navbar-collapse" role="group" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto btn-group">
+                {% if user.is_superuser %}
+                <a class="btn menu-btn " href="/admin">
+                    <li class="nav-item">
+                        {% trans "Admin" %}
+                    </li>
+                </a>{% endif %}
                 <a class="btn menu-btn " href="/for_companies">
                     <li class="nav-item">
                         {% trans "For companies" %}
