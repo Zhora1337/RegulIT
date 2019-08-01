@@ -128,13 +128,8 @@
         reader.onload = (function(theFile) {
             return function(e) {
                 // Render thumbnail.
-<<<<<<< HEAD
-                if (document.getElementById("photo-rect")) {
-                    document.getElementById("photo-rect").remove();
-=======
-                 if (document.getElementsByClassName("thumb")) {
+                if (document.getElementsByClassName("thumb")) {
                     $('.thumb').remove();
->>>>>>> noSignIn
                     if (document.getElementsByClassName("photo-li")) {
                         $('.photo-li').remove();
                     }
