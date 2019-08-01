@@ -49,16 +49,23 @@
             <div class="container d-flex justify-content-center">
                 <input type="submit" class="send-btn btn" value="{% trans 'Send'%}" />
             </div>
+            <div class="container d-flex justify-content-center">
+                <div id="for_spinner">
+                </div>
+            </div>
         </form>
     </div>
 
 
     <script type="text/javascript">
         $(document).ready(function() {
+
             // form upload
             $('#id_ajax_upload_form').submit(function(e) {
                 e.preventDefault();
                 $form = $(this)
+                var spinner_div = document.getElementById('for_spinner');
+                spinner_div.innerHTML = ['<div class="spinner-border" id="spinner" role="status"></div>'].join('');
                 var formData = new FormData(this);
                 if (document.getElementById('list_1') != null) {
                     for (var i = 1; i < 66; i++) {
@@ -106,6 +113,8 @@
                             div.id = "n1";
                             div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение " + response.width;
                             priznaki.appendChild(div);*/
+                            var spinner = document.getElementById('spinner');
+                            spinner.remove();
                         }
                     },
                     cache: false,
