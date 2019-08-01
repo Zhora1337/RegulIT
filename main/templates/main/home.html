@@ -1,72 +1,84 @@
 {% extends "main/wrapper.html" %} {% load staticfiles %}{% block content %}{% load i18n %}
 
 </style>
-<div id="myGifId" class="p-3 shadow-lg container-fluid d-flex flex-column align-items-center justify-content-lg-between p-0 myGif" style="background-image: url(https://www.nabilmir.com/starki.gif); min-height: 100vh; background-size: cover; padding: 0;">
-    <div class="container d-inline-flex align-self-start justify-content-lg-center text-white mt-3">
+<div id="myGifId" class="d-flex flex-column justify-content-around align-items-center shadow-lg container-fluid p-0 myGif" style="background-image: url(https://www.nabilmir.com/starki.gif); min-height: 100vh; background-size: cover; padding: 0;">
+    <div class="">
         <h2 id="slogan">{% trans "Your face is Your character" %}</h2>
     </div>
-    <div class="container d-inline-flex align-self-center justify-content-lg-center">
+    <div class="">
         <a id="tryButton" class="play-btn btn " style="border-width:1px;"></a>
     </div>
-    <div class="container d-inline-flex  align-items-center justify-content-lg-center mb-4">
+    <div class="">
         <a href="/freetry" class="regul-btn btn " style="border-width:1px;">{% trans "Try for free" %}</a>
     </div>
 </div>
 <div class="container mx-auto">
     <div class="container-fluid d-flex flex-wrap">
         <div class="container-fluid d-flex align-items-between align-content-between flex-wrap justify-content-center">
-            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
-                <div class="card-header text-center">{% trans "FIND LOVE" %}</div>
-                <img src="{% static '/main/image/love.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
-                <div class="card-body">
-                    <p class="card-text">{% trans "Some short clear description" %}</p>
-                    <a href="/findlove" class="btn btn-primary">{% trans "Detail" %}</a>
+            <div class="container d-flex shadow-lg flex-wrap justify-content-between mt-5 mb-5">
+                <div class="col-12 col-md-5 text-center">
+                    <img src="{% static '/main/image/love.png' %}" style="height: 30vh">
+                </div>
+                <div class="col-12 col-md-5 text-center" style="width:50%">
+                    <h1 class="product-name">{% trans "Find love" %}</h1>
+                    <p class="lead">{% trans "Some short clear description" %}</p>
+                    <p class="mt-3"><a href="/findlove" class="btn menu-btn">{% trans "Detail" %}<i class="fas fa-angle-right"></i></a></p>
                 </div>
             </div>
-            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
-                <div class="card-header text-center">{% trans "Find out who your friend is" %}</div>
-                <img src="{% static '/main/image/friend.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
-                <div class="card-body">
-                    <p class="card-text">{% trans "Some short clear description" %}</p>
-                    <a href="/friend" class="btn btn-primary">{% trans "Detail" %}</a>
+            <div class="container d-flex shadow-lg flex-wrap justify-content-between mb-5">
+                <div class="col-12 col-md-5 text-center" style="width:50%">
+                    <h1 class="product-name">{% trans "Find out who your friend is" %}</h1>
+                    <p class="lead">{% trans "Some short clear description" %}</p>
+                    <p class="mt-3"><a href="/friend" class="btn menu-btn">{% trans "Detail" %}<i class="fas fa-angle-right"></i></a></p>
+                </div>
+                <div class="col-12 col-md-5 text-center">
+                    <img src="{% static '/main/image/friend.png' %}" style="height: 30vh">
                 </div>
             </div>
-            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
-                <div class="card-header text-center">{% trans "Pick your assistant" %}</div>
-                <img src="{% static '/main/image/helper.png' %}" class="card-img-top" alt="..." style="min-height: 50%">
-                <div class="card-body">
-                    <p class="card-text">{% trans "Some short clear description" %}</p>
-                    <a href="/helper" class="btn btn-primary">{% trans "Detail" %}</a>
+            <div class="container d-flex shadow-lg flex-wrap justify-content-between mb-5">
+                <div class="col-12 col-md-5 text-center">
+                    <img src="{% static '/main/image/helper.png' %}" style="height: 30vh">
+                </div>
+                <div class="col-12 col-md-5 text-center" style="width:50%">
+                    <h1 class="product-name">{% trans "Pick your assistant" %}</h1>
+                    <p class="lead">{% trans "Some short clear description" %}</p>
+                    <p class="mt-3"><a href="/helper" class="btn menu-btn">{% trans "Detail" %}<i class="fas fa-angle-right"></i></a></p>
                 </div>
             </div>
-            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
-                <div class="card-header text-center">{% trans "Learn all about man" %}</div>
-                <img src="{% static '/main/image/person.png.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
-                <div class="card-body">
-                    <p class="card-text">{% trans "Some short clear description" %}</p>
-                    <a href="/person" class="btn btn-primary">{% trans "Detail" %}</a>
+            <div class="container d-flex shadow-lg flex-wrap justify-content-between mb-5">
+                <div class="col-12 col-md-5 text-center" style="width:50%">
+                    <h1 class="product-name">{% trans "Learn all about man" %}</h1>
+                    <p class="lead">{% trans "Some short clear description" %}</p>
+                    <p class="mt-3"><a href="/person" class="btn menu-btn">{% trans "Detail" %}<i class="fas fa-angle-right"></i></a></p>
+                </div>
+                <div class="col-12 col-md-5 text-center">
+                    <img src="{% static '/main/image/person.png.png' %}" style="height: 30vh">
                 </div>
             </div>
-            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
-                <div class="card-header text-center">{% trans "Career guidance" %}</div>
-                <img src="{% static '/main/image/guidance.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
-                <div class="card-body">
-                    <p class="card-text">{% trans "Some short clear description" %}</p>
-                    <a href="/guidance" class="btn btn-primary">{% trans "Detail" %}</a>
+            <div class="container d-flex shadow-lg flex-wrap justify-content-between mb-5">
+                <div class="col-12 col-md-5 text-center">
+                    <img src="{% static '/main/image/guidance.png' %}" style="height: 30vh">
+                </div>
+                <div class="col-12 col-md-5 text-center" style="width:50%">
+                    <h1 class="product-name">{% trans "Career guidance" %}</h1>
+                    <p class="lead">{% trans "Some short clear description" %}</p>
+                    <p class="mt-3"><a href="/guidance" class="btn menu-btn">{% trans "Detail" %}<i class="fas fa-angle-right"></i></a></p>
                 </div>
             </div>
-            <div class="card m-3 p-1 bg-light shadow" style="width: 25rem;">
-                <div class="card-header text-center">{% trans "Team Compatibility" %}</div>
-                <img src="{% static '/main/image/compatibility.png' %}" class="card-img-top" alt="..." style="max-height: 50%;">
-                <div class="card-body">
-                    <p class="card-text">{% trans "Some short clear description" %}</p>
-                    <a href="/compatibility" class="btn btn-primary">{% trans "Detail" %}</a>
+            <div class="container d-flex shadow-lg flex-wrap justify-content-between mb-5">
+                <div class="col-12 col-md-5 text-center" style="width:50%">
+                    <h1 class="product-name">{% trans "Team Compatibility" %}</h1>
+                    <p class="lead">{% trans "Some short clear description" %}</p>
+                    <p class="mt-3"><a href="/compatibility/" class="btn menu-btn">{% trans "Detail" %}<i class="fas fa-angle-right"></i></a></p>
+                </div>
+                <div class="col-12 col-md-5 text-center">
+                    <img src="{% static '/main/image/compatibility.png' %}" style="height: 30vh">
                 </div>
             </div>
         </div>
     </div>
-    <div class="container text-center pb-2">
-        <a href="/freetry" class="btn btn-warning size" style="width:320px; font-size:22px; height:80px; text-align: center; padding:25px; border-radius: 32px;">{% trans "Try for free" %}</a>
+    <div class="container d-flex justify-content-center">
+        <a href="/freetry" class="btn menu-btn" style="margin:20px; width:260px; font-size: 2.4em;">{% trans "Try for free" %}</a>
     </div>
     <script src="{% static '/js/mainPageStyle.js' %}"></script>
 </div>

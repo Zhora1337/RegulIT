@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Blinker&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+.label,
+p {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5em;
+}
+
 .menu-btn {
     font-family: 'Rubik', sans-serif;
     color: black;
@@ -125,6 +131,8 @@ footer {
     color: lightblue;
     margin-top: 5%;
     font-size: 2.7em;
+    text-align: center;
+    padding: 20px 0;
 }
 
 .shadowPage {

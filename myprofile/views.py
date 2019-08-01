@@ -14,7 +14,7 @@ def index(request):
 
 
 def email(request):
-    return render(request, 'myprofile/edit_emal.html')
+    return render(request, 'myprofile/edit_email.html')
 
 
 def register(request):
