@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'guidance',
     'compatibility',
     'for_companies',
+    'promocode',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
