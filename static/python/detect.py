@@ -4,9 +4,14 @@ import math
 def d(x1, x2, y1, y2):
     return math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
 
+
 def lined(x,y,x1, y1, x2, y2):
     return y-((((x-x1)*(y2-y1))/(x2-x1))+y1)
 
+
+# Средняя переменная f. e. (37, 0, 100)
+def clamp(val, small, big):
+    return max(small, min(val, big))
 
 # расчет Верхняя губа с галочкой и Прямая верхняя губа
 def lips_gal(pose_landmarks, prop):
@@ -120,6 +125,12 @@ def eye_color(pose_landmarks, im):
     kar=(rs-bs)+(rs-gs)
     if kar > 100: kar = 100
     ser=100-(abs(gs-rs)+abs(bs-bs))
+
+    gol = clamp(gol, 0, 100)
+    zel = clamp(zel, 0, 100)
+    kar = clamp(kar, 0, 100)
+    ser = clamp(ser, 0, 100)
+
     return (gol,zel,kar,ser)
 
 # расчет Большой и маленький подбородок

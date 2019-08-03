@@ -127,8 +127,8 @@ def script(image1, image, file_name):
 		priznak[10], priznak[11] = detectEugene.eyebrows_height(pose_landmarks, image1, prop)
 		print("Тонкие брови: ", priznak[10], " Широкие брови: ", priznak[11])
 
-		priznak[51], priznak[52], priznak[53] = detectEugene.face_form(pose_landmarks, image1, prop)
-		print("Вода на: ", priznak[51]," Ветер на: ", priznak[52]," Огонь на: ", priznak[53])
+		priznak[51], priznak[52], priznak[54] = detectEugene.face_form(pose_landmarks, image1, prop)
+		print("Вода на: ", priznak[51]," Ветер на: ", priznak[52]," Огонь на: ", priznak[54])
 
 		priznak[57], priznak[58], priznak[59] = detectEugene.worlds(pose_landmarks, image1, prop)
 		print("Духовный : ", priznak[57]," Материальный: ", priznak[58]," Семейный: ", priznak[59])
@@ -145,10 +145,9 @@ def script(image1, image, file_name):
 		priznak[1], priznak[2] = detectVector.asymmetry(predictor_model, file_name)
 		print("Ассиметрия в правую сторону: ", priznak[1], "Ассиметрия в левую сторону: ", priznak[2])
 
-
 		priznak[48], priznak[65] = detectEugene.earlobe_size(pose_landmarks, image1, prop)
 		print("Мочка уха большая: ", priznak[48], "Мочка уха маленькая: ", priznak[65])
-
+		
 		priznak[62], priznak[39] = detectVector.nose(predictor_model, file_name,pose_landmarks)
 		print("Прямой нос: ", priznak[62], "Переносица с впадиной: ", priznak[39])
 
@@ -166,7 +165,6 @@ def script(image1, image, file_name):
 
 		priznak[15],priznak[13], priznak[14] = detectVector.eyelids(predictor_model, file_name,pose_landmarks)
 		print("Веки, закрытые внутри : ", priznak[15],"Веки, закрытые посередине  : ", priznak[13],"Веки, закрытые снаружи  : ", priznak[14])
-
 
 
 		priznak = [ '%.1f' % elem for elem in priznak ]

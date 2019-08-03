@@ -29,7 +29,7 @@ def mean_square(a, b, c = -1):
 	else:
 		return math.sqrt((a**2 + b**2 + c**2) / 3)
 
-# Средняя переменная f. e. (0, 37, 100)
+# Средняя переменная f. e. (37, 0, 100) = 37
 def clamp(val, small, big):
     return max(small, min(val, big))
 
@@ -129,27 +129,58 @@ class Forehead(object):
     # The class "constructor" - It actually an initializer 
 		def __init__(self, pose, image, scale, pose_number, length = 15):
 
-			# Создание точкек лба
-			imageBW = black_white(image, 140)
 			dir_ = point_direction(pose.part(29).x, pose.part(29).y, pose.part(27).x, pose.part(27).y)
+			lendir_x, lendir_y = lengthDir(scale/50, dir_)
 
-			lendir_x, lendir_y = lengthDir(scale/100, dir_)
+			length = length
+			summ = 0
+			average = 0
 
 			x = pose.part(pose_number).x +  length * lendir_x
 			y = pose.part(pose_number).y +  length * lendir_y
+			r, g, b = image.getpixel((x, y))
+			color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
 
-			while True:
+			while (length!=0):
+				try:
+					r, g, b = image.getpixel((x, y))
+				except:
+					x = 0
+					y = 0
+					length = 0
+					break
+				color1_rgb = sRGBColor(r / 255, g / 255, b / 255);
+
+				# Convert from RGB to Lab Color Space
+				color1_lab = convert_color(color1_rgb, LabColor);
+
+				# Convert from RGB to Lab Color Space
+				color2_lab = convert_color(color2_rgb, LabColor);
+
+				# Find the color difference
+				delta_e = delta_e_cie2000(color1_lab, color2_lab);
+
+				if pose_number == 27:
+					print("The difference between the 2 color = ", delta_e)
+
+				if length > 18:
+					if (delta_e > average * 4 + 3) or (delta_e > 7):
+						break
+
+				summ += delta_e
+				length += 1
+				average = summ / length
+
+				color2_rgb = color1_rgb
+
 				x += lendir_x
 				y += lendir_y
-				length += 1
 
-				white = imageBW.getpixel((x, y))
-				if white == 0:
-					break
 
 			self.x = x
 			self.y = y
 			self.length = length
+
 
 
 

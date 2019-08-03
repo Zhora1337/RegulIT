@@ -120,7 +120,7 @@ def forhead_form(pose, image, scale):
 	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale)
 
 	if forhead[1].length == 16:
-		return "Лоб слишком тёмный, либо неправильный угол", "", ""
+		return 101, 101, 101
 
 	distance = lined(forhead[1].x, forhead[1].y, forhead[0].x, forhead[0].y, forhead[2].x, forhead[2].y) * 100/scale
 
@@ -137,10 +137,10 @@ def forhead_height(pose, image, scale):
 	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale)
 
 	if forhead[1].length == 16:
-		return "Лоб слишком тёмный", "Лоб слишком тёмный"
+		return 101, 101
 
 	height = forhead[1].length
-	wide = clamp((height - 50) * 1.67, 0, 100)
+	wide = clamp((height - 20) * 2.5, 0, 100)
 	narrow = 100 - wide
 
 	return wide, narrow
@@ -216,7 +216,7 @@ def ear_size(pose, image, scale):
 
 
 	if (ear[0].x == 0) or (ear[1].x == 0):
-		return "Фотография неправильного формата", "Фотография неправильного формата"
+		return 101, 101
 
 	length = max(length1, length2)
 
@@ -231,7 +231,7 @@ def ear_check(pose, image, scale):
 	ear[0], ear[1], ear[2], ear[3] = add_ear(pose, image, scale)
 
 	if max(ear[0].length, ear[2].length, ear[1].length, ear[3].length) == 0:
-		return "Неправильный ракурс", "Неправильный ракурс"
+		return 101, 101
 
 	result = clamp((max(ear[0].length - ear[2].length, ear[1].length - ear[3].length) - 5) * 3.3, 0, 100)
 
@@ -257,7 +257,7 @@ def earlobe_size(pose, image, scale):
 		length2 = ear_height(pose, image, scale, x, y) 
 
 	if max(ear[0].length, ear[2].length, ear[1].length, ear[3].length) == 0:
-		return "Неправильный ракурс", "Неправильный ракурс"
+		return 101, 101
 
 	result = clamp(max(length1, length2) * 4.8, 0, 100)
 
