@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-21 16:07+0300\n"
+"POT-Creation-Date: 2019-08-04 18:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,6 @@ msgstr "Ваше фото и фото ваших потенциальных па
 
 #: compatibility/templates/helper/index.html:12
 #: findlove/templates/findlove/index.html:13
-#: freetry/templates/freetry/index.html:10
 #: friend/templates/friend/index.html:12
 #: guidance/templates/helper/index.html:12
 #: helper/templates/helper/index.html:12 person/templates/person/index.html:12
@@ -108,7 +107,7 @@ msgstr "Вход"
 
 #: compatibility/templates/helper/index.html:84
 #: findlove/templates/findlove/index.html:87
-#: freetry/templates/freetry/index.html:22
+#: freetry/templates/freetry/index.html:180
 #: friend/templates/friend/index.html:84
 #: guidance/templates/helper/index.html:84
 #: helper/templates/helper/index.html:84 person/templates/person/index.html:84
@@ -137,15 +136,22 @@ msgstr "Эта страница будет для компаний"
 msgid "Free Try"
 msgstr "Попробовать бесплатно"
 
-#: freetry/templates/freetry/index.html:8
-#, fuzzy
-#| msgid "One photo. Cost: 3$"
-msgid "One photo"
-msgstr "Одно фото. Стоимость: 200р"
+#: freetry/templates/freetry/index.html:50
+#: freetry/templates/freetry/index.html:185
+msgid "Send"
+msgstr "Отправить"
 
-#: freetry/templates/freetry/index.html:21
+#: freetry/templates/freetry/index.html:179
 msgid "We apologize, but first you need to sign up"
 msgstr "Приносим свои извинения, но сначала нужно зарегистрироваться"
+
+#: freetry/templates/freetry/index.html:184
+msgid "We will send the promotional code to you in the mail"
+msgstr "Мы отправим ваш промокод на вашу электронную почту."
+
+#: mail/templates/mail/index.html:2
+msgid "Promotional code sent!"
+msgstr "Промокод отправлен. Проверьте свою электронную почту, которую вы указали при регистрации."
 
 #: main/templates/main/AboutUs.html:6
 msgid ""
@@ -160,47 +166,43 @@ msgstr ""
 msgid "Your face is Your character"
 msgstr "Твое лицо твой-характер"
 
-#: main/templates/main/home.html:9
-msgid "Button play"
-msgstr "Плей"
-
-#: main/templates/main/home.html:12 main/templates/main/home.html:69
+#: main/templates/main/home.html:12 main/templates/main/home.html:81
 msgid "Try for free"
 msgstr "Попробовать бесплатно"
 
-#: main/templates/main/home.html:19
-msgid "FIND LOVE"
+#: main/templates/main/home.html:23
+msgid "Find love"
 msgstr "Найди любовь"
 
-#: main/templates/main/home.html:22 main/templates/main/home.html:30
-#: main/templates/main/home.html:38 main/templates/main/home.html:46
-#: main/templates/main/home.html:54 main/templates/main/home.html:62
+#: main/templates/main/home.html:24 main/templates/main/home.html:31
+#: main/templates/main/home.html:44 main/templates/main/home.html:51
+#: main/templates/main/home.html:64 main/templates/main/home.html:71
 msgid "Some short clear description"
 msgstr "Какое-то краткое понятное описание"
 
-#: main/templates/main/home.html:23 main/templates/main/home.html:31
-#: main/templates/main/home.html:39 main/templates/main/home.html:47
-#: main/templates/main/home.html:55 main/templates/main/home.html:63
+#: main/templates/main/home.html:25 main/templates/main/home.html:32
+#: main/templates/main/home.html:45 main/templates/main/home.html:52
+#: main/templates/main/home.html:65 main/templates/main/home.html:72
 msgid "Detail"
 msgstr "Подробнее"
 
-#: main/templates/main/home.html:27
+#: main/templates/main/home.html:30
 msgid "Find out who your friend is"
 msgstr "Узнай кто твой друг"
 
-#: main/templates/main/home.html:35
+#: main/templates/main/home.html:43
 msgid "Pick your assistant"
 msgstr "Подбери помощника"
 
-#: main/templates/main/home.html:43
+#: main/templates/main/home.html:50
 msgid "Learn all about man"
 msgstr "Узнай о человеке все"
 
-#: main/templates/main/home.html:51
+#: main/templates/main/home.html:63
 msgid "Career guidance"
 msgstr "Профориентация"
 
-#: main/templates/main/home.html:59
+#: main/templates/main/home.html:70
 msgid "Team Compatibility"
 msgstr "Совместимость в коллективе"
 
@@ -233,69 +235,75 @@ msgstr "Романчук Виталий Александрович"
 msgid "Responsible for the backend."
 msgstr "Ответственный за backend часть."
 
-#: main/templates/main/wrapper.html:30
+#: main/templates/main/wrapper.html:33
+msgid "Admin"
+msgstr "Админ"
+
+#: main/templates/main/wrapper.html:38
 msgid "For companies"
 msgstr "Для юрлиц"
 
-#: main/templates/main/wrapper.html:33
+#: main/templates/main/wrapper.html:43
 msgid "Hello"
 msgstr "Здравствуйте"
 
-#: main/templates/main/wrapper.html:33
-msgid "with"
-msgstr "с"
-
-#: main/templates/main/wrapper.html:39
+#: main/templates/main/wrapper.html:48
 #, fuzzy
 #| msgid "Signup"
 msgid "Sign Out"
 msgstr "Регистрация"
 
-#: main/templates/main/wrapper.html:43
+#: main/templates/main/wrapper.html:58
 msgid "Signin"
 msgstr "Вход"
 
-#: main/templates/main/wrapper.html:46
+#: main/templates/main/wrapper.html:63
 msgid "Signup"
 msgstr "Регистрация"
 
-#: main/templates/main/wrapper.html:52
+#: main/templates/main/wrapper.html:70
 msgid "About Us"
 msgstr "О нас"
 
-#: main/templates/main/wrapper.html:55
+#: main/templates/main/wrapper.html:73
 msgid "Who we are"
 msgstr "Кто мы такие"
 
-#: main/templates/main/wrapper.html:56
+#: main/templates/main/wrapper.html:74
 msgid "What we want to achieve"
 msgstr "Чего мы хотим добиться"
 
-#: main/templates/main/wrapper.html:57
+#: main/templates/main/wrapper.html:75
 msgid "Our Team"
 msgstr "Наша команда"
 
-#: main/templates/main/wrapper.html:62
+#: main/templates/main/wrapper.html:80
 msgid "Language"
 msgstr "Язык"
 
-#: main/templates/main/wrapper.html:102
+#: main/templates/main/wrapper.html:120
 msgid "Footer Content"
 msgstr "Футер контент"
 
-#: main/templates/main/wrapper.html:103
+#: main/templates/main/wrapper.html:121
 msgid "Here you can use rows and columns to organize your footer content."
 msgstr ""
 "Здесь вы можете использовать строки и столбцы для организации содержимого "
 "нижнего колонтитула."
 
-#: main/templates/main/wrapper.html:107 main/templates/main/wrapper.html:114
+#: main/templates/main/wrapper.html:125 main/templates/main/wrapper.html:132
 msgid "Links"
 msgstr "Связи"
 
-#: main/templates/main/wrapper.html:110
+#: main/templates/main/wrapper.html:128
 msgid "About physiognomy"
 msgstr "О физиогномике"
+
+#: myprofile/templates/myprofile/edit.html:3
+#: myprofile/templates/myprofile/edit_photo.html:3
+#: myprofile/templates/myprofile/index.html:3
+msgid "Profile"
+msgstr "Профиль"
 
 #: myprofile/templates/myprofile/edit_email.html:1
 msgid "Account"
@@ -343,7 +351,7 @@ msgstr "Внимание:"
 msgid ""
 "You currently do not have any e-mail address set up. You should really add "
 "an e-mail address so you can receive notifications, reset your password, etc."
-msgstr ""
+msgstr "В настоящее время у вас нет настроенного адреса электронной почты. Вы действительно должны добавить адрес электронной почты, чтобы вы могли получать уведомления, сбросить пароль и т.д."
 
 #: myprofile/templates/myprofile/edit_email.html:43
 #, fuzzy
@@ -351,38 +359,50 @@ msgstr ""
 msgid "Add E-mail Address"
 msgstr "Email почта"
 
-#: myprofile/templates/myprofile/edit_email.html:47
+#: myprofile/templates/myprofile/edit_email.html:48
 msgid "Add E-mail"
 msgstr "Добавить Email"
 
-#: myprofile/templates/myprofile/edit_email.html:53
+#: myprofile/templates/myprofile/edit_email.html:55
 msgid "Do you really want to remove the selected e-mail address?"
 msgstr "Вы действительно хотите удалить выбранный адрес электронной почты?"
 
-#: myprofile/templates/myprofile/edit_names.html:3
-#: myprofile/templates/myprofile/index.html:3
-msgid "Profile"
-msgstr "Профиль"
+#: myprofile/templates/myprofile/index.html:11
+msgid "Username"
+msgstr "Имя пользователя"
 
-#: myprofile/templates/myprofile/edit_names.html:6
-msgid "Save"
-msgstr "Сохранить"
-
-#: myprofile/templates/myprofile/index.html:6
+#: myprofile/templates/myprofile/index.html:17
 msgid "First name"
 msgstr "Имя"
 
-#: myprofile/templates/myprofile/index.html:12
+#: myprofile/templates/myprofile/index.html:23
 msgid "Last name"
 msgstr "Фамилия"
 
-#: myprofile/templates/myprofile/index.html:18
+#: myprofile/templates/myprofile/index.html:29
 msgid "Email"
 msgstr "Email"
 
-#: myprofile/templates/myprofile/index.html:24
+#: myprofile/templates/myprofile/index.html:35
 msgid "Edit"
 msgstr "Изменить"
+
+#, fuzzy
+#~| msgid "One photo. Cost: 3$"
+#~ msgid "One photo"
+#~ msgstr "Одно фото. Стоимость: 200р"
+
+#~ msgid "Button play"
+#~ msgstr "Плей"
+
+#~ msgid "FIND LOVE"
+#~ msgstr "Найди любовь"
+
+#~ msgid "with"
+#~ msgstr "с"
+
+#~ msgid "Save"
+#~ msgstr "Сохранить"
 
 #~ msgid " You're logges as %(user_display)s with %(user.get_provider)s"
 #~ msgstr "Вы вошли как"

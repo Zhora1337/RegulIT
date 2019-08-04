@@ -174,7 +174,14 @@
         </div>
     </div>
 </div>
-<!--<div class="container bg-light">
+{% if user.is_active %}
+<div class="container bg-light">
+    <h1>{% trans "We will send the promotional code to you in the mail" %}</h1>
+    <a href="/mail" class="btn btn-primary">{% trans 'Send' %}</a>
+</div> 
+{% else %}
+<div class="container bg-light">
     <h1>{% trans "We apologize, but first you need to sign up" %}</h1>
     <a href="/accounts/signup" class="btn btn-primary">{% trans 'Sign Up' %}</a>
-</div>-->{% endblock %}
+</div>
+{% endif %}{% endblock %}
