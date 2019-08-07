@@ -19,8 +19,10 @@ class ApiPhoto(APIView):
     def get(self, request, format = None):
         photo = User.objects.all()
         serialicer = PhotoSerializer(photo, many = True)
-        print(serialicer)
-        return JsonResponse(data=serialicer.data, safe=False)
+        items = { "items":[] }
+        items["items"] = serialicer.data
+        print(items)
+        return JsonResponse(data=items, safe=False)
     
     def post(self, request, format = None):
         data = JSONParser().parse(request)
