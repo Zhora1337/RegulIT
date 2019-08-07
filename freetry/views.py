@@ -14,23 +14,22 @@ from .serializer import PhotoSerializer
 from rest_framework import status
 from django.contrib.auth.models import User
 
+
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication
+
 class ApiPhoto(APIView):
-    @csrf_exempt
-    def get(self, request, format = None):
-        photo = User.objects.all()
-        serialicer = PhotoSerializer(photo, many = True)
-        items = { "items":[] }
-        items["items"] = serialicer.data
-        print(items)
-        return JsonResponse(data=items, safe=False)
-    
-    def post(self, request, format = None):
-        data = JSONParser().parse(request)
-        serializer = PhotoSerializer(data=request.data, context={'request':request})
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status = status.HTTP_201_CREATED)
-        return JsonResponse(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+        authentication_classes = (TokenAuthentication, SessionAuthentication)
+        permission_classes = (IsAuthenticated,)
+
+        @csrf_exempt
+        def get(self, request, format = None):
+            photo = User.objects.all()
+            serialicer = PhotoSerializer(photo, many = True)
+            items = { "items":[] }
+            items["items"] = serialicer.data
+            return JsonResponse(data=items, safe=False)
 
 def index(request):
     if request.method =='POST':

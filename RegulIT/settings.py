@@ -59,6 +59,7 @@ EMAIL_USE_SSL = True
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 INSTALLED_APPS = [
+    'rest_framework.authtoken',
     'rest_framework',
     'result',
     'mail',
