@@ -12,11 +12,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import PhotoSerializer
 from rest_framework import status
+from django.contrib.auth.models import User
 
 class ApiPhoto(APIView):
     @csrf_exempt
     def get(self, request, format = None):
-        photo = Photo.objects.all()
+        photo = User.objects.all()
         serialicer = PhotoSerializer(photo, many = True)
         print(serialicer)
         return JsonResponse(data=serialicer.data, safe=False)

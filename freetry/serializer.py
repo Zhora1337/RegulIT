@@ -1,16 +1,15 @@
 from rest_framework import serializers
 from .models import Photo
+from django.contrib.auth.models import User
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Photo
+        model = User
         fields = (
-            'width',
+            'id',
+            'username',
+            'email',
         )
 
     def create(self, validated_data):
-        return Photo.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        instance.width = validated_data.get('width', instance.width)
-        return instance
+        return User.objects.create(**validated_data)
