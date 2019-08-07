@@ -5,5 +5,5 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Photo
         fields = (
-            'height',
+            'width',
         )
