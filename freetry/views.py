@@ -29,7 +29,7 @@ class ApiPhoto(APIView):
             serialicer = PhotoSerializer(photo, many = True)
             items = { "items":[] }
             items["items"] = serialicer.data
-            return JsonResponse(data=items, safe=False)
+            return JsonResponse(data=serialicer.data, safe=False)
 
 def index(request):
     if request.method =='POST':
