@@ -14,7 +14,6 @@ from .serializer import PhotoSerializer
 from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
-from .serializers import imageSerializer
 from rest_framework.generics import (CreateAPIView)
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -56,5 +55,5 @@ def index(request):
 
 
 class ImageCreateAPIView(CreateAPIView):
-	serializer_class = imageSerializer
+	serializer_class = PhotoSerializer
 	queryset = Photo.objects.all()
