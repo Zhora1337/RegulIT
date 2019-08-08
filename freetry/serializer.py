@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Photo
 from django.contrib.auth.models import User
 
-class PhotoSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = (
@@ -11,5 +11,12 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
             'email',
         )
 
-    def create(self, validated_data):
-        return User.objects.create(**validated_data)
+
+
+class PhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photo
+        fields = (
+            'photo',
+            'width'
+        )

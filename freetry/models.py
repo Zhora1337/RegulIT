@@ -12,7 +12,7 @@ import delete
 
 class Photo(models.Model):
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
-    width = models.CharField(max_length=1000, name='width')
+    width = models.CharField(max_length=1000, name='width', blank=True, null=True)
     photo = models.ImageField(blank=True, null=True, name='photo')
     
     def img_signs(self):
