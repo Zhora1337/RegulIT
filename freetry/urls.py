@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'api/photo/$', views.ApiPhoto.as_view(), name='photo_api'),
     path('api-token-auth/', authviews.obtain_auth_token),
-    path('api/userphoto/', views.photo_list),
+    path('api/userphoto/', views.ImageCreateAPIView.as_view()),
 ]

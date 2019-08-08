@@ -14,7 +14,8 @@ from .serializer import PhotoSerializer
 from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
-
+from .serializers import imageSerializer
+from rest_framework.generics import (CreateAPIView)
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
@@ -54,19 +55,6 @@ def index(request):
 
 
 
-@api_view(['GET', 'POST'])
-def photo_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
-    if request.method == 'GET':
-        photo = Photo.objects.all()
-        serializer = PhotoSerializer(photo, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = PhotoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class ImageCreateAPIView(CreateAPIView):
+	serializer_class = imageSerializer
+	queryset = MyImage.objects.all()
