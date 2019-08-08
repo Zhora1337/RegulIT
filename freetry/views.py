@@ -57,4 +57,4 @@ def index(request):
 
 class ImageCreateAPIView(CreateAPIView):
 	serializer_class = imageSerializer
-	queryset = MyImage.objects.all()
+	queryset = Photo.objects.all()
