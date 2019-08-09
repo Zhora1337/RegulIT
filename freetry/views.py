@@ -7,29 +7,18 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse    
 import os
 import json
+from rest_framework.parsers import FileUploadParser
+from rest_framework.response import Response
+from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
-from rest_framework.response import Response
 from .serializer import PhotoSerializer
-from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
-from rest_framework.generics import (CreateAPIView)
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
 
-class ApiPhoto(APIView):
-        authentication_classes = (TokenAuthentication, SessionAuthentication)
-        permission_classes = (IsAuthenticated,)
-
-        @csrf_exempt
-        def get(self, request, format = None):
-            photo = User.objects.all()
-            serialicer = PhotoSerializer(photo, many = True)
-            items = { "items":[] }
-            items["items"] = serialicer.data
-            return JsonResponse(data=serialicer.data, safe=False)
 
 def index(request):
     if request.method =='POST':
@@ -54,6 +43,19 @@ def index(request):
 
 
 
-class ImageCreateAPIView(CreateAPIView):
-	serializer_class = PhotoSerializer
-	queryset = Photo.objects.all()
+class FileUploadView(APIView):
+	parser_class = (FileUploadParser,)
+
+	def post(self, request, *args, **kwargs):
+		file_serializer = PhotoSerializer(data=request.data)
+		print(request.data)
+		
+		print(request.method)
+		if file_serializer.is_valid():
+
+			
+			file_serializer.save()
+			print(file_serializer.data)
+			return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+		else:
+			return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

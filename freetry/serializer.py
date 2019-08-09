@@ -18,5 +18,4 @@ class PhotoSerializer(serializers.ModelSerializer):
         model = Photo
         fields = (
             'photo',
-            'width'
         )
