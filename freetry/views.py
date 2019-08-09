@@ -18,6 +18,7 @@ from rest_framework.decorators import api_view
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
+from PIL import Image
 
 
 def index(request):
@@ -44,18 +45,13 @@ def index(request):
 
 
 class FileUploadView(APIView):
-	parser_class = (FileUploadParser,)
-
-	def post(self, request, *args, **kwargs):
-		file_serializer = PhotoSerializer(data=request.data)
-		print(request.data)
-		
-		print(request.method)
-		if file_serializer.is_valid():
-
-			
-			file_serializer.save()
-			print(file_serializer.data)
-			return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-		else:
-			return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    parser_class = (FileUploadParser,)
+    def post(self, request, *args, **kwargs):
+        file_serializer = PhotoSerializer(data=request.data)
+        print(request.data)
+        if file_serializer.is_valid():	
+            file_serializer.save()
+            print(file_serializer.data)
+            return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
