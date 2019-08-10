@@ -18,7 +18,11 @@ from rest_framework.decorators import api_view
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from PIL import Image
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
 
 
 @api_view(['GET'])
@@ -40,11 +44,10 @@ def index(request):
         if form.is_valid():
             form.photo = form.cleaned_data['photo']
             photo = form.save(commit=False)
-            print(photo.photo)
             #photo.user = request.user
             photo.save()
             photo_path = photo.photo.path
-            print(photo_path)
+            #print(photo_path)
             photo.width = json.dumps(photo.img_signs())
             form.save()
             os.remove(photo.photo.path)
@@ -63,14 +66,22 @@ class FileUploadView(APIView):
         file_serializer = PhotoSerializer(data=request.data)
         if file_serializer.is_valid():	
             if (str(type(dict(request.data)['photo'][0]))== '<class \'django.core.files.uploadedfile.TemporaryUploadedFile\'>'):
-                temp_photo = Photo.objects.create()
-                temp_photo.photo = dict(request.data)['photo'][0]
-                temp_photo.width = photo.img_signs()
-                temp_photo.save()
-            else:
-                photo = file_serializer.save()
+                data = request.FILES['photo'] # or self.files['image'] in your form
+                pathxxx = default_storage.save('somename.jpg', ContentFile(data.read()))
+                tmp_file = os.path.join(settings.MEDIA_ROOT, pathxxx)
+                print(tmp_file)
+                photo = Photo.create()
+                photo.photo=tmp_file
                 photo.width = photo.img_signs()
                 photo.save()
+                print(request.FILES['photo'].temporary_file_path())
+                #temp_photo.width = photo.img_signs()
+            else:
+                photo = file_serializer.save()
+                print(request.FILES['photo'])
+                photo.width = photo.img_signs()
+                photo.save()
+                print(photo.photo.path)
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
