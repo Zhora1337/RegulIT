@@ -21,6 +21,17 @@ from rest_framework.authentication import SessionAuthentication
 from PIL import Image
 
 
+@api_view(['GET'])
+def photo_list(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        photo = Photo.objects.filter(id=int(dict(request.data)['id'][0]))
+        print(type(photo))
+        serializer = PhotoSerializer(photo, many=True)
+        return Response(serializer.data)
+
 
 
 def index(request):
