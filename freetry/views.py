@@ -21,6 +21,8 @@ from rest_framework.authentication import SessionAuthentication
 from PIL import Image
 
 
+
+
 def index(request):
     if request.method =='POST':
         form = PhotoForm(request.POST, request.FILES, request.user)
@@ -48,10 +50,11 @@ class FileUploadView(APIView):
     parser_class = (FileUploadParser,)
     def post(self, request, *args, **kwargs):
         file_serializer = PhotoSerializer(data=request.data)
-        print(request.data)
         if file_serializer.is_valid():	
-            file_serializer.save()
-            print(file_serializer.data)
+            photo = file_serializer.save()
+            print(photo.photo.path)
+            photo.width = photo.img_signs()
+            photo.save()
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

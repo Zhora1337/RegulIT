@@ -29,3 +29,4 @@ class Photo(models.Model):
             
         print('called')
         return signs
+                
