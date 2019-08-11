@@ -65,23 +65,10 @@ class FileUploadView(APIView):
     def post(self, request, *args, **kwargs):
         file_serializer = PhotoSerializer(data=request.data)
         if file_serializer.is_valid():	
-            if (str(type(dict(request.data)['photo'][0]))== '<class \'django.core.files.uploadedfile.TemporaryUploadedFile\'>'):
-                data = request.FILES['photo'] # or self.files['image'] in your form
-                pathxxx = default_storage.save('somename.jpg', ContentFile(data.read()))
-                tmp_file = os.path.join(settings.MEDIA_ROOT, pathxxx)
-                print(tmp_file)
-                photo = Photo.create()
-                photo.photo=tmp_file
-                photo.width = photo.img_signs()
-                photo.save()
-                print(request.FILES['photo'].temporary_file_path())
-                #temp_photo.width = photo.img_signs()
-            else:
-                photo = file_serializer.save()
-                print(request.FILES['photo'])
-                photo.width = photo.img_signs()
-                photo.save()
-                print(photo.photo.path)
+            photo = file_serializer.save()
+            photo.width = photo.img_signs()
+            photo.save()
+            print(photo.photo.path)
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
