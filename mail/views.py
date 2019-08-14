@@ -4,5 +4,5 @@ from mail.models import random_promocode
 
 def index(request):
     code = random_promocode()
-    send_mail('ваш промокод', code, 'aregulov@yandex.ru',[request.user.email], fail_silently=False)
+    send_mail('ваш промокод', code, 'admin@face2face.world',[request.user.email], fail_silently=False)
     return render(request, 'mail/index.html')

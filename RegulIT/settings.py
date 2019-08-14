@@ -51,12 +51,14 @@ ACCOUNT_LOGOUT_ON_GET =False
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_QUERY_EMAIL = (ACCOUNT_EMAIL_REQUIRED)
 SOCIALACCOUNT_AUTO_SIGNUP = True
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = "aregulov@yandex.ru"
-EMAIL_HOST_PASSWORD = "qweasd1122"
-EMAIL_USE_SSL = True
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = "aregulov@yandex.ru"
+# EMAIL_HOST_PASSWORD = "qweasd1122"
+# EMAIL_USE_SSL = True
+AWS_ACCESS_KEY_ID = 'AKIAYTEBYBHV2UOLVJ7V'
+AWS_SECRET_ACCESS_KEY = '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'
+EMAIL_BACKEND = 'django_ses.SESBackend'
 
 INSTALLED_APPS = [
     'rest_framework.authtoken',
