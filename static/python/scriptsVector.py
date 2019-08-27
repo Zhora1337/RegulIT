@@ -1,3 +1,23 @@
+#!/usr/bin/python
+'''
+--------------------------------------------------------------------
+graf(x_data=[],y_data=[], save = False, title=None, new_filename='_'): Функция для вывода графиков.
+x_data=[] - значения x 
+y_data=[] - значения y
+title - название графика
+save - если True - сохранение в директории
+new_filename - если save=True подпись к названию файла для сохранения в директории.
+
+distance(x1,y1,x2,y2): Функция для рассчета расстояния между точками
+x1,y1,x2,y2 - координаты точек
+
+face_aligner_func(predictor_path,face_file_path): Функция для выравнивания лица и сохранения полученной фотографии
+predictor_path - модель лица из 68 точек
+face_file_path - адресс фотографии в дирректории
+
+--------------------------------------------------------------------
+'''
+
 import sys 
 import dlib 
 import cv2
@@ -10,6 +30,11 @@ from skimage import io
 from skimage.feature import hog
 import numpy as np
 import math
+import matplotlib.pyplot as plt
+import matplotlib.transforms as mtransforms
+import scipy
+import scipy.misc
+import scipy.cluster
 
 def face_aligner_func(predictor_path,face_file_path):
 
@@ -27,7 +52,7 @@ def face_aligner_func(predictor_path,face_file_path):
         alignedFace=face_aligner.align(1000,image,face_rect,landmarkIndices=openface.AlignDlib.OUTER_EYES_AND_NOSE)
         cv2.imwrite(face_file_path.replace(".jpg","_aligned.jpg"),alignedFace)
         pose_landmarks = face_pose_predictor(alignedFace, face_rect)
-        os.remove(face_file_path.replace(".jpg","_aligned.jpg"))
+
     return pose_landmarks
 
 def distance(x1,y1,x2,y2):
@@ -46,46 +71,24 @@ def range(val1,val2):
 
     return val1,val2
 
+def graf(x_data=[],y_data=[], title=None, save = False, file_name='Empty_name', new_filename='_'):
+    fig, ax = plt.subplots()
+    ax.plot(x_data, y_data)
 
-"""
+    if(title!=None):
+        ax.set_title(title)
 
-import math
-import numpy as np
-import scipy
-import os
-import sys
-import scipy.misc
-import scipy.cluster
-from PIL import Image, ImageDraw
-import dlib
-import cv2
-import openface
+    if((save==1) and (file_name!='Empty_name')):
+        fig.savefig(file_name.replace(".jpg", str(new_filename)+".jpg"))
 
-def face_aligner_func(predictor_path,face_file_path):
-    detector = dlib.get_frontal_face_detector()
-    sp = dlib.shape_predictor(predictor_path)
-    img = dlib.load_rgb_image(face_file_path)
-    dets = detector(img, 1)
+def image_size_printer(im):
+    print('Image Size: '+str(im.size))
 
-    num_faces = len(dets)
-    if num_faces == 0:
-        print("Sorry, there were no faces found in '{}'".format(face_file_path))
+def test_line(x,y,x1,y1,x2,y2,x11, y11):
+    return (y-y11)*(x2-x1)-(x-x11)*(y2-y1)
 
-    faces = dlib.full_object_detections()
-    for detection in dets:
-        faces.append(sp(img, detection))
-
-    window = dlib.image_window()
-
-    images = dlib.get_face_chips(img, faces, size=200)
-    for image in images:
-        window.set_image(image)
-        #image22 = cv2.imread(face_file_path)
-        cv2.imwrite('aligned_face_{}.jpg'.format(face_file_path),image)
-        dlib.hit_enter_to_continue()
-
-    #image = dlib.get_face_chip(img, faces[0])
-    #window.set_image(image)
-    #dlib.hit_enter_to_continue()
-    
-"""
+def radical(a,b):
+    if (a>0 and b<0) or (a<0 and b>0):
+        return True
+    else:
+        return False 

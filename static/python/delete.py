@@ -21,7 +21,7 @@ def script(image1, image, file_name):
 	#Чтобы отключить подгон кода под особенности Ubuntu присвойте данной перменной значение False.
 
 	priznak = []
-	for i in range(0, 66):
+	for i in range(0, 69):
 	    priznak.append(0)  # Массив значений признаков
 
 
@@ -57,7 +57,6 @@ def script(image1, image, file_name):
 
 		priznak[21]=detect.lips_gal(pose_landmarks, prop)
 		priznak[22]=100-priznak[21]
-
 		print("Верхняя губа с галочкой: ",priznak[21])
 		print("Прямая верхняя губа: ", priznak[22])
 		priznak[23]=detect.lips_height(pose_landmarks, face_rect.bottom()-face_rect.top())
@@ -88,7 +87,7 @@ def script(image1, image, file_name):
 		print("Близко-посаженные глаза: ", priznak[12])
 		print("Широко-посаженные глаза: ", priznak[20])
 
-		priznak[16],priznak[17],priznak[18],priznak[19]=detect.eye_color(pose_landmarks, image1)
+		priznak[16],priznak[17],priznak[18],priznak[19]=detectEugene.eye_color(pose_landmarks, image1)
 		print("Голубые глаза: ", priznak[16])
 		print("Зеленые глаза: ", priznak[17])
 		print("Карие и черные глаза: ", priznak[18])
@@ -105,11 +104,13 @@ def script(image1, image, file_name):
 
 		priznak[8] = detect.eyebrows_accreted(pose_landmarks, image1)
 		print("Сросшиеся брови: ", priznak[8])
+		if priznak[8]>max: max=priznak[8]
+		if priznak[8] < min: min = priznak[8]
 
 		priznak[3], priznak[4], priznak[5] = detectEugene.eyebrows(pose_landmarks, prop)
 		print("Бровин Домиком: ", priznak[3], "Бровин Полукругом: ", priznak[4], "Бровин Линией: ", priznak[5])
 
-		priznak[44] = detectEugene.fat_chin(pose_landmarks, image1)
+		priznak[44] = detectEugene.fat_chin2(predictor_model,file_name,pose_landmarks, image)
 		print("Раздвоенный подбородок: ", priznak[44])
 
 		priznak[6] = detectEugene.eyebrows_rise(pose_landmarks, prop)
@@ -118,54 +119,58 @@ def script(image1, image, file_name):
 		priznak[7], priznak[9] = detectEugene.eyebrows_bold(pose_landmarks, image1)
 		print("Брови тёмные, густые:", priznak[9], "Брови светлые, редкие:", priznak[7])
 
-		priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, prop) #круг, М, квадрат
+		#priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, prop) #круг, М, квадрат
+		priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, prop, image)
 		print("Волосы лба Полукругом: ", priznak[32], " Буквой М: ", priznak[34], "Квадратный: ", priznak[55])
 
-		priznak[35], priznak[56] = detectEugene.forhead_height(pose_landmarks, image1, prop)
+		priznak[35], priznak[56] = detectEugene.forhead_height(pose_landmarks, image1, prop, image)
 		print("Лоб Широкий: ", priznak[35], "Лоб Узкий: ", priznak[56])
 
 		priznak[10], priznak[11] = detectEugene.eyebrows_height(pose_landmarks, image1, prop)
 		print("Тонкие брови: ", priznak[10], " Широкие брови: ", priznak[11])
 
-		priznak[51], priznak[52], priznak[54] = detectEugene.face_form(pose_landmarks, image1, prop)
-		print("Вода на: ", priznak[51]," Ветер на: ", priznak[52]," Огонь на: ", priznak[54])
+		priznak[51], priznak[52], priznak[53]= detectEugene.face_form(pose_landmarks, image1, prop)
+		print("Вода на: ", priznak[51]," Ветер на: ", priznak[52]," Огонь на: ", priznak[53])
 
 		priznak[57], priznak[58], priznak[59] = detectEugene.worlds(pose_landmarks, image1, prop)
-		print("Духовный : ", priznak[57]," Материальный: ", priznak[58]," Семейный: ", priznak[59])
-
-		priznak[50], priznak[64] = detectEugene.ear_size(pose_landmarks, image1, prop)
+		print("Духовный: ", priznak[57]," Материальный: ", priznak[58]," Семейный: ", priznak[59])
+		
+		priznak[50], priznak[64] = detectEugene.ear_size(pose_landmarks, image1, prop, image)
 		print("Лопоухий: ", priznak[50], "Прижатые уши: ", priznak[64])
-
+		
 		priznak[47], priznak[49] = detectEugene.ear_check(pose_landmarks, image1, prop)
-		print("Прижатые уши: ", priznak[47], "Квадратная мочка уха: ", priznak[49])
+		print("Прижатая Мочка: ", priznak[47], "Квадратная мочка уха: ", priznak[49])
 
 		priznak[45], priznak[46], priznak[63] = detectEugene.cheekbones(pose_landmarks, image1, prop)
 		print("Скулы выше уровня глаз: ", priznak[45], "Скулы на уровне глаз: ", priznak[46], "Скулы ниже уровня глаз: ", priznak[63])
-		
+
 		priznak[1], priznak[2] = detectVector.asymmetry(predictor_model, file_name)
 		print("Ассиметрия в правую сторону: ", priznak[1], "Ассиметрия в левую сторону: ", priznak[2])
 
 		priznak[48], priznak[65] = detectEugene.earlobe_size(pose_landmarks, image1, prop)
-		print("Мочка уха большая: ", priznak[48], "Мочка уха маленькая: ", priznak[65])
-		
+		#print("Мочка уха большая: ", priznak[48], "Мочка уха маленькая: ", priznak[65])
+
 		priznak[62], priznak[39] = detectVector.nose(predictor_model, file_name,pose_landmarks)
-		print("Прямой нос: ", priznak[62], "Переносица с впадиной: ", priznak[39])
+		#print("Прямой нос: ", priznak[62], "Переносица с впадиной: ", priznak[39])
 
 		priznak[36], priznak[37],priznak[60] = detectVector.nose_size(predictor_model, file_name,pose_landmarks)
-		print("Нос картошкой: ", priznak[36], "Курносый нос: ", priznak[37], "Кончик носа вниз: ", priznak[60])
+		#print("Нос картошкой: ", priznak[36], "Курносый нос: ", priznak[37], "Кончик носа вниз: ", priznak[60])
 
 		priznak[61] = detectVector.nose_wings(predictor_model, file_name,pose_landmarks)
-		print("Крылья носа очерчены: ", priznak[61])
+		#print("Крылья носа очерчены: ", priznak[61])
 
 		priznak[39] = detectVector.hump_nose(predictor_model, file_name,pose_landmarks)
-		print("Горбинка на носу: ", priznak[39])
+		#print("Горбинка на носу: ", priznak[39])
 
 		priznak[33],priznak[31] = detectVector.forehead(predictor_model, file_name,pose_landmarks)
-		print("Прямой лоб : ", priznak[33],"Выпуклый лоб : ", priznak[31])
+		#print("Прямой лоб : ", priznak[33],"Выпуклый лоб : ", priznak[31])
 
 		priznak[15],priznak[13], priznak[14] = detectVector.eyelids(predictor_model, file_name,pose_landmarks)
-		print("Веки, закрытые внутри : ", priznak[15],"Веки, закрытые посередине  : ", priznak[13],"Веки, закрытые снаружи  : ", priznak[14])
+		#print("Веки, закрытые внутри : ", priznak[15],"Веки, закрытые посередине  : ", priznak[13],"Веки, закрытые снаружи  : ", priznak[14])
 
+		light, dark, orange = detectVector.hair_color(predictor_model,file_name,pose_landmarks)
+		#print("Светлые волосы: ", light, "Темные волосы: ", dark, "Рыжые волосы: ", orange)
+		priznak[66], priznak[67], priznak[68] = light, dark, orange
 
 		priznak = [ '%.1f' % elem for elem in priznak ]
 		return priznak

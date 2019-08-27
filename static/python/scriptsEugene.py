@@ -23,49 +23,67 @@ def dir_between(x1, y1, x2, y2, x3, y3, x4, y4):
 	return math.degrees(math.atan(abs((k1 - k2) / (k1 * k2 + a))))
 
 
-def mean_square(a, b, c = -1):
-	if c == -1:
+def mean_square(a, b, c = -404):
+	if c == -404:
 		return math.sqrt((a**2 + b**2) / 2)
 	else:
 		return math.sqrt((a**2 + b**2 + c**2) / 3)
 
-# Средняя переменная f. e. (37, 0, 100) = 37
+# Средняя переменная f. e. (0, 37, 100)
 def clamp(val, small, big):
     return max(small, min(val, big))
 
 
 # Взять цвет прямоугольника
-def get_color(min_x, max_x, min_y, max_y, image):
-    rs = 0
-    bs = 0
-    gs = 0
-    count = 0
-    for i in range(min_x, max_x):
-        for j in range(min_y, max_y):
-            r, g, b = image.getpixel((i, j))
-            rs += r
-            bs += b
-            gs += g
-            count += 1
+def get_color(min_x, max_x, min_y, max_y, image, value = 1):
+	rs = 0
+	bs = 0
+	gs = 0
+	count = 0
+	for i in range(min_x, max_x):
+		for j in range(min_y, max_y):
+			try:
+				r, g, b = image.getpixel((i, j))
+			except:
+				if value == 1:
+					return -1
+				elif value == 3:
+					return -1, -1, -1
+			rs += r
+			bs += b
+			gs += g
+			count += 1
 
-    return (rs + bs + gs) / count
+	if value == 1:
+		return (rs + bs + gs) / count
+	elif value == 3:
+		return rs / count, bs / count, gs / count
 
 
 # Взять доминантный цвет
-def get_dominate_color(min_x, max_x, min_y, max_y, image):
-    NUM_CLUSTERS = 1
+def get_dominate_color(min_x, max_x, min_y, max_y, image, value = 1):
+	NUM_CLUSTERS = 1
 
-    area = (min_x, min_y, max_x, max_y)
-    cropped_img = image.crop(area)
-    ar = np.asarray(cropped_img)
-    shape = ar.shape
-    ar = ar.reshape(scipy.product(shape[:2]), shape[2]).astype(float)
+	area = (min_x, min_y, max_x, max_y)
+	cropped_img = image.crop(area)
+	try:
+		ar = np.asarray(cropped_img)
+		shape = ar.shape
+		ar = ar.reshape(scipy.product(shape[:2]), shape[2]).astype(float)
+	except:
+		if value == 1:
+			return -1
+		elif value == 3:
+			return -1, -1, -1
 
-    codes, dist = scipy.cluster.vq.kmeans(ar, NUM_CLUSTERS)
-    print('cluster centres:\n', codes)
+	codes, dist = scipy.cluster.vq.kmeans(ar, NUM_CLUSTERS)
+  #print('cluster centres:\n', codes)
 
-    peak = codes[0]
-    return peak[0] + peak[1] + peak[2]
+	peak = codes[0]
+	if value == 1:
+		return peak[0] + peak[1] + peak[2]
+	elif value == 3:
+		return peak[0], peak[1], peak[2]
 
 
 # Расстояние между точками
@@ -82,6 +100,7 @@ def lengthDir(length, angle):
   radian_angle = math.radians(angle)
   return (length * math.cos(radian_angle), length * math.sin(radian_angle))
 
+
 # Насколько точка выше линии (Сначала)
 def lined(x, y, x1, y1, x2, y2):
     return y - ((((x - x1) * (y2 - y1)) / (x2 - x1)) + y1)
@@ -89,17 +108,27 @@ def lined(x, y, x1, y1, x2, y2):
 
 # Х, У, Радиус круга по трём точкам
 def rad_circle(x1, y1, x2, y2, x3, y3, scale):
-    x1, y1, x2, y2, x3, y3 = x1 * scale, y1 * scale, x2 * scale, y2 * scale, x3 * scale, y3 * scale
-    ma = (y2 - y1) / (x2 - x1)
-    mb = (y3 - y2) / (x3 - x2)
+	ma = (y2 - y1) / (x2 - x1)
+	mb = (y3 - y2) / (x3 - x2)
 
-    x = (ma * mb * (y1 - y3) + mb * (x1 + x2) - ma * (x2 + x3)) / (2 * (mb - ma))
+	x = (ma * mb * (y1 - y3) + mb * (x1 + x2) - ma * (x2 + x3)) / (2 * (mb - ma))
 
-    if ma == 0:
-        ma += 1
-    ya = -(1 / (ma)) * (x - (x1 + x2) / 2) + (y1 + y2) / 2
+	if ma == 0:
+		ya = (y2 + y1) / 2
+	else: 
+		ya = -(1 / (ma)) * (x - (x1 + x2) / 2) + (y1 + y2) / 2
 
-    return x, ya, distance(x, ya, x1, y1)
+	return x, ya, distance(x, ya, x1, y1)
+
+
+# Длина высоты
+def distance_height(x1, y1, x2, y2, x3, y3):
+	a = (y2 - y1) / (x2 - x1)
+	b = -1
+	c = (y1 * x2 - y2 * x1) / (x2 - x1)
+
+	return abs(a * x3 + b *	y3 + c) / math.sqrt(a*a + b*b)
+
 
 
 # Обращает в чёрно-белое
@@ -127,54 +156,65 @@ class Forehead(object):
 		length = 0
 
     # The class "constructor" - It actually an initializer 
-		def __init__(self, pose, image, scale, pose_number, length = 15):
+		def __init__(self, pose, image, scale, pose_number, length_main = 15):
 
 			dir_ = point_direction(pose.part(29).x, pose.part(29).y, pose.part(27).x, pose.part(27).y)
 			lendir_x, lendir_y = lengthDir(scale/50, dir_)
 
-			length = length
+			length = length_main
 			summ = 0
 			average = 0
 
-			x = pose.part(pose_number).x +  length * lendir_x
-			y = pose.part(pose_number).y +  length * lendir_y
-			r, g, b = image.getpixel((x, y))
-			color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+			sub_scale = 5
+			mul_scale = 3
 
-			while (length!=0):
-				try:
-					r, g, b = image.getpixel((x, y))
-				except:
-					x = 0
-					y = 0
-					length = 0
-					break
-				color1_rgb = sRGBColor(r / 255, g / 255, b / 255);
+			if pose_number == 1:
+				length_main = 9
+				length = length_main
+				x = (pose.part(19).x + pose.part(24).x) / 2 +  length * lendir_x
+				y = (pose.part(19).y + pose.part(24).y) / 2 +  length * lendir_y
 
-				# Convert from RGB to Lab Color Space
-				color1_lab = convert_color(color1_rgb, LabColor);
+			else:
+				x = pose.part(pose_number).x +  length * lendir_x
+				y = pose.part(pose_number).y +  length * lendir_y
 
-				# Convert from RGB to Lab Color Space
-				color2_lab = convert_color(color2_rgb, LabColor);
+			try:
+				r, g, b = image.getpixel((x, y))
+				color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+			except:
+				x = 0
+				y = 0
+				length = 0
+			else:
+				while (length!=0) and (y > 1 + sub_scale):
+					r, g, b = get_dominate_color(round(x) - sub_scale, round(x) + sub_scale, round(y) - sub_scale, round(y) + sub_scale, image, 3)
 
-				# Find the color difference
-				delta_e = delta_e_cie2000(color1_lab, color2_lab);
+					color1_rgb = sRGBColor(r / 255, g / 255, b / 255);
 
-				if pose_number == 27:
-					print("The difference between the 2 color = ", delta_e)
+					# Convert from RGB to Lab Color Space
+					color1_lab = convert_color(color1_rgb, LabColor);
 
-				if length > 18:
-					if (delta_e > average * 4 + 3) or (delta_e > 7):
-						break
+					# Convert from RGB to Lab Color Space
+					color2_lab = convert_color(color2_rgb, LabColor);
 
-				summ += delta_e
-				length += 1
-				average = summ / length
+					# Find the color difference
+					delta_e = delta_e_cie2000(color1_lab, color2_lab);
 
-				color2_rgb = color1_rgb
+					#if pose_number == 27:
+					#	print("The difference between the 2 color = ", delta_e)
 
-				x += lendir_x
-				y += lendir_y
+					if length > length_main + 3:
+						if (delta_e > average * 3 + 1) or (delta_e > 7):
+							break
+
+					summ += delta_e
+					length += 1
+					average = summ / length
+
+					color2_rgb = color1_rgb
+
+					x += lendir_x
+					y += lendir_y
 
 
 			self.x = x
@@ -185,12 +225,13 @@ class Forehead(object):
 
 
 # Добавляем 3 ебаных блять точки, ведь нейросеть не может блеат
-def add_forehead(pose, image, scale):
-	forh_center = Forehead(pose, image, scale, 27)
+def add_forehead(pose, image, scale, center_pose = 27):
+	forh_center = Forehead(pose, image, scale, center_pose)
 	forh_0 = Forehead(pose, image, scale, 19)
 	forh_2 = Forehead(pose, image, scale, 24)
 
 	return forh_0, forh_center, forh_2
+
 
 
 # Скрипт для длины бровей
@@ -206,8 +247,11 @@ def eyebrows_height_1(pose, image, scale, pose_number1 = 20, pose_number2 = 38):
 	x = pose.part(pose_number1).x +  length * lendir_x
 	y = pose.part(pose_number1).y +  length * lendir_y
 
-	r, g, b = image.getpixel((x, y))
-	color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+	try:
+		r, g, b = image.getpixel((x, y))
+		color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+	except:
+		return 0
 
 	for i in range(pose.part(pose_number1).y, pose.part(pose_number2).y):
 		r, g, b = image.getpixel((x, y))
@@ -242,14 +286,14 @@ def eyebrows_height_1(pose, image, scale, pose_number1 = 20, pose_number2 = 38):
 
 
 
-class Ear(object):
+class Ear1(object):
 		x = 0
 		y = 0
 		length = 0
 
     # The class "constructor" - It actually an initializer 
 		def __init__(self, pose, image, scale, pose_number1 = 1, pose_number2 = 28):
-			
+
 			# Создание точкек Ушей
 			dir_ = point_direction(pose.part(pose_number2).x, pose.part(pose_number2).y, pose.part(pose_number1).x, pose.part(pose_number1).y)
 
@@ -261,8 +305,12 @@ class Ear(object):
 
 			x = pose.part(pose_number1).x +  length * lendir_x
 			y = pose.part(pose_number1).y +  length * lendir_y
-			r, g, b = image.getpixel((x, y))
-			color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+
+			try:
+				r, g, b = image.getpixel((x, y))
+				color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+			except:
+				print('error')
 
 			for i in range(0, 50):
 				try:
@@ -307,6 +355,76 @@ class Ear(object):
 			self.length = length
 
 
+class Ear(object):
+		x = 0
+		y = 0
+		length = 0
+
+    # The class "constructor" - It actually an initializer 
+		def __init__(self, pose, image, scale, pose_number1 = 1, pose_number2 = 28):
+
+			# Создание точкек Ушей
+			dir_ = point_direction(pose.part(pose_number2).x, pose.part(pose_number2).y, pose.part(pose_number1).x, pose.part(pose_number1).y)
+
+			lendir_x, lendir_y = lengthDir(scale/200, dir_)
+
+			length = 0
+			summ = 0
+			average = 0
+			sub_scale = 5
+
+			x_ = pose.part(29).y + (pose.part(15).y - pose.part(29).y) / 2
+			y_ = pose.part(26).y + (pose.part(12).y - pose.part(26).y) / 2
+
+			x = pose.part(pose_number1).x +  length * lendir_x
+			y = pose.part(pose_number1).y +  length * lendir_y
+
+			try:
+				r, g, b = get_dominate_color(x_ - 15, x_ + 15, y_ - 15, y + 15, image, 3)
+				color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+			except:
+				x = 0
+				y = 0
+				length = 0
+			else:
+				while (length != 25):
+					r, g, b = get_dominate_color(round(x) - sub_scale, round(x) + sub_scale, round(y) - sub_scale, round(y) + sub_scale, image, 3)
+
+					color1_rgb = sRGBColor(r / 255, g / 255, b / 255);
+
+					# Convert from RGB to Lab Color Space
+					color1_lab = convert_color(color1_rgb, LabColor);
+
+					# Convert from RGB to Lab Color Space
+					color2_lab = convert_color(color2_rgb, LabColor);
+
+					# Find the color difference
+					delta_e = delta_e_cie2000(color1_lab, color2_lab);
+
+					#if pose_number == 27:
+					#	print("The difference between the 2 color = ", delta_e)
+
+					if length > 10:
+						if (delta_e > 20):
+							break
+
+					summ += delta_e
+					length += 1
+					average = summ / length
+
+					#color2_rgb = color1_rgb
+
+					x += lendir_x
+					y += lendir_y
+
+			if length == 50:
+				length = 0
+
+			self.x = x
+			self.y = y
+			self.length = length
+
+
 def add_ear(pose, image, scale):
 	ear0 = Ear(pose, image, scale, 1)
 	ear1 = Ear(pose, image, scale, 15)
@@ -328,8 +446,11 @@ def ear_height(pose, image, scale, x, y):
 	x = x +  length * lendir_x
 	y = y +  length * lendir_y
 
-	r, g, b = image.getpixel((x, y))
-	color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+	try:
+		r, g, b = image.getpixel((x, y))
+		color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+	except:
+		return 0
 
 	for i in range(0, 50):
 		r, g, b = image.getpixel((x, y))
@@ -364,3 +485,4 @@ def ear_height(pose, image, scale, x, y):
 		length = 0
 
 	return length
+

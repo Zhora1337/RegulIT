@@ -4,14 +4,9 @@ import math
 def d(x1, x2, y1, y2):
     return math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
 
-
 def lined(x,y,x1, y1, x2, y2):
     return y-((((x-x1)*(y2-y1))/(x2-x1))+y1)
 
-
-# Средняя переменная f. e. (37, 0, 100)
-def clamp(val, small, big):
-    return max(small, min(val, big))
 
 # расчет Верхняя губа с галочкой и Прямая верхняя губа
 def lips_gal(pose_landmarks, prop):
@@ -94,7 +89,6 @@ def eye_posadka(pose_landmarks):
 
 #расчет цвет глаз
 def eye_color(pose_landmarks, im):
-    print(type(im))
     count=((pose_landmarks.part(44).x- pose_landmarks.part(43).x)*(pose_landmarks.part(47).y-pose_landmarks.part(43).y))+((pose_landmarks.part(37).x - pose_landmarks.part(38).x) * (pose_landmarks.part(37).y - pose_landmarks.part(41).y))
     rs=0
     bs=0
@@ -114,23 +108,14 @@ def eye_color(pose_landmarks, im):
     rs=rs / count
     gs=gs / count
     bs=bs / count
-    gol=0
-    zel=0
-    kar=0
-    ser=0
+  
     gol=(bs-gs)+(bs-rs)
-    if gol>100: gol=100
+    
     zel=(gs-bs)+(gs-rs)
-    if zel > 100: zel = 100
+    
     kar=(rs-bs)+(rs-gs)
-    if kar > 100: kar = 100
+    
     ser=100-(abs(gs-rs)+abs(bs-bs))
-
-    gol = clamp(gol, 0, 100)
-    zel = clamp(zel, 0, 100)
-    kar = clamp(kar, 0, 100)
-    ser = clamp(ser, 0, 100)
-
     return (gol,zel,kar,ser)
 
 # расчет Большой и маленький подбородок
