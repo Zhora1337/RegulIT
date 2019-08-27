@@ -104,8 +104,6 @@ def script(image1, image, file_name):
 
 		priznak[8] = detect.eyebrows_accreted(pose_landmarks, image1)
 		print("Сросшиеся брови: ", priznak[8])
-		if priznak[8]>max: max=priznak[8]
-		if priznak[8] < min: min = priznak[8]
 
 		priznak[3], priznak[4], priznak[5] = detectEugene.eyebrows(pose_landmarks, prop)
 		print("Бровин Домиком: ", priznak[3], "Бровин Полукругом: ", priznak[4], "Бровин Линией: ", priznak[5])
