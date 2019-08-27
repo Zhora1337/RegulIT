@@ -166,7 +166,7 @@ def forhead_height(pose, image, scale, im):
 	wide = clamp((height - 14) * 3, 0, 100)
 	narrow = 100 - wide
 
-	return forhead[1].length, narrow
+	return wide, narrow
 
 
 # Размер бровей
