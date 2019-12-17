@@ -220,10 +220,9 @@ def worlds(pose, image, scale):
 	forhead = [0, 0, 0]
 	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale)
 	
-	pose_brows_y = (pose.part(24).y + pose.part(19).y) / 2
-
-	material = distance(pose.part(8).x, pose.part(8).y, pose.part(30).x, pose.part(30).y) * 100/scale * 0.75
-	family = distance(pose.part(30).x, pose.part(30).y, pose.part(27).x, pose_brows_y) * 100/scale * 0.8
+	pose_brows_y = (pose.part(25).y + pose.part(20).y) / 2
+	material = distance(pose.part(9).x, pose.part(9).y, pose.part(34).x, pose.part(34).y) * 100/scale * 0.75
+	family = distance_height(pose.part(20).x, pose.part(20).y,pose.part(25).x, pose.part(25).y, pose.part(34).x, pose.part(34).y) * 100/scale * 0.8
 
 	if forhead[1].length != 0:
 		spiritual = clamp(distance(pose.part(27).x, pose_brows_y, forhead[1].x, forhead[1].y) * 100/scale * 0.85, 0, 100)
