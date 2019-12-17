@@ -27,9 +27,6 @@ from django.conf import settings
 
 @api_view(['GET'])
 def photo_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
     if request.method == 'GET':
         photo = Photo.objects.filter(id=int(dict(request.data)['id'][0]))
         print(type(photo))

@@ -9,4 +9,3 @@ class PhotoForm(forms.ModelForm):
         fields = (
             'photo',
         )
-

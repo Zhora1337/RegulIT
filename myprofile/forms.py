@@ -7,8 +7,6 @@ from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-
-
     class Meta:
         model = User
         fields = (
@@ -42,7 +40,6 @@ class EditUserPhoto(forms.ModelForm):
     class Meta:
         model = UserPhoto
         fields = ('user_photo',)
-        exclude = ('password',)
 
 
     
