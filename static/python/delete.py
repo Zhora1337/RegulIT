@@ -63,14 +63,16 @@ def script(image1, image, file_name):
 		scale /= math.pi
 		forhead = []
 		forhead = add_forehead(pose_landmarks, image1, scale)
-		
-		#for i in range(68):
-			#draw.rectangle((((pose_landmarks.part(i).x-1), (pose_landmarks.part(i).y-1)), ((pose_landmarks.part(i).x+1), (pose_landmarks.part(i).y+1))), fill="red")
-			#draw.ellipse(((pose_landmarks.part(i).x, pose_landmarks.part(i).y), (pose_landmarks.part(i).x+5,pose_landmarks.part(i).y)+5), fill=128, outline="red")
-			#win.add_overlay_circle(pose_landmarks.part(i), 2)
-		#for i in range(11):
-		#	x = dlib.point(forhead[i].x, forhead[i].y)
-		#	win.add_overlay_circle(x, 2)
+		#maximum = forhead[0].y
+		#for i in range(10):
+		#	diffirence = abs(forhead[i].y-forhead[i+1].y)/image1.size[1]*100
+		#	print('dif',diffirence)
+		#	if maximum < forhead[i].y:
+		#		maximum = forhead[i].y
+		#print('max',maximum)
+		for i in range(9):
+			x = dlib.point(int(forhead[i].x), int(forhead[i].y))
+			win.add_overlay_circle(x, 2)
 		image1.save(BASE_DIR+"/dots.jpg")
 		
 		scale_old = math.sqrt((pose_landmarks.part(57).x - pose_landmarks.part(27).x) ** 2 + (pose_landmarks.part(57).y - pose_landmarks.part(27).y) ** 2)

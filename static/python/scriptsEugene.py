@@ -7,6 +7,7 @@ from PIL import Image, ImageDraw
 from colormath.color_objects import sRGBColor, LabColor
 from colormath.color_conversions import convert_color
 from colormath.color_diff import delta_e_cie2000
+import dlib
 
 # Угол между линиями
 def dir_between(x1, y1, x2, y2, x3, y3, x4, y4):
@@ -156,7 +157,7 @@ class Forehead(object):
 		length = 0
 
     # The class "constructor" - It actually an initializer 
-		def __init__(self, pose, image, scale, pose_number, length_main = 15):
+		def __init__(self, pose, image, scale, pose_number, length_main = 10, avg_mp = 3):
 
 			dir_ = point_direction(pose.part(29).x, pose.part(29).y, pose.part(27).x, pose.part(27).y)
 			lendir_x, lendir_y = lengthDir(scale/50, dir_)
@@ -204,7 +205,7 @@ class Forehead(object):
 					#	print("The difference between the 2 color = ", delta_e)
 
 					if length > length_main + 3:
-						if (delta_e > average * 3 + 1) or (delta_e > 7):
+						if (delta_e > average * avg_mp + 1) or (delta_e > 7):
 							break
 
 					summ += delta_e
@@ -226,19 +227,35 @@ class Forehead(object):
 
 # Добавляем 3 ебаных блять точки, ведь нейросеть не может блеат
 def add_forehead(pose, image, scale, center_pose = 27):
-	forh_0 = Forehead(pose, image, scale, 17)
-	forh_1 = Forehead(pose, image, scale, 18)
-	forh_2 = Forehead(pose, image, scale, 19)
-	forh_3 = Forehead(pose, image, scale, 20)
-	forh_4 = Forehead(pose, image, scale, 21)
-	forh_5 = Forehead(pose, image, scale, center_pose)
-	forh_6 = Forehead(pose, image, scale, 22)
-	forh_7 = Forehead(pose, image, scale, 23)
-	forh_8 = Forehead(pose, image, scale, 24)
-	forh_9 = Forehead(pose, image, scale, 25)
-	forh_10 = Forehead(pose, image, scale, 26)
-	
-	return forh_0, forh_1, forh_2, forh_3, forh_4, forh_5, forh_6, forh_7, forh_8, forh_9, forh_10
+	avg_mp = 3
+	not_exactly = True
+	are_each_normal = [0, 0, 0, 0, 0, 0, 0, 0]
+	while not_exactly:
+		print(are_each_normal)
+		forh_1 = Forehead(pose, image, scale, 18, avg_mp=avg_mp)
+		forh_2 = Forehead(pose, image, scale, 19, avg_mp=avg_mp)
+		forh_3 = Forehead(pose, image, scale, 20, avg_mp=avg_mp)
+		forh_4 = Forehead(pose, image, scale, 21, avg_mp=avg_mp)
+		forh_5 = Forehead(pose, image, scale, center_pose, avg_mp=avg_mp)
+		forh_6 = Forehead(pose, image, scale, 22, avg_mp=avg_mp)
+		forh_7 = Forehead(pose, image, scale, 23, avg_mp=avg_mp)
+		forh_8 = Forehead(pose, image, scale, 24, avg_mp=avg_mp)
+		forh_9 = Forehead(pose, image, scale, 25, avg_mp=avg_mp)
+		foreheads = [forh_1.y,forh_2.y,forh_3.y,forh_4.y,forh_5.y,forh_6.y,forh_7.y,forh_8.y,forh_9.y]
+		foreheads_all = [forh_1,forh_2,forh_3,forh_4,forh_5,forh_6,forh_7,forh_8,forh_9]
+		for i in range(0,len(are_each_normal)):
+			if abs(foreheads[i]-max(foreheads))/image.size[1]*100 < 1.5:
+				print(abs(foreheads[i]-max(foreheads))/image.size[1]*100, 'point', i+1)
+				are_each_normal[i] = 10
+				sum(are_each_normal)/len(are_each_normal)
+		if sum(are_each_normal)/len(are_each_normal) > 7.5:
+			not_exactly = False
+		else:
+			avg_mp -= 0.1
+			avg_mp = round(avg_mp, 1)
+			if avg_mp < 0.2:
+				not_exactly = False
+	return forh_1, forh_2, forh_3, forh_4, forh_5, forh_6, forh_7, forh_8, forh_9
 
 
 
