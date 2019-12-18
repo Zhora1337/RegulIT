@@ -11,7 +11,8 @@ from skimage import io
 from skimage.feature import hog
 import numpy as np
 import math
-
+import matplotlib as plt
+from scriptsEugene import distance, add_forehead
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def script(image1, image, file_name):
@@ -42,21 +43,39 @@ def script(image1, image, file_name):
 
 	if len(detected_faces) > 1:
 	  print("Обнаружено более одного лица")
+	
+	
 
+	win = dlib.image_window()
 	# Загрузка лица
-	#win.set_image(image)
+	win.set_image(image)
 	#draw = ImageDraw.Draw(image1)
 	# Loop through each face we found in the image
 	if len(detected_faces) == 1: # Если лицо одно, то продолжаем
-		
+		filename = "dots"
+		print(BASE_DIR)
 		for i, face_rect in enumerate(detected_faces):
 			pose_landmarks = face_pose_predictor(image, face_rect)
-
-
-		prop = math.sqrt((pose_landmarks.part(57).x - pose_landmarks.part(27).x) ** 2 +
-											(pose_landmarks.part(57).y - pose_landmarks.part(27).y) ** 2)# Измеряем размер лица чтобы получить относительные размеры черт лица
-
-		priznak[21]=detect.lips_gal(pose_landmarks, prop)
+		win.add_overlay(pose_landmarks)
+		scale = 0
+		for i in range (0,16):
+			scale += distance(pose_landmarks.part(i).x, pose_landmarks.part(i).y, pose_landmarks.part(i+1).x, pose_landmarks.part(i+1).y)
+		scale /= math.pi
+		forhead = []
+		forhead = add_forehead(pose_landmarks, image1, scale)
+		
+		#for i in range(68):
+			#draw.rectangle((((pose_landmarks.part(i).x-1), (pose_landmarks.part(i).y-1)), ((pose_landmarks.part(i).x+1), (pose_landmarks.part(i).y+1))), fill="red")
+			#draw.ellipse(((pose_landmarks.part(i).x, pose_landmarks.part(i).y), (pose_landmarks.part(i).x+5,pose_landmarks.part(i).y)+5), fill=128, outline="red")
+			#win.add_overlay_circle(pose_landmarks.part(i), 2)
+		#for i in range(11):
+		#	x = dlib.point(forhead[i].x, forhead[i].y)
+		#	win.add_overlay_circle(x, 2)
+		image1.save(BASE_DIR+"/dots.jpg")
+		
+		scale_old = math.sqrt((pose_landmarks.part(57).x - pose_landmarks.part(27).x) ** 2 + (pose_landmarks.part(57).y - pose_landmarks.part(27).y) ** 2)
+		print(scale,  scale_old)
+		priznak[21]=detect.lips_gal(pose_landmarks, scale)
 		priznak[22]=100-priznak[21]
 		print("Верхняя губа с галочкой: ",priznak[21])
 		print("Прямая верхняя губа: ", priznak[22])
@@ -64,8 +83,8 @@ def script(image1, image, file_name):
 		priznak[24] =100-priznak[23]
 		print("Толстая верхняя губа: ",priznak[23])
 		print("Тонкая верхняя губа: ", priznak[24])
-		left =detect.left_lips_ugolki(pose_landmarks, prop)
-		right = detect.right_lips_ugolki(pose_landmarks, prop)
+		left =detect.left_lips_ugolki(pose_landmarks, scale)
+		right = detect.right_lips_ugolki(pose_landmarks, scale)
 		d=(left+right)/2
 		if d>0:
 			priznak[25]=d
@@ -94,11 +113,11 @@ def script(image1, image, file_name):
 		#print("Карие и черные глаза: ", priznak[18])
 		#print("Серые глаза: ", priznak[19])
 
-		priznak[40] =detect.chin_size(pose_landmarks, prop)
+		priznak[40] =detect.chin_size(pose_landmarks, scale)
 		priznak[43] = 100 - priznak[40]
 		#print("Большой подбородок: ", priznak[40])
 		#print("Маленький подбородок: ", priznak[43])
-		priznak[42] = detect.chin_form(pose_landmarks, prop)
+		priznak[42] = detect.chin_form(pose_landmarks, scale)
 		priznak[41] = 100 - priznak[42]
 		#print("Квадратный подбородок: ", priznak[41])
 		#print("Круглый подбородок: ", priznak[42])
@@ -106,47 +125,47 @@ def script(image1, image, file_name):
 		priznak[8] = detect.eyebrows_accreted(pose_landmarks, image1)
 		#print("Сросшиеся брови: ", priznak[8])
 
-		priznak[3], priznak[4], priznak[5] = detectEugene.eyebrows(pose_landmarks, prop)
+		priznak[3], priznak[4], priznak[5] = detectEugene.eyebrows(pose_landmarks, scale)
 		#print("Бровин Домиком: ", priznak[3], "Бровин Полукругом: ", priznak[4], "Бровин Линией: ", priznak[5])
 
 		priznak[44] = detectEugene.fat_chin2(predictor_model,file_name,pose_landmarks, image)
 		#print("Раздвоенный подбородок: ", priznak[44])
 
-		priznak[6] = detectEugene.eyebrows_rise(pose_landmarks, prop)
+		priznak[6] = detectEugene.eyebrows_rise(pose_landmarks, scale)
 		#print("Бровь с подъёмом: ", priznak[6])
 
 		priznak[7], priznak[9] = detectEugene.eyebrows_bold(pose_landmarks, image1)
 		#print("Брови тёмные, густые:", priznak[9], "Брови светлые, редкие:", priznak[7])
 
-		#priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, prop) #круг, М, квадрат
-		priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, prop, image)
+		#priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, scale) #круг, М, квадрат
+		priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, scale, image)
 		#print("Волосы лба Полукругом: ", priznak[32], " Буквой М: ", priznak[34], "Квадратный: ", priznak[55])
 
-		priznak[35], priznak[56] = detectEugene.forhead_height(pose_landmarks, image1, prop, image)
+		priznak[35], priznak[56] = detectEugene.forhead_height(pose_landmarks, image1, scale, image)
 		#print("Лоб Широкий: ", priznak[35], "Лоб Узкий: ", priznak[56])
 
-		priznak[10], priznak[11] = detectEugene.eyebrows_height(pose_landmarks, image1, prop)
+		priznak[10], priznak[11] = detectEugene.eyebrows_height(pose_landmarks, image1, scale)
 		#print("Тонкие брови: ", priznak[10], " Широкие брови: ", priznak[11])
 
-		priznak[51], priznak[52], priznak[53]= detectEugene.face_form(pose_landmarks, image1, prop)
+		priznak[51], priznak[52], priznak[53]= detectEugene.face_form(pose_landmarks, image1, scale)
 		#print("Вода на: ", priznak[51]," Ветер на: ", priznak[52]," Огонь на: ", priznak[53])
 
-		priznak[57], priznak[58], priznak[59] = detectEugene.worlds(pose_landmarks, image1, prop)
+		priznak[57], priznak[58], priznak[59] = detectEugene.worlds(pose_landmarks, image1, scale)
 		print("Духовный: ", priznak[57]," Материальный: ", priznak[58]," Семейный: ", priznak[59])
 		
-		priznak[50], priznak[64] = detectEugene.ear_size(pose_landmarks, image1, prop, image)
+		priznak[50], priznak[64] = detectEugene.ear_size(pose_landmarks, image1, scale, image)
 		#print("Лопоухий: ", priznak[50], "Прижатые уши: ", priznak[64])
 		
-		priznak[47], priznak[49] = detectEugene.ear_check(pose_landmarks, image1, prop)
+		priznak[47], priznak[49] = detectEugene.ear_check(pose_landmarks, image1, scale)
 		#print("Прижатая Мочка: ", priznak[47], "Квадратная мочка уха: ", priznak[49])
 
-		priznak[45], priznak[46], priznak[63] = detectEugene.cheekbones(pose_landmarks, image1, prop)
+		priznak[45], priznak[46], priznak[63] = detectEugene.cheekbones(pose_landmarks, image1, scale)
 		#print("Скулы выше уровня глаз: ", priznak[45], "Скулы на уровне глаз: ", priznak[46], "Скулы ниже уровня глаз: ", priznak[63])
 
 		priznak[1], priznak[2] = detectVector.asymmetry(predictor_model, file_name)
 		#print("Ассиметрия в правую сторону: ", priznak[1], "Ассиметрия в левую сторону: ", priznak[2])
 
-		priznak[48], priznak[65] = detectEugene.earlobe_size(pose_landmarks, image1, prop)
+		priznak[48], priznak[65] = detectEugene.earlobe_size(pose_landmarks, image1, scale)
 		#print("Мочка уха большая: ", priznak[48], "Мочка уха маленькая: ", priznak[65])
 
 		priznak[62], priznak[39] = detectVector.nose(predictor_model, file_name,pose_landmarks)

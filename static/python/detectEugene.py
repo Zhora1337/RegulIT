@@ -133,9 +133,8 @@ def eyebrows_bold(pose, image):
 
 # Форма волос лба
 def forhead_form(pose, image, scale, im):
-	
-	forhead = [0, 0, 0]
-	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale, 1)
+	forhead = []
+	forhead = add_forehead(pose, image, scale, 1)
 
 	if forhead[1].length == 0:
 		return -1,-1,-1
@@ -156,8 +155,8 @@ def forhead_form(pose, image, scale, im):
 
 # Высота лба
 def forhead_height(pose, image, scale, im):
-	forhead = [0, 0, 0]
-	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale, 1)
+	forhead = []
+	forhead = add_forehead(pose, image, scale, 1)
 
 	if forhead[1].length == 0:
 		return -1, -1
@@ -187,8 +186,8 @@ def eyebrows_height(pose, image, scale):
 
 # Форма лица
 def face_form(pose, image, scale):
-	forhead = [0, 0, 0]
-	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale)
+	forhead = []
+	forhead = add_forehead(pose, image, scale)
 
 	dist1 = distance(pose.part(17).x, pose.part(17).y, pose.part(26).x, pose.part(26).y)
 	dist2 = distance(pose.part(1).x, pose.part(1).y, pose.part(15).x, pose.part(15).y)
@@ -217,15 +216,16 @@ def face_form(pose, image, scale):
 
 # Миры
 def worlds(pose, image, scale):
-	forhead = [0, 0, 0]
-	forhead[0], forhead[1], forhead[2] = add_forehead(pose, image, scale)
-	
-	pose_brows_y = (pose.part(25).y + pose.part(20).y) / 2
-	material = distance(pose.part(9).x, pose.part(9).y, pose.part(34).x, pose.part(34).y) * 100/scale * 0.75
-	family = distance_height(pose.part(20).x, pose.part(20).y,pose.part(25).x, pose.part(25).y, pose.part(34).x, pose.part(34).y) * 100/scale * 0.8
+	forhead = []
+	forhead = add_forehead(pose, image, scale)
+	print(forhead[5].x,forhead[5].y)
+	print(pose)
+	pose_brows_y = (pose.part(24).y + pose.part(19).y) / 2
+	material = distance(pose.part(8).x, pose.part(8).y, pose.part(33).x, pose.part(33).y) * 100/scale
+	family = distance_height(pose.part(19).x, pose.part(19).y,pose.part(24).x, pose.part(24).y, pose.part(33).x, pose.part(33).y) * 100/scale
 
 	if forhead[1].length != 0:
-		spiritual = clamp(distance(pose.part(27).x, pose_brows_y, forhead[1].x, forhead[1].y) * 100/scale * 0.85, 0, 100)
+		spiritual = clamp(distance(pose.part(27).x, pose_brows_y, forhead[1].x, forhead[1].y) * 100/scale, 0, 100)
 	else:
 		spiritual = -1
 

@@ -180,7 +180,7 @@ class Forehead(object):
 
 			try:
 				r, g, b = image.getpixel((x, y))
-				color2_rgb = sRGBColor(r / 255, g / 255, b / 255);
+				color2_rgb = sRGBColor(r / 255, g / 255, b / 255)
 			except:
 				x = 0
 				y = 0
@@ -189,16 +189,16 @@ class Forehead(object):
 				while (length!=0) and (y > 1 + sub_scale):
 					r, g, b = get_dominate_color(round(x) - sub_scale, round(x) + sub_scale, round(y) - sub_scale, round(y) + sub_scale, image, 3)
 
-					color1_rgb = sRGBColor(r / 255, g / 255, b / 255);
+					color1_rgb = sRGBColor(r / 255, g / 255, b / 255)
 
 					# Convert from RGB to Lab Color Space
-					color1_lab = convert_color(color1_rgb, LabColor);
+					color1_lab = convert_color(color1_rgb, LabColor)
 
 					# Convert from RGB to Lab Color Space
-					color2_lab = convert_color(color2_rgb, LabColor);
+					color2_lab = convert_color(color2_rgb, LabColor)
 
 					# Find the color difference
-					delta_e = delta_e_cie2000(color1_lab, color2_lab);
+					delta_e = delta_e_cie2000(color1_lab, color2_lab)
 
 					#if pose_number == 27:
 					#	print("The difference between the 2 color = ", delta_e)
@@ -209,7 +209,7 @@ class Forehead(object):
 
 					summ += delta_e
 					length += 1
-					average = summ / length
+					average = summ / (length - length_main)
 
 					color2_rgb = color1_rgb
 
@@ -226,11 +226,19 @@ class Forehead(object):
 
 # Добавляем 3 ебаных блять точки, ведь нейросеть не может блеат
 def add_forehead(pose, image, scale, center_pose = 27):
-	forh_center = Forehead(pose, image, scale, center_pose)
-	forh_0 = Forehead(pose, image, scale, 19)
-	forh_2 = Forehead(pose, image, scale, 24)
-
-	return forh_0, forh_center, forh_2
+	forh_0 = Forehead(pose, image, scale, 17)
+	forh_1 = Forehead(pose, image, scale, 18)
+	forh_2 = Forehead(pose, image, scale, 19)
+	forh_3 = Forehead(pose, image, scale, 20)
+	forh_4 = Forehead(pose, image, scale, 21)
+	forh_5 = Forehead(pose, image, scale, center_pose)
+	forh_6 = Forehead(pose, image, scale, 22)
+	forh_7 = Forehead(pose, image, scale, 23)
+	forh_8 = Forehead(pose, image, scale, 24)
+	forh_9 = Forehead(pose, image, scale, 25)
+	forh_10 = Forehead(pose, image, scale, 26)
+	
+	return forh_0, forh_1, forh_2, forh_3, forh_4, forh_5, forh_6, forh_7, forh_8, forh_9, forh_10
 
 
 
