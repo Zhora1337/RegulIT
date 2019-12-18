@@ -502,3 +502,17 @@ def fat_chin2(predictor_model, file_name, pose, im1):
 
 	return result
 
+# расчет Узкий и широкий рот
+def lips_rot(pose, scale):
+	x_35 = (pose.part(3).x + pose.part(4).x) / 2
+	y_35 = (pose.part(3).y + pose.part(4).y) / 2
+	x_125 = (pose.part(12).x + pose.part(13).x) / 2
+	y_125 = (pose.part(12).y + pose.part(13).y) / 2
+
+	dist_face = distance(x_35, y_35, x_125, y_125)
+	dist_mouth = distance(pose.part(48).x,pose.part(48).y, pose.part(54).x, pose.part(54).y)
+	dist = dist_face - dist_mouth
+
+	result = clamp(50 + (dist - dist_mouth)* 100/scale, 0, 100)
+
+	return result

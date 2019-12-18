@@ -78,7 +78,7 @@ def script(image1, image, file_name):
 		#print("Уголки губ вверх: ", priznak[25])
 		#print("Уголки губ вниз: ", priznak[26])
 		#print("Уголки губ прямо: ", priznak[27])
-		priznak[28] =detect.lips_rot(pose_landmarks)
+		priznak[28] = detectEugene.lips_rot(pose_landmarks, scale)
 		priznak[29] = 100-priznak[28]
 		#print("Узкий рот: ", priznak[28])
 		#print("Широкий рот: ", priznak[29])
