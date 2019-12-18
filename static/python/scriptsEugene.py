@@ -204,7 +204,7 @@ class Forehead(object):
 					#	print("The difference between the 2 color = ", delta_e)
 
 					if length > length_main + 3:
-						if (delta_e > average * 3 + 1) or (delta_e > 7):
+						if (delta_e > average * 1 + 1) or (delta_e > 7):
 							break
 
 					summ += delta_e

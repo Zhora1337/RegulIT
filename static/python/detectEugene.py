@@ -509,10 +509,12 @@ def lips_rot(pose, scale):
 	x_125 = (pose.part(12).x + pose.part(13).x) / 2
 	y_125 = (pose.part(12).y + pose.part(13).y) / 2
 
+	dist_nose = distance(pose.part(31).x, pose.part(31).y, pose.part(35).x,pose.part(35).y)
+
 	dist_face = distance(x_35, y_35, x_125, y_125)
 	dist_mouth = distance(pose.part(48).x,pose.part(48).y, pose.part(54).x, pose.part(54).y)
 	dist = dist_face - dist_mouth
-
-	result = clamp(50 + (dist - dist_mouth)* 100/scale, 0, 100)
-
+	print(50 + (dist - dist_mouth)*100/scale, 50 * (dist_nose/dist_mouth))
+	result = clamp(mean_square(50 + (dist - dist_mouth)*100/scale, 50 * (dist_nose/dist_mouth)), 0, 100)
+	#result = clamp(dist_mouth*100/scale, 0, 100)
 	return result
