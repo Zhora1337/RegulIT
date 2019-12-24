@@ -225,13 +225,11 @@ class Forehead(object):
 
 
 
-# Добавляем 3 ебаных блять точки, ведь нейросеть не может блеат
 def add_forehead(pose, image, scale, center_pose = 27):
 	avg_mp = 3
 	not_exactly = True
 	are_each_normal = [0, 0, 0, 0, 0, 0, 0, 0]
-	while not_exactly:
-		print(are_each_normal)
+	while sum(are_each_normal) < 90:
 		forh_1 = Forehead(pose, image, scale, 18, avg_mp=avg_mp)
 		forh_2 = Forehead(pose, image, scale, 19, avg_mp=avg_mp)
 		forh_3 = Forehead(pose, image, scale, 20, avg_mp=avg_mp)
@@ -244,17 +242,13 @@ def add_forehead(pose, image, scale, center_pose = 27):
 		foreheads = [forh_1.y,forh_2.y,forh_3.y,forh_4.y,forh_5.y,forh_6.y,forh_7.y,forh_8.y,forh_9.y]
 		foreheads_all = [forh_1,forh_2,forh_3,forh_4,forh_5,forh_6,forh_7,forh_8,forh_9]
 		for i in range(0,len(are_each_normal)):
-			if abs(foreheads[i]-max(foreheads))/image.size[1]*100 < 1.5:
-				print(abs(foreheads[i]-max(foreheads))/image.size[1]*100, 'point', i+1)
+			if abs(foreheads[i]-max(foreheads))/image.size[1]*100 < 5:
 				are_each_normal[i] = 10
-				sum(are_each_normal)/len(are_each_normal)
-		if sum(are_each_normal)/len(are_each_normal) > 7.5:
-			not_exactly = False
 		else:
-			avg_mp -= 0.1
+			avg_mp -= 0.3
 			avg_mp = round(avg_mp, 1)
 			if avg_mp < 0.2:
-				not_exactly = False
+				are_each_normal = [10,10,10,10,10,10,10,10,10]
 	return forh_1, forh_2, forh_3, forh_4, forh_5, forh_6, forh_7, forh_8, forh_9
 
 

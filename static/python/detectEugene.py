@@ -132,31 +132,24 @@ def eyebrows_bold(pose, image):
 
 
 # Форма волос лба
-def forhead_form(pose, image, scale, im):
-	forhead = []
-	forhead = add_forehead(pose, image, scale, 1)
-
-	if forhead[1].length == 0:
-		return -1,-1,-1
-
+def forhead_form(pose, image, scale, im, forhead):
+	
 	#distance = lined(forhead[1].x, forhead[1].y, forhead[0].x, forhead[0].y, forhead[2].x, forhead[2].y) * 100/scale
 
-	side_forehead = (forhead[0].length + forhead[2].length) / 2
-	min_forehead = min(forhead[0].length, forhead[2].length)
-	max_forehead = max(forhead[0].length, forhead[2].length)
+	# side_forehead = (forhead[0].length + forhead[2].length) / 2
+	# min_forehead = min(forhead[0].length, forhead[2].length)
+	# max_forehead = max(forhead[0].length, forhead[2].length)
 
-	fh_M = clamp((max_forehead - forhead[1].length) * 20, 0, 100)
-	fh_circle = clamp((forhead[1].length - min_forehead) * 12, 0, 100)
-	fh_square = 100 - clamp(abs(forhead[1].length - side_forehead) * 20, 0, 100)
+	# fh_M = clamp((max_forehead - forhead[1].length) * 20, 0, 100)
+	# fh_circle = clamp((forhead[1].length - min_forehead) * 12, 0, 100)
+	# fh_square = 100 - clamp(abs(forhead[1].length - side_forehead) * 20, 0, 100)
 
-	return fh_circle, fh_M, fh_square
+	return  1,2,3
 
 
 
 # Высота лба
-def forhead_height(pose, image, scale, im):
-	forhead = []
-	forhead = add_forehead(pose, image, scale, 1)
+def forhead_height(pose, image, scale, im, forhead):
 
 	if forhead[1].length == 0:
 		return -1, -1
@@ -185,9 +178,7 @@ def eyebrows_height(pose, image, scale):
 
 
 # Форма лица
-def face_form(pose, image, scale):
-	forhead = []
-	forhead = add_forehead(pose, image, scale)
+def face_form(pose, image, scale, forhead):
 
 	dist1 = distance(pose.part(17).x, pose.part(17).y, pose.part(26).x, pose.part(26).y)
 	dist2 = distance(pose.part(1).x, pose.part(1).y, pose.part(15).x, pose.part(15).y)
@@ -215,17 +206,13 @@ def face_form(pose, image, scale):
 
 
 # Миры
-def worlds(pose, image, scale):
-	forhead = []
-	forhead = add_forehead(pose, image, scale)
-	print(forhead[5].x,forhead[5].y)
-	print(pose)
+def worlds(pose, image, scale, forhead):
 	pose_brows_y = (pose.part(24).y + pose.part(19).y) / 2
 	material = distance(pose.part(8).x, pose.part(8).y, pose.part(33).x, pose.part(33).y) * 100/scale
 	family = distance_height(pose.part(19).x, pose.part(19).y,pose.part(24).x, pose.part(24).y, pose.part(33).x, pose.part(33).y) * 100/scale
 
 	if forhead[1].length != 0:
-		spiritual = clamp(distance(pose.part(27).x, pose_brows_y, forhead[1].x, forhead[1].y) * 100/scale, 0, 100)
+		spiritual = clamp(distance(pose.part(27).x, pose_brows_y, forhead[4].x, forhead[4].y) * 100/scale, 0, 100)
 	else:
 		spiritual = -1
 

@@ -63,13 +63,6 @@ def script(image1, image, file_name):
 		scale /= math.pi
 		forhead = []
 		forhead = add_forehead(pose_landmarks, image1, scale)
-		#maximum = forhead[0].y
-		#for i in range(10):
-		#	diffirence = abs(forhead[i].y-forhead[i+1].y)/image1.size[1]*100
-		#	print('dif',diffirence)
-		#	if maximum < forhead[i].y:
-		#		maximum = forhead[i].y
-		#print('max',maximum)
 		for i in range(9):
 			x = dlib.point(int(forhead[i].x), int(forhead[i].y))
 			win.add_overlay_circle(x, 2)
@@ -140,19 +133,19 @@ def script(image1, image, file_name):
 		#print("Брови тёмные, густые:", priznak[9], "Брови светлые, редкие:", priznak[7])
 
 		#priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, scale) #круг, М, квадрат
-		priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, scale, image)
+		priznak[32], priznak[34], priznak[55] = detectEugene.forhead_form(pose_landmarks, image1, scale, image, forhead)
 		#print("Волосы лба Полукругом: ", priznak[32], " Буквой М: ", priznak[34], "Квадратный: ", priznak[55])
 
-		priznak[35], priznak[56] = detectEugene.forhead_height(pose_landmarks, image1, scale, image)
+		priznak[35], priznak[56] = detectEugene.forhead_height(pose_landmarks, image1, scale, image, forhead)
 		#print("Лоб Широкий: ", priznak[35], "Лоб Узкий: ", priznak[56])
 
 		priznak[10], priznak[11] = detectEugene.eyebrows_height(pose_landmarks, image1, scale)
 		#print("Тонкие брови: ", priznak[10], " Широкие брови: ", priznak[11])
 
-		priznak[51], priznak[52], priznak[53]= detectEugene.face_form(pose_landmarks, image1, scale)
+		priznak[51], priznak[52], priznak[53]= detectEugene.face_form(pose_landmarks, image1, scale, forhead)
 		#print("Вода на: ", priznak[51]," Ветер на: ", priznak[52]," Огонь на: ", priznak[53])
 
-		priznak[57], priznak[58], priznak[59] = detectEugene.worlds(pose_landmarks, image1, scale)
+		priznak[57], priznak[58], priznak[59] = detectEugene.worlds(pose_landmarks, image1, scale, forhead)
 		print("Духовный: ", priznak[57]," Материальный: ", priznak[58]," Семейный: ", priznak[59])
 		
 		priznak[50], priznak[64] = detectEugene.ear_size(pose_landmarks, image1, scale, image)
