@@ -504,17 +504,36 @@ def fat_chin2(predictor_model, file_name, pose, im1):
 
 # расчет Узкий и широкий рот
 def lips_rot(pose, scale):
-	x_35 = (pose.part(3).x + pose.part(4).x) / 2
-	y_35 = (pose.part(3).y + pose.part(4).y) / 2
-	x_125 = (pose.part(12).x + pose.part(13).x) / 2
-	y_125 = (pose.part(12).y + pose.part(13).y) / 2
+	mouth_width = 54.68236341343873
+	# x_35 = (pose.part(3).x + pose.part(4).x) / 2
+	# y_35 = (pose.part(3).y + pose.part(4).y) / 2
+	# x_125 = (pose.part(12).x + pose.part(13).x) / 2
+	# y_125 = (pose.part(12).y + pose.part(13).y) / 2
 
-	dist_nose = distance(pose.part(31).x, pose.part(31).y, pose.part(35).x,pose.part(35).y)
+	# dist_nose = distance(pose.part(31).x, pose.part(31).y, pose.part(35).x,pose.part(35).y)
 
-	dist_face = distance(x_35, y_35, x_125, y_125)
+	# dist_face = distance(x_35, y_35, x_125, y_125)
 	dist_mouth = distance(pose.part(48).x,pose.part(48).y, pose.part(54).x, pose.part(54).y)
-	dist = dist_face - dist_mouth
-	print(50 + (dist - dist_mouth)*100/scale, 50 * (dist_nose/dist_mouth))
-	result = clamp(mean_square(50 + (dist - dist_mouth)*100/scale, 50 * (dist_nose/dist_mouth)), 0, 100)
+	# dist = dist_face - dist_mouth
+	#print(50 + (dist - dist_mouth)*100/scale, 50 * (dist_nose/dist_mouth))
+	print(dist_mouth*100/scale)
+	result = clamp(50 - ((dist_mouth*100/scale) - mouth_width), 0, 100)
 	#result = clamp(dist_mouth*100/scale, 0, 100)
 	return result
+
+# расчет Близко и широкопосаженные глаза
+def eyes_lending(pose, scale):
+    #prop_eye=d(pose_landmarks.part(42).x, pose_landmarks.part(45).x, pose_landmarks.part(42).y,pose_landmarks.part(45).y)
+    #prop_eye2 = d(pose_landmarks.part(36).x, pose_landmarks.part(39).x, pose_landmarks.part(36).y, pose_landmarks.part(39).y)
+    #prop_eye=(prop_eye+prop_eye2)/2
+	average_eyes = (distance(pose.part(36).x,pose.part(36).y,pose.part(39).x,pose.part(39).y)
+					+ distance(pose.part(42).x, pose.part(42).y, pose.part(45).x, pose.part(45).y))/2
+
+	average_whiskey = (distance(pose.part(0).x,pose.part(0).y,pose.part(36).x,pose.part(36).y)
+						+ distance(pose.part(45).x, pose.part(45).y, pose.part(16).x, pose.part(16).y))/2
+	
+	nose_bridge = distance(pose.part(39).x,pose.part(39).y,pose.part(42).x,pose.part(42).y)
+
+	result = mean_square(50 + (nose_bridge - average_eyes) * 100/scale, 50 + (average_eyes - average_whiskey) * 100/scale) 	
+	print(50 + (nose_bridge - average_eyes) * 100/scale, 50 + (average_eyes - average_whiskey) * 100/scale)
+	return clamp(result)

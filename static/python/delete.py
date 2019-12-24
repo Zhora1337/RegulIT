@@ -46,9 +46,9 @@ def script(image1, image, file_name):
 	
 	
 
-	win = dlib.image_window()
+	#win = dlib.image_window()
 	# Загрузка лица
-	win.set_image(image)
+	#win.set_image(image)
 	#draw = ImageDraw.Draw(image1)
 	# Loop through each face we found in the image
 	if len(detected_faces) == 1: # Если лицо одно, то продолжаем
@@ -56,7 +56,7 @@ def script(image1, image, file_name):
 		print(BASE_DIR)
 		for i, face_rect in enumerate(detected_faces):
 			pose_landmarks = face_pose_predictor(image, face_rect)
-		win.add_overlay(pose_landmarks)
+		#win.add_overlay(pose_landmarks)
 		scale = 0
 		for i in range (0,16):
 			scale += distance(pose_landmarks.part(i).x, pose_landmarks.part(i).y, pose_landmarks.part(i+1).x, pose_landmarks.part(i+1).y)
@@ -102,7 +102,7 @@ def script(image1, image, file_name):
 		#print("Узкий рот: ", priznak[28])
 		#print("Широкий рот: ", priznak[29])
 
-		priznak[20]=detect.eye_posadka(pose_landmarks)
+		priznak[20]=detectEugene.eyes_lending(pose_landmarks, scale)
 		priznak[12] = 100-priznak[20]
 		#print("Близко-посаженные глаза: ", priznak[12])
 		#print("Широко-посаженные глаза: ", priznak[20])

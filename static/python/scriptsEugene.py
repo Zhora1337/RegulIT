@@ -30,7 +30,7 @@ def mean_square(a, b, c = -404):
 		return math.sqrt((a**2 + b**2 + c**2) / 3)
 
 # Средняя переменная f. e. (0, 37, 100)
-def clamp(val, small, big):
+def clamp(val, small = 0, big = 100):
     return max(small, min(val, big))
 
 

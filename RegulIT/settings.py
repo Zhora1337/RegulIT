@@ -143,7 +143,7 @@ WSGI_APPLICATION = 'RegulIT.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'phisio',
         'USER': 'zhora',
         'PASSWORD': 'root',
